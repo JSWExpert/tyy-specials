@@ -81,7 +81,7 @@ footer{padding:22px 18px 34px;text-align:center;font-size:12.5px;color:var(--acc
 .stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;z-index:2;pointer-events:none;visibility:hidden}
 .clip{position:absolute;inset:0;clip-path:polygon(0 0,1920px 0,1920px 598px,1750px 598px,1066px 586px,0 586px)}
 .lab{position:absolute;left:1287px;top:753px;transform:translate(-50%,-50%) skewY(7deg);font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:.16em;padding-left:.16em;white-space:nowrap;opacity:0;background:linear-gradient(100deg,#7f5f2a 0%,#b8924f 22%,#d4b673 40%,#a8813f 58%,#cfae68 78%,#8a6a30 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(255,255,255,.85)) drop-shadow(0 -1px 0 rgba(70,45,10,.45))}
-.lab.on{animation:fadein 1.6s ease forwards .6s,sheen 7s ease-in-out infinite alternate}
+.lab.on{animation:fadein 1.1s ease forwards,sheen 7s ease-in-out infinite alternate}
 @keyframes fadein{to{opacity:1}}
 @keyframes sheen{from{background-position:0 0}to{background-position:100% 0}}
 .hero .eyebrow,.hero .price span{background:linear-gradient(100deg,#7a5a26 0%,#9c7a38 24%,#b8964f 42%,#a07a38 60%,#b08c48 80%,#85652c 100%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s ease-in-out infinite alternate;font-weight:500}
@@ -159,7 +159,7 @@ function show(){if(shown)return;shown=true;place();sp.classList.add('on-sp');lab
 function hide(){shown=false;sp.classList.remove('on-sp');lab.classList.remove('on')}
 function jumpEnd(){var go=function(){v.currentTime=Math.max(0,(v.duration||6)-.05);show()};if(v.readyState>=1)go();else v.addEventListener('loadedmetadata',go)}
 window.addEventListener('resize',place);v.addEventListener('loadedmetadata',place);place();
-v.addEventListener('timeupdate',function(){if(v.currentTime>=2.4)show();else if(shown&&v.currentTime<1)hide()});
+v.addEventListener('timeupdate',function(){if(v.currentTime>=0.9)show();else if(shown&&v.currentTime<.4)hide()});
 v.addEventListener('ended',show);
 try{var pp=v.play&&v.play();if(pp&&pp.catch)pp.catch(jumpEnd)}catch(e){jumpEnd()}
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();jumpEnd()}
