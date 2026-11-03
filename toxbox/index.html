@@ -80,18 +80,15 @@ footer{padding:22px 18px 34px;text-align:center;font-size:12.5px;color:var(--acc
 
 .stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;z-index:2;pointer-events:none;visibility:hidden}
 .clip{position:absolute;inset:0;clip-path:polygon(0 0,1920px 0,1920px 598px,1750px 598px,1066px 586px,0 586px)}
-.pop{position:absolute;left:1400px;top:362px;transform:translate(-50%,-50%);text-align:center;opacity:0;font-family:var(--serif);white-space:nowrap;color:var(--teal-deep)}
-.pop .n{display:block;font-size:230px;font-weight:600;line-height:.9;font-variant-numeric:lining-nums;letter-spacing:-.01em;background:linear-gradient(180deg,#1b645c 0%,#237a70 55%,#b99455 120%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 22px rgba(255,226,170,.8))}
-.pop .u{display:block;margin-top:2px;font-size:74px;font-style:italic;font-weight:500;line-height:1;color:#1f6f66;text-shadow:0 0 24px rgba(255,236,200,.9)}
-.pop .o{display:block;margin-top:14px;font-size:30px;letter-spacing:.5em;text-transform:uppercase;font-family:var(--sans,inherit);font-weight:500;color:#1f6f66;padding-left:.5em}
-.pop.on{animation:rise 2.4s cubic-bezier(.22,.8,.22,1) forwards}
-@keyframes rise{0%{opacity:1;transform:translate(-50%,calc(-50% + 330px))}100%{opacity:1;transform:translate(-50%,-50%)}}
 .lab{position:absolute;left:1287px;top:753px;transform:translate(-50%,-50%) skewY(7deg);font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:.16em;padding-left:.16em;white-space:nowrap;opacity:0;background:linear-gradient(100deg,#7f5f2a 0%,#b8924f 22%,#d4b673 40%,#a8813f 58%,#cfae68 78%,#8a6a30 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(255,255,255,.85)) drop-shadow(0 -1px 0 rgba(70,45,10,.45))}
 .lab.on{animation:fadein 1.6s ease forwards .6s,sheen 7s ease-in-out infinite alternate}
 @keyframes fadein{to{opacity:1}}
 @keyframes sheen{from{background-position:0 0}to{background-position:100% 0}}
-.hero .eyebrow,.hero .price span{background:linear-gradient(100deg,#7a5a26 0%,#b08a47 24%,#c9aa64 42%,#a07a38 60%,#c4a05a 80%,#85652c 100%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s ease-in-out infinite alternate;font-weight:500}
-@media(prefers-reduced-motion:reduce){.pop.on{animation:none;opacity:1;transform:translate(-50%,-50%)}.lab.on{animation:none;opacity:1}}
+.hero .eyebrow,.hero .price span{background:linear-gradient(100deg,#7a5a26 0%,#9c7a38 24%,#b8964f 42%,#a07a38 60%,#b08c48 80%,#85652c 100%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s ease-in-out infinite alternate;font-weight:500}
+.sk{position:absolute;width:10px;height:10px;border-radius:50%;opacity:0;background:radial-gradient(circle,rgba(255,244,214,1) 0%,rgba(255,214,140,.85) 40%,rgba(255,214,140,0) 72%)}
+.on-sp .sk{animation:drift var(--d) ease-in-out var(--l) infinite}
+@keyframes drift{0%{opacity:0;transform:translate(0,0) scale(.5)}20%{opacity:.95}100%{opacity:0;transform:translate(var(--dx),-340px) scale(1.15)}}
+@media(prefers-reduced-motion:reduce){.lab.on{animation:none;opacity:1}.on-sp .sk{animation:none;opacity:.6}}
 @media(max-width:820px){
  .hero .wrap{grid-template-columns:1fr;min-height:0}.hero .bg{position:relative;height:auto;aspect-ratio:16/9;object-position:center}.hero:after{display:none}
  .opts,.stp{grid-template-columns:1fr}
@@ -102,7 +99,7 @@ footer{padding:22px 18px 34px;text-align:center;font-size:12.5px;color:var(--acc
 
 <section class="hero">
  <video class="bg" id="hero-video" src="toxbox-hero.mp4" poster="toxbox-hero-poster.jpg" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
- <div class="stage" id="stage"><div class="clip"><div class="pop" id="pop"><span class="n">100</span><span class="u">units</span><span class="o">of Tox</span></div></div><div class="lab" id="lab">THE TOX BOX</div></div>
+ <div class="stage" id="stage"><div class="clip"><div id="sp"></div></div><div class="lab" id="lab">THE TOX BOX</div></div>
  <div class="wrap">
   <div class="left">
    <div class="eyebrow">A gift to yourself</div>
@@ -155,10 +152,11 @@ footer{padding:22px 18px 34px;text-align:center;font-size:12.5px;color:var(--acc
 
 <footer>Ten Years Younger Wellness Center &middot; 16316 FM 529 Rd, Suite C, Houston, TX 77095 &middot; 832-909-8031</footer>
 <script>try{
-var v=document.getElementById('hero-video'),st=document.getElementById('stage'),pop=document.getElementById('pop'),lab=document.getElementById('lab'),hero=v.parentNode,shown=false;
+var v=document.getElementById('hero-video'),st=document.getElementById('stage'),sp=document.getElementById('sp'),lab=document.getElementById('lab'),hero=v.parentNode,shown=false;
 function place(){var cw=v.clientWidth,ch=v.clientHeight,sc=Math.max(cw/1920,ch/1080),w=1920*sc,h=1080*sc,x=v.offsetLeft+(cw-w)*(window.innerWidth>820?1:.5),y=v.offsetTop+(ch-h)/2;st.style.transform='translate('+x+'px,'+y+'px) scale('+sc+')';st.style.visibility='visible'}
-function show(){if(shown)return;shown=true;place();pop.classList.add('on');lab.classList.add('on')}
-function hide(){shown=false;pop.classList.remove('on');lab.classList.remove('on')}
+for(var k=0;k<16;k++){var d=document.createElement('i');d.className='sk';var r=Math.random;d.style.left=(1260+r()*300)+'px';d.style.top=(520+r()*60)+'px';d.style.width=d.style.height=(6+r()*9)+'px';d.style.setProperty('--d',(5+r()*4)+'s');d.style.setProperty('--l',(r()*6)+'s');d.style.setProperty('--dx',((r()-.5)*160)+'px');sp.appendChild(d)}
+function show(){if(shown)return;shown=true;place();sp.classList.add('on-sp');lab.classList.add('on')}
+function hide(){shown=false;sp.classList.remove('on-sp');lab.classList.remove('on')}
 function jumpEnd(){var go=function(){v.currentTime=Math.max(0,(v.duration||6)-.05);show()};if(v.readyState>=1)go();else v.addEventListener('loadedmetadata',go)}
 window.addEventListener('resize',place);v.addEventListener('loadedmetadata',place);place();
 v.addEventListener('timeupdate',function(){if(v.currentTime>=2.4)show();else if(shown&&v.currentTime<1)hide()});
