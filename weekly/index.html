@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- PROVENANCE: Weekly Specials COMPACT v2, built by Allen (Claude) for Jasmine Wiseman, 2026-10-23. Replaces the scrolling list. Same data feed as before (page code posts the Specials collection items via postMessage: day, title, offer, description). Fallback copy only shows if no data arrives. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#5BBFAD;--teal-deep:#2D8C80;--teal-light:#A8DDD6;--frost:#E8F7F5;--bg:#EFF8F7;--ink:#1C3E3A;--ink2:#3D6B65;--muted:#7AADA7;--night:#16443E;
+ --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);overflow:hidden}
+body{color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.4;-webkit-font-smoothing:antialiased}
+#fit{transform-origin:top left;width:100%;min-height:100%;display:flex;flex-direction:column;padding:clamp(18px,4vw,34px) clamp(10px,3vw,24px) clamp(14px,3vw,26px)}
+.in{max-width:880px;width:100%;margin:0 auto}
+.eyebrow{font-size:clamp(8.5px,1.8vw,11px);letter-spacing:.26em;text-transform:uppercase;color:var(--teal-deep);margin:0 0 4px;text-align:center;font-weight:500}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,5.4vw,36px);margin:0;text-align:center;line-height:1.1}
+.sub{text-align:center;color:var(--ink2);margin:4px auto 14px;font-weight:300;font-size:clamp(11px,2vw,15px)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,2vw,14px)}
+@media (min-width:760px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.c{all:unset;box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;gap:clamp(2px,.5vw,4px);cursor:pointer;text-align:left;background:rgba(255,255,255,.85);border:1px solid rgba(91,191,173,.25);border-radius:clamp(10px,2vw,16px);padding:clamp(10px,2.4vw,16px) clamp(10px,2.4vw,16px);box-shadow:0 4px 16px rgba(45,140,128,.07);min-width:0;transition:transform .18s,box-shadow .18s}
+.c.p{background:rgba(255,255,255,.6)}
+.c:hover,.c:focus-visible{transform:translateY(-2px);box-shadow:0 10px 26px rgba(45,140,128,.16)}
+.c:focus-visible{outline:2px solid var(--teal)}
+.d{font-size:clamp(7.5px,1.6vw,10.5px);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.t{font-family:var(--serif);font-size:clamp(14px,3vw,20px);font-weight:600;line-height:1.08}
+.o{font-family:var(--serif);font-size:clamp(15px,3.4vw,22px);font-weight:600;color:var(--teal-deep);line-height:1.08;margin-top:3px}
+.h{font-size:clamp(8px,1.6vw,11.5px);color:var(--muted);margin-top:2px}
+.fine{text-align:center;font-size:clamp(7.5px,1.5vw,10.5px);color:var(--muted);margin:12px 0 0;font-weight:300}
+/* modal */
+#ov{position:fixed;inset:0;background:rgba(14,40,37,.55);display:none;align-items:center;justify-content:center;padding:12px;z-index:9}
+#ov.on{display:flex}
+#sheet{background:#fff;border-radius:18px;width:min(440px,100%);max-height:calc(100% - 8px);overflow:auto;padding:22px 20px 18px;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative}
+#sheet .d{margin-bottom:2px}
+#sheet h3{font-family:var(--serif);font-size:26px;margin:0 30px 6px 0;line-height:1.1}
+#sheet .of{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--teal-deep);margin:0 0 8px;line-height:1.1}
+#sheet p.ds{font-size:14.5px;color:var(--ink2);margin:0 0 14px;line-height:1.55;font-weight:300}
+#sheet a.bk{display:inline-block;background:var(--teal-light);color:#0d2e2a;text-decoration:none;font-weight:500;font-size:14px;padding:11px 22px;border-radius:999px;letter-spacing:.03em}
+#x{position:absolute;right:10px;top:10px;width:32px;height:32px;border-radius:50%;border:0;background:var(--frost);color:var(--teal-deep);font-size:18px;cursor:pointer;line-height:1}
+@media (prefers-reduced-motion:reduce){.c{transition:none}}
+</style>
+</head>
+<body>
+<div id="fit"><div class="in">
+ <p class="eyebrow">Every week</p>
+ <h2>Weekly Specials</h2>
+ <p class="sub">Recurring offers, no code needed. Tap one for details.</p>
+ <div class="grid" id="grid"></div>
+ <p class="fine" id="fine"></p>
+</div></div>
+<div id="ov" role="dialog" aria-modal="true" aria-label="Special details"><div id="sheet"><button id="x" aria-label="Close">&times;</button><div id="body"></div></div></div>
+<script>
+(function(){
+ var fit=document.getElementById('fit'),grid=document.getElementById('grid'),ov=document.getElementById('ov'),body=document.getElementById('body'),got=false;
+ var BOOK='https://aespro.biz/TA7DNA6';
+ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
+ var FALLBACK=[
+  {day:'Every Tuesday',title:'20% Tuesdays',offer:'20% off all HA Filler',description:'Every Tuesday, all Hyaluronic Acid filler treatments are automatically 20% off. No code needed.'},
+  {day:'Every Wednesday',title:'Signature Service Wednesdays',offer:'$200 off + 50% off add-ons',description:'Every Wednesday, save $200 on any signature service and get 50% off all add-ons.'},
+  {day:'Every Friday',title:'Botox Fridays',offer:'$10.99 per unit',description:'Every Friday is Botox Friday at Ten Years Younger. No code needed.'},
+  {day:'Every Saturday',title:'Myers Cocktail Saturdays',offer:'Myers Cocktail $99 + 50% off all boosters',description:'Every Saturday, get the Myers Cocktail for $99 and all boosters at 50% off.'}];
+ var list=[];
+ function render(items){
+  items=items.map(function(s){
+   return s;});
+  list=items; got=true;
+  grid.innerHTML=items.map(function(s,i){
+   return '<button type="button" class="c'+(s.paused?' p':'')+'" data-i="'+i+'"><span class="d">'+esc(s.day)+'</span><span class="t">'+esc(s.title)+'</span><span class="o">'+esc(s.offer)+'</span><span class="h">Tap for details</span></button>';
+  }).join('');
+  refit();
+ }
+ window.addEventListener('message',function(e){var s=e.data; if(Array.isArray(s)&&s.length)render(s);});
+ setTimeout(function(){if(!got)render(FALLBACK);},4500);
+ grid.addEventListener('click',function(e){
+  var c=e.target.closest('.c'); if(!c)return; var s=list[+c.getAttribute('data-i')]; if(!s)return;
+  body.innerHTML='<div class="d">'+esc(s.day)+'</div><h3>'+esc(s.title)+'</h3><p class="of">'+esc(s.offer)+'</p><p class="ds">'+esc(s.description)+'</p><a class="bk" href="'+BOOK+'" target="_top">Book my appointment</a>';
+  ov.classList.add('on'); document.getElementById('x').focus();
+ });
+ function hide(){ov.classList.remove('on');}
+ ov.addEventListener('click',function(e){if(e.target===ov)hide();});
+ document.getElementById('x').addEventListener('click',hide);
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')hide();});
+ function refit(){
+  fit.style.transform='none'; fit.style.width='100%';
+  var h=fit.scrollHeight,H=window.innerHeight;
+  if(h>H+2&&H>150){var s=H/h;fit.style.transform='scale('+s+')';fit.style.width=(100/s)+'%';}
+ }
+ window.addEventListener('load',function(){setTimeout(refit,150);});window.addEventListener('resize',refit);
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(refit);
+})();
+</script>
+</body>
+</html>
