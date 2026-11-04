@@ -95,7 +95,25 @@ footer{padding:22px 18px 34px;text-align:center;font-size:12.5px;color:var(--acc
  .opts,.stp{grid-template-columns:1fr}
  .opt{padding:30px 22px}
 }
-.emb .options,.emb .steps,.emb .know,.emb footer{display:none!important}.emb body{overflow:hidden}
+.emb body{overflow:hidden}
+
+.opt ul{flex:1}
+.opt .sel{display:block;text-align:center;text-decoration:none;margin-top:18px;background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;font-weight:500;font-size:15px;letter-spacing:.06em;padding:14px 18px;border-radius:999px;box-shadow:0 8px 22px rgba(31,111,102,.28);transition:transform .2s,box-shadow .2s}
+.opt .sel:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(31,111,102,.34)}
+.opt.best .sel{background:linear-gradient(135deg,#7a5a26,#b8964f 45%,#8f6b32);box-shadow:0 8px 22px rgba(122,90,38,.32)}
+.opt .how{margin-top:12px;padding-top:0;text-align:center}
+.dots{display:none;justify-content:center;gap:8px;margin-top:16px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(31,111,102,.25);transition:all .25s}
+.dots i.on{background:var(--teal-deep);width:22px;border-radius:8px}
+@media(max-width:820px){
+ .hero .bg{aspect-ratio:1/1.08;object-position:74% center}
+ .hero .left{padding:8px 0 4px}
+ .hero h1{font-size:clamp(50px,15vw,68px)}
+ .opts{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:30px -18px 0;padding:14px 18px 10px;scrollbar-width:none}
+ .opts::-webkit-scrollbar{display:none}
+ .opt{flex:0 0 84%;scroll-snap-align:center}
+ .dots{display:flex}
+}
 </style></head>
 <body>
 
@@ -123,31 +141,34 @@ footer{padding:22px 18px 34px;text-align:center;font-size:12.5px;color:var(--acc
     <h3>Buy once</h3>
     <div class="p">$1,100<small>one payment</small></div>
     <ul><li>100 units of wrinkle relaxer (regularly $1,399)</li><li>Kept on file for you for 6 months</li><li>For you only: cannot be shared or transferred</li></ul>
+    <a class="sel" href="https://www.10yearsyounger4u.com/pricing-plans/plan-customization?planId=b8ebd6c8-12b0-41ae-a22e-a95cc3e7c6ab&pricingVariantId=7b1c6a52-3e0f-4d8e-9a41-5c2f8d6e1b07" target="_top">Select</a>
     <div class="how">Pay once, you are all set</div>
    </div>
    <div class="glass opt best">
     <div class="ribbon">$100 off with autopay</div>
     <h3>Autopay</h3>
     <div class="p">$1,000<small>every 6 months</small></div>
-    <ul><li>100 units each time, kept on file for 6 months</li><li>$100 off the total, every Tox Box</li><li>Billed automatically. Cancel anytime before your next renewal</li><li>For you only: cannot be shared or transferred</li></ul>
+    <ul><li>100 units each time, kept on file for 6 months</li><li>$100 off the total, every Tox Box</li><li>Billed automatically. Cancel anytime from your account before your next renewal</li><li>For you only: cannot be shared or transferred</li></ul>
+    <a class="sel" href="https://www.10yearsyounger4u.com/pricing-plans/plan-customization?planId=9484a72f-a4fc-432c-9213-1c6bc17a5413&pricingVariantId=8c6e7d03-69bc-438b-ae06-0fd20b51a724" target="_top">Select</a>
     <div class="how">Cancel anytime</div>
    </div>
   </div>
-  <p class="choose">Ready? <b>Choose your option at the bottom of this page</b> to check out securely.</p>
+  <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i></div>
+  <p class="choose">Ready? <b>Press Select on your option</b> to check out securely. You will create a free account first, so you can manage or cancel anytime.</p>
  </div>
 </section>
 
 <section class="steps">
  <div class="wrap center">
   <div class="head"><div class="eyebrow">How it works</div><h2 style="margin-top:8px">Simple from start to finish</h2><div class="rule"></div></div>
-  <div class="stp" style="text-align:left"><div class="glass st"><div class="n">1</div><h3>Choose your option</h3><p>Buy once, or set up autopay, from the secure checkout at the bottom of this page.</p></div><div class="glass st"><div class="n">2</div><h3>We keep your units on file</h3><p>Your 100 units are held for you for 6 months from purchase.</p></div><div class="glass st"><div class="n">3</div><h3>Book your visits</h3><p>Book as you like. Your units are there when you are.</p></div></div>
+  <div class="stp" style="text-align:left"><div class="glass st"><div class="n">1</div><h3>Choose your option</h3><p>Buy once, or set up autopay, with the Select button above. A free account keeps everything in one place.</p></div><div class="glass st"><div class="n">2</div><h3>We keep your units on file</h3><p>Your 100 units are held for you for 6 months from purchase.</p></div><div class="glass st"><div class="n">3</div><h3>Book your visits</h3><p>Book as you like. Your units are there when you are.</p></div></div>
  </div>
 </section>
 
 <section class="know">
  <div class="wrap"><div class="glass">
   <h3>Good to know</h3>
-  <p>Autopay charges $1,000 to your card every 6 months until you cancel. You can cancel anytime before your next renewal and future charges stop.</p><p>Units are held on file for 6 months from purchase. All Tox Box purchases are final and non-refundable. Units are for the purchaser only and cannot be shared or transferred.</p>
+  <p>Autopay charges $1,000 to your card every 6 months until you cancel. You can cancel anytime from your account before your next renewal and future charges stop.</p><p>Units are held on file for 6 months from purchase. All Tox Box purchases are final and non-refundable. Units are for the purchaser only and cannot be shared or transferred.</p>
   <p class="call">Not sure you qualify? Please call us at <a href="tel:8329098031">832-909-8031</a> before you buy.</p>
  </div></div>
 </section>
@@ -155,7 +176,7 @@ footer{padding:22px 18px 34px;text-align:center;font-size:12.5px;color:var(--acc
 <footer>Ten Years Younger Wellness Center &middot; 16316 FM 529 Rd, Suite C, Houston, TX 77095 &middot; 832-909-8031</footer>
 <script>try{
 var v=document.getElementById('hero-video'),st=document.getElementById('stage'),sp=document.getElementById('sp'),lab=document.getElementById('lab'),hero=v.parentNode,shown=false;
-function place(){var cw=v.clientWidth,ch=v.clientHeight,sc=Math.max(cw/1920,ch/1080),w=1920*sc,h=1080*sc,x=v.offsetLeft+(cw-w)*(window.innerWidth>820?1:.5),y=v.offsetTop+(ch-h)/2;st.style.transform='translate('+x+'px,'+y+'px) scale('+sc+')';st.style.visibility='visible'}
+function place(){var cw=v.clientWidth,ch=v.clientHeight,sc=Math.max(cw/1920,ch/1080),w=1920*sc,h=1080*sc,x=v.offsetLeft+(cw-w)*(window.innerWidth>820?1:.74),y=v.offsetTop+(ch-h)/2;st.style.transform='translate('+x+'px,'+y+'px) scale('+sc+')';st.style.visibility='visible'}
 var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,timer=null;
 var COL=['linear-gradient(135deg,#8f6b32,#e8cf90 45%,#b8924f)','linear-gradient(135deg,#a8813f,#f0dba4 50%,#9c7636)','linear-gradient(135deg,#d9bf86,#fff1cf 50%,#c4a05a)','linear-gradient(135deg,#b8924f,#f3e0ab 55%,#8f6b32)','linear-gradient(135deg,#4aa595,#bff2e0)','linear-gradient(135deg,#1f6f66,#5BBFAD)'];
 function piece(burst){var r=Math.random,e=document.createElement('i'),w=12+r()*18,h=r()<.3?w:6+r()*12,rise=(burst?420:300)+r()*(burst?520:240),dx=(r()-.5)*(burst?760:420),sx=1300+r()*200,dur=(burst?6200:6400)+r()*2800,fl=(r()<.5?1:-1)*(2+Math.floor(r()*3))*360;
@@ -174,4 +195,5 @@ v.addEventListener('ended',show);
 try{var pp=v.play&&v.play();if(pp&&pp.catch)pp.catch(jumpEnd)}catch(e){jumpEnd()}
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();jumpEnd()}
 }catch(e){}</script>
+<script>try{var rl=document.querySelector('.opts'),ds=document.querySelectorAll('#dots i');if(rl){rl.addEventListener('scroll',function(){var c=rl.children,m=rl.scrollLeft+rl.clientWidth/2,b=0,bd=1e9;for(var i=0;i<c.length;i++){var d=Math.abs(c[i].offsetLeft+c[i].offsetWidth/2-m);if(d<bd){bd=d;b=i}}for(var j=0;j<ds.length;j++)ds[j].className=j===b?'on':''},{passive:true})}}catch(e){}</script>
 </body></html>
