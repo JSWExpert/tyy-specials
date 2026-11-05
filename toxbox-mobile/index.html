@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Tox Box | Ten Years Younger (phone)</title>
+<!-- PROVENANCE: Phone-only Tox Box page body, built by Allen (Claude) for Jasmine Wiseman, 2026-11-05. Same mobile patterns as home-mobile (full-screen hero with direct purchase actions, swipe rails, deep-teal band, accordions). Reuses the desktop hero video and confetti from ../toxbox/. Desktop page is unchanged. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script>try{if(window.top!==window.self)document.documentElement.className+=" emb"}catch(e){document.documentElement.className+=" emb"}</script>
+<style>
+:root{--teal:#5BBFAD;--teal-deep:#1F6F66;--frost:#E8F7F5;--ink:#1C3E3A;--ink2:#4A6B66;--cream:#F4F7F4;--gold:#b8964f;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:#e9eeea}
+html,body{margin:0}
+body{max-width:480px;margin:0 auto;background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;box-shadow:0 0 40px rgba(28,62,58,.12)}
+.emb body{overflow-y:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;margin:0}
+.eyebrow{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;background:linear-gradient(100deg,#7a5a26,#b8964f 45%,#85652c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(236,248,244,.78));border:1px solid rgba(157,234,200,.7);border-radius:18px;box-shadow:0 8px 24px rgba(31,111,102,.10)}
+.sec{padding:30px 0 6px}
+.hd{padding:0 16px;margin-bottom:12px}
+.hd h2{font-size:27px;margin-top:6px}
+
+/* HERO */
+.hero{position:relative;background:#16443E;overflow:hidden}
+.vwrap{position:relative;width:100%;aspect-ratio:1/1.02;overflow:hidden}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:74% center;display:block}
+.vwrap:after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(180deg,rgba(22,68,62,0),#16443E);z-index:3;pointer-events:none}
+.badge{position:absolute;top:14px;left:14px;z-index:4;padding:8px 14px;border-radius:999px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:#fff;background:rgba(14,40,36,.5);border:1px solid rgba(243,223,174,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.txt{position:relative;z-index:4;padding:0 18px 26px;margin-top:-22px;color:#fff}
+.txt .eyebrow{background:none;-webkit-text-fill-color:#f3dfae;color:#f3dfae}
+.txt h1{font-size:50px;margin:6px 0 8px}
+.txt h1 em{font-style:italic;font-weight:500;color:#bff2e0}
+.txt p{margin:0 0 12px;font-size:14.5px;opacity:.94}
+.price{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+.price b{font-family:var(--serif);font-size:44px;font-weight:600;line-height:1;color:#bff2e0}
+.price s{font-size:14px;letter-spacing:.06em;opacity:.8}
+.btn{display:block;text-align:center;font-weight:500;font-size:15px;letter-spacing:.04em;padding:14px 12px;border-radius:999px}
+.btn small{display:block;font-weight:300;font-size:11.5px;letter-spacing:.06em;opacity:.92;margin-top:1px}
+.btn.gold{background:linear-gradient(135deg,#e8cf90,#b8964f 55%,#9c7a38);color:#2a1f0a;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.btn.ghost{margin-top:10px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.7);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* QUICK STRIP */
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:-16px 16px 0;position:relative;z-index:6;padding:12px 6px;text-align:center}
+.quick div{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);line-height:1.3}
+.quick b{display:block;font-family:var(--serif);font-size:24px;letter-spacing:0;text-transform:none;color:var(--teal-deep);font-weight:600;line-height:1.05}
+
+/* RAILS */
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 16px 12px;scroll-padding:0 16px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:2px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(31,111,102,.25);transition:all .25s}
+.dots i.on{background:var(--teal-deep);width:18px;border-radius:6px}
+.opt{flex:0 0 84%;scroll-snap-align:center;padding:24px 20px 20px;display:flex;flex-direction:column;position:relative}
+.opt.best{border:1.5px solid #b8964f;box-shadow:0 12px 32px rgba(122,90,38,.22)}
+.opt .ribbon{position:absolute;top:-11px;left:18px;background:linear-gradient(135deg,#7a5a26,#b8964f);color:#fff;font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:5px 13px;border-radius:30px;white-space:nowrap}
+.opt h3{font-size:28px}
+.opt .p{font-family:var(--serif);font-size:46px;font-weight:600;color:var(--teal-deep);line-height:1;margin-top:6px}
+.opt .p small{display:block;font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:.06em;color:#8b5a2a;margin-top:6px}
+.opt ul{list-style:none;padding:0;margin:14px 0 4px;display:grid;gap:8px;flex:1}
+.opt li{padding-left:26px;position:relative;font-size:14.5px}
+.opt li:before{content:"";position:absolute;left:2px;top:.62em;width:11px;height:6px;border-left:2px solid var(--teal-deep);border-bottom:2px solid var(--teal-deep);transform:rotate(-45deg)}
+.opt .sel{margin-top:16px;background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;box-shadow:0 8px 22px rgba(31,111,102,.3)}
+.opt.best .sel{background:linear-gradient(135deg,#7a5a26,#b8964f 45%,#8f6b32);box-shadow:0 8px 22px rgba(122,90,38,.32)}
+.opt .how{margin-top:10px;text-align:center;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.note{text-align:center;font-size:13px;color:var(--ink2);padding:8px 24px 0}
+.note b{color:var(--teal-deep);font-weight:500}
+
+/* BAND */
+.band{background:linear-gradient(165deg,#133C37,#1F6F66 70%,#2a8a7e);margin-top:34px;padding:34px 0 26px;color:#fff}
+.band h2{color:#fff}.band .eyebrow{background:none;-webkit-text-fill-color:#f3dfae;color:#f3dfae}
+.st{flex:0 0 78%;scroll-snap-align:center;padding:20px 18px;background:rgba(255,255,255,.09);border:1px solid rgba(243,223,174,.35);border-radius:18px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.st .n{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:22px;font-weight:600;color:#133C37;background:linear-gradient(135deg,#f3dfae,#d9b56a);margin-bottom:8px}
+.st h3{font-size:24px;color:#fff;margin-bottom:6px}.st p{margin:0;font-size:14.5px;color:#d6efe9}
+.band .dots i{background:rgba(255,255,255,.3)}.band .dots i.on{background:#f3dfae}
+
+/* KNOW */
+.know{padding:28px 16px 0;display:grid;gap:10px}
+details{padding:0}
+summary{list-style:none;cursor:pointer;padding:16px 46px 16px 18px;font-family:var(--serif);font-size:21px;font-weight:600;position:relative}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-52%);font-family:var(--sans);font-size:24px;font-weight:300;color:var(--teal-deep)}
+details[open] summary:after{content:"\2212"}
+details p{margin:0;padding:0 18px 16px;font-size:14.5px;color:var(--ink2)}
+details a{color:var(--teal-deep);font-weight:500}
+.call{margin:12px 16px 0;padding:18px;text-align:center}
+.call h3{font-size:24px;margin-bottom:4px}.call p{margin:0 0 12px;font-size:14px;color:var(--ink2)}
+.call .btn{background:#fff;border:1px solid var(--teal-deep);color:var(--teal-deep)}
+footer{padding:22px 18px 28px;text-align:center;font-size:11.5px;color:#8b5a2a}
+
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;z-index:2;pointer-events:none;visibility:hidden}
+.clip{position:absolute;inset:0;clip-path:polygon(0 0,1920px 0,1920px 598px,1750px 598px,1066px 586px,0 586px)}
+.lab{position:absolute;left:1287px;top:753px;transform:translate(-50%,-50%) skewY(7deg);font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:.16em;padding-left:.16em;white-space:nowrap;opacity:0;background:linear-gradient(100deg,#7f5f2a 0%,#b8924f 22%,#d4b673 40%,#a8813f 58%,#cfae68 78%,#8a6a30 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(255,255,255,.85)) drop-shadow(0 -1px 0 rgba(70,45,10,.45))}
+.lab.on{animation:fadein 1.1s ease forwards,sheen 7s ease-in-out infinite alternate}
+@keyframes fadein{to{opacity:1}}
+@keyframes sheen{from{background-position:0 0}to{background-position:100% 0}}
+.sk{position:absolute;width:10px;height:10px;border-radius:50%;opacity:0;background:radial-gradient(circle,rgba(255,244,214,1) 0%,rgba(255,214,140,.85) 40%,rgba(255,214,140,0) 72%)}
+.on-sp .sk{animation:drift var(--d) ease-in-out var(--l) infinite}
+@keyframes drift{0%{opacity:0;transform:translate(0,0) scale(.5)}20%{opacity:.95}100%{opacity:0;transform:translate(var(--dx),-340px) scale(1.15)}}
+@media(prefers-reduced-motion:reduce){.lab.on{animation:none;opacity:1}.on-sp .sk{animation:none;opacity:.6}}
+</style></head>
+<body>
+
+<section class="hero">
+ <div class="vwrap" id="vw">
+  <video class="bg" id="hero-video" src="../toxbox/toxbox-hero.mp4" poster="../toxbox/toxbox-hero-poster.jpg" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+  <div class="stage" id="stage"><div class="clip"><div id="sp"></div></div><div class="lab" id="lab">THE TOX BOX</div></div>
+  <div class="badge">Members offer</div>
+ </div>
+ <div class="txt">
+  <div class="eyebrow">A gift to yourself</div>
+  <h1>The Tox <em>Box</em></h1>
+  <p>100 units of wrinkle relaxer, kept on file just for you.</p>
+  <div class="price"><b>$1,100</b><s>Regularly $1,399</s></div>
+  <a class="btn gold" href="https://www.10yearsyounger4u.com/pricing-plans/plan-customization?planId=9484a72f-a4fc-432c-9213-1c6bc17a5413&pricingVariantId=8c6e7d03-69bc-438b-ae06-0fd20b51a724" target="_top">Autopay &middot; $1,000<small>$100 off, cancel anytime</small></a>
+  <a class="btn ghost" href="https://www.10yearsyounger4u.com/pricing-plans/plan-customization?planId=b8ebd6c8-12b0-41ae-a22e-a95cc3e7c6ab&pricingVariantId=7b1c6a52-3e0f-4d8e-9a41-5c2f8d6e1b07" target="_top">Buy once &middot; $1,100</a>
+ </div>
+</section>
+
+<div class="glass quick"><div><b>100</b>units</div><div><b>6 mo</b>kept on file</div><div><b>$100</b>off autopay</div></div>
+
+<section class="sec">
+ <div class="hd"><div class="eyebrow">Choose how you buy</div><h2>Two easy ways to get yours</h2></div>
+ <div class="rail" id="r1">
+  <div class="glass opt">
+   <h3>Buy once</h3>
+   <div class="p">$1,100<small>one payment</small></div>
+   <ul><li>100 units of wrinkle relaxer (regularly $1,399)</li><li>Kept on file for you for 6 months</li><li>For you only: cannot be shared or transferred</li></ul>
+   <a class="btn sel" href="https://www.10yearsyounger4u.com/pricing-plans/plan-customization?planId=b8ebd6c8-12b0-41ae-a22e-a95cc3e7c6ab&pricingVariantId=7b1c6a52-3e0f-4d8e-9a41-5c2f8d6e1b07" target="_top">Select</a>
+   <div class="how">Pay once, you are all set</div>
+  </div>
+  <div class="glass opt best">
+   <div class="ribbon">$100 off with autopay</div>
+   <h3>Autopay</h3>
+   <div class="p">$1,000<small>every 6 months</small></div>
+   <ul><li>100 units each time, kept on file for 6 months</li><li>$100 off the total, every Tox Box</li><li>Billed automatically. Cancel anytime from your account before your next renewal</li><li>For you only: cannot be shared or transferred</li></ul>
+   <a class="btn sel" href="https://www.10yearsyounger4u.com/pricing-plans/plan-customization?planId=9484a72f-a4fc-432c-9213-1c6bc17a5413&pricingVariantId=8c6e7d03-69bc-438b-ae06-0fd20b51a724" target="_top">Select</a>
+   <div class="how">Cancel anytime</div>
+  </div>
+ </div>
+ <div class="dots" data-for="r1"><i class="on"></i><i></i></div>
+ <p class="note">Press <b>Select</b> to check out securely. You will create a free account first, so you can manage or cancel anytime.</p>
+</section>
+
+<section class="sec band">
+ <div class="hd"><div class="eyebrow">How it works</div><h2>Simple from start to finish</h2></div>
+ <div class="rail" id="r2">
+  <div class="st"><div class="n">1</div><h3>Choose your option</h3><p>Buy once, or set up autopay. A free account keeps everything in one place.</p></div>
+  <div class="st"><div class="n">2</div><h3>We keep your units on file</h3><p>Your 100 units are held for you for 6 months from purchase.</p></div>
+  <div class="st"><div class="n">3</div><h3>Book your visits</h3><p>Book as you like. Your units are there when you are.</p></div>
+ </div>
+ <div class="dots" data-for="r2"><i class="on"></i><i></i><i></i></div>
+</section>
+
+<section class="know">
+ <details class="glass"><summary>How autopay works</summary><p>Autopay charges $1,000 to your card every 6 months until you cancel. You can cancel anytime from your account before your next renewal and future charges stop.</p></details>
+ <details class="glass"><summary>Units and policy</summary><p>Units are held on file for 6 months from purchase. All Tox Box purchases are final and non-refundable. Units are for the purchaser only and cannot be shared or transferred.</p></details>
+</section>
+<div class="glass call"><h3>Not sure you qualify?</h3><p>Please call us before you buy.</p><a class="btn" href="tel:8329098031" target="_top">Call 832-909-8031</a></div>
+
+<footer>Ten Years Younger Wellness Center &middot; 16316 FM 529 Rd, Suite C, Houston, TX 77095</footer>
+<script>try{
+var v=document.getElementById('hero-video'),st=document.getElementById('stage'),sp=document.getElementById('sp'),lab=document.getElementById('lab'),hero=v.parentNode,shown=false;
+function place(){var cw=v.clientWidth,ch=v.clientHeight,sc=Math.max(cw/1920,ch/1080),w=1920*sc,h=1080*sc,x=v.offsetLeft+(cw-w)*(.74),y=v.offsetTop+(ch-h)/2;st.style.transform='translate('+x+'px,'+y+'px) scale('+sc+')';st.style.visibility='visible'}
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,timer=null;
+var COL=['linear-gradient(135deg,#8f6b32,#e8cf90 45%,#b8924f)','linear-gradient(135deg,#a8813f,#f0dba4 50%,#9c7636)','linear-gradient(135deg,#d9bf86,#fff1cf 50%,#c4a05a)','linear-gradient(135deg,#b8924f,#f3e0ab 55%,#8f6b32)','linear-gradient(135deg,#4aa595,#bff2e0)','linear-gradient(135deg,#1f6f66,#5BBFAD)'];
+function piece(burst){var r=Math.random,e=document.createElement('i'),w=12+r()*18,h=r()<.3?w:6+r()*12,rise=(burst?420:300)+r()*(burst?520:240),dx=(r()-.5)*(burst?760:420),sx=1300+r()*200,dur=(burst?6200:6400)+r()*2800,fl=(r()<.5?1:-1)*(2+Math.floor(r()*3))*360;
+e.style.cssText='position:absolute;left:'+sx+'px;top:572px;width:'+w+'px;height:'+h+'px;background:'+COL[Math.floor(r()*COL.length)]+';border-radius:'+(r()<.25?'50%':'2px')+';opacity:0;will-change:transform,opacity;box-shadow:0 0 10px rgba(255,226,170,.75)';
+sp.appendChild(e);
+var a=e.animate([{transform:'translate(0,0) rotateX(0deg) rotateZ(0deg)',opacity:0,offset:0},{opacity:1,offset:.08},{transform:'translate('+(dx*.55)+'px,'+(-rise)+'px) rotateX('+(fl*.5)+'deg) rotateZ('+(fl*.2)+'deg)',opacity:1,offset:.38,easing:'ease-in-out'},{transform:'translate('+dx+'px,'+(-rise*.55)+'px) rotateX('+fl+'deg) rotateZ('+(fl*.3)+'deg)',opacity:0,offset:1}],{duration:dur,delay:burst?r()*900:0,easing:'cubic-bezier(.12,.75,.3,1)',fill:'both'});
+a.onfinish=function(){e.remove()}}
+function startConf(){if(reduce)return;for(var n=0;n<70;n++)piece(true);setTimeout(function(){for(var n=0;n<40;n++)piece(true)},1300);timer=setInterval(function(){for(var n=0;n<6;n++)piece(false)},3000)}
+function stopConf(){clearInterval(timer);sp.innerHTML=''}
+function show(){if(shown)return;shown=true;place();startConf();lab.classList.add('on')}
+function hide(){shown=false;stopConf();lab.classList.remove('on')}
+function jumpEnd(){var go=function(){v.currentTime=Math.max(0,(v.duration||6)-.05);show()};if(v.readyState>=1)go();else v.addEventListener('loadedmetadata',go)}
+window.addEventListener('resize',place);v.addEventListener('loadedmetadata',place);place();
+v.addEventListener('timeupdate',function(){if(v.currentTime>=1.4)show();else if(shown&&v.currentTime<.4)hide()});
+v.addEventListener('ended',show);
+try{var pp=v.play&&v.play();if(pp&&pp.catch)pp.catch(jumpEnd)}catch(e){jumpEnd()}
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();jumpEnd()}
+}catch(e){}</script>
+<script>try{document.querySelectorAll('.dots').forEach(function(d){var r=document.getElementById(d.getAttribute('data-for')),ds=d.children;if(!r)return;r.addEventListener('scroll',function(){var c=r.children,m=r.scrollLeft+r.clientWidth/2,b=0,bd=1e9;for(var i=0;i<c.length;i++){var x=Math.abs(c[i].offsetLeft+c[i].offsetWidth/2-m);if(x<bd){bd=x;b=i}}for(var j=0;j<ds.length;j++)ds[j].className=j===b?'on':''},{passive:true})})}catch(e){}</script>
+</body></html>
