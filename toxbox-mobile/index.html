@@ -22,8 +22,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;margin:0}
 
 /* HERO */
 .hero{position:relative;background:#16443E;overflow:hidden}
-.vwrap{position:relative;width:100%;aspect-ratio:1/1.02;overflow:hidden}
-.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:74% center;display:block}
+.vwrap{position:relative;width:100%;aspect-ratio:1/1.1;overflow:hidden}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:100% center;display:block}
 .vwrap:after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(180deg,rgba(22,68,62,0),#16443E);z-index:3;pointer-events:none}
 .badge{position:absolute;top:14px;left:14px;z-index:4;padding:8px 14px;border-radius:999px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:#fff;background:rgba(14,40,36,.5);border:1px solid rgba(243,223,174,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .txt{position:relative;z-index:4;padding:0 18px 26px;margin-top:-22px;color:#fff}
@@ -160,7 +160,7 @@ footer{padding:22px 18px 28px;text-align:center;font-size:11.5px;color:#8b5a2a}
 <footer>Ten Years Younger Wellness Center &middot; 16316 FM 529 Rd, Suite C, Houston, TX 77095</footer>
 <script>try{
 var v=document.getElementById('hero-video'),st=document.getElementById('stage'),sp=document.getElementById('sp'),lab=document.getElementById('lab'),hero=v.parentNode,shown=false;
-function place(){var cw=v.clientWidth,ch=v.clientHeight,sc=Math.max(cw/1920,ch/1080),w=1920*sc,h=1080*sc,x=v.offsetLeft+(cw-w)*(.74),y=v.offsetTop+(ch-h)/2;st.style.transform='translate('+x+'px,'+y+'px) scale('+sc+')';st.style.visibility='visible'}
+function place(){var cw=v.clientWidth,ch=v.clientHeight,sc=Math.max(cw/1920,ch/1080),w=1920*sc,h=1080*sc,x=v.offsetLeft+(cw-w)*(1),y=v.offsetTop+(ch-h)/2;st.style.transform='translate('+x+'px,'+y+'px) scale('+sc+')';st.style.visibility='visible'}
 var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,timer=null;
 var COL=['linear-gradient(135deg,#8f6b32,#e8cf90 45%,#b8924f)','linear-gradient(135deg,#a8813f,#f0dba4 50%,#9c7636)','linear-gradient(135deg,#d9bf86,#fff1cf 50%,#c4a05a)','linear-gradient(135deg,#b8924f,#f3e0ab 55%,#8f6b32)','linear-gradient(135deg,#4aa595,#bff2e0)','linear-gradient(135deg,#1f6f66,#5BBFAD)'];
 function piece(burst){var r=Math.random,e=document.createElement('i'),w=12+r()*18,h=r()<.3?w:6+r()*12,rise=(burst?420:300)+r()*(burst?520:240),dx=(r()-.5)*(burst?760:420),sx=1300+r()*200,dur=(burst?6200:6400)+r()*2800,fl=(r()<.5?1:-1)*(2+Math.floor(r()*3))*360;
