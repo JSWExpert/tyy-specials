@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ten Years Younger | Home (phone)</title>
+<!-- PROVENANCE: Phone-only home page body, built by Allen (Claude) for Jasmine Wiseman, 2026-11-05. Modeled on mobile patterns of Netflix, Amazon, AMC, Studio Movie Grill, 24 Hour Fitness: slim header (Wix), full-screen hero, one primary action, swipe rows, no dead space. Content copied from the live home page 2026-11-05. Desktop home page is unchanged. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#5BBFAD;--teal-deep:#1F6F66;--teal-light:#A8DDD6;--frost:#E8F7F5;--ink:#1C3E3A;--ink2:#4A6B66;--cream:#F4F7F4;--gold:#9c7a38;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--cream)}
+body{color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;margin:0}
+.eyebrow{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;background:linear-gradient(100deg,#7a5a26,#b8964f 45%,#85652c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pad{padding:0 16px}
+.sec{padding:30px 0 6px}
+.sec .hd{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding:0 16px;margin-bottom:12px}
+.sec h2{font-size:27px}
+.sec .more{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);font-weight:500;white-space:nowrap;padding-bottom:3px}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(236,248,244,.78));border:1px solid rgba(157,234,200,.7);border-radius:18px;box-shadow:0 8px 24px rgba(31,111,102,.10)}
+
+/* HERO */
+.hero{position:relative;width:100%;aspect-ratio:4/5.35;overflow:hidden;background:#d9c9b8}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 30%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,40,36,0) 38%,rgba(14,40,36,.55) 70%,rgba(14,40,36,.86) 100%)}
+.hero .txt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 18px 22px;color:#fff}
+.hero .eyebrow{background:none;color:#f3dfae;-webkit-text-fill-color:#f3dfae}
+.hero h1{font-size:41px;margin:8px 0 8px;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero h1 em{font-style:italic;font-weight:500;color:#bff2e0}
+.hero p{margin:0 0 16px;font-size:14.5px;opacity:.94;max-width:290px}
+.btns{display:flex;gap:10px}
+.btn{flex:1;text-align:center;font-weight:500;font-size:14.5px;letter-spacing:.04em;padding:13px 10px;border-radius:999px}
+.btn.pri{background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;box-shadow:0 8px 22px rgba(31,111,102,.4)}
+.btn.sec2{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.7);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* QUICK STRIP */
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:-16px 16px 0;position:relative;z-index:3;padding:12px 8px}
+.quick a{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.quick svg{width:22px;height:22px;stroke:var(--teal-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.open{margin:10px 16px 0;text-align:center;font-size:12.5px;color:var(--ink2)}
+.open b{color:var(--teal-deep);font-weight:500}
+
+/* RAILS */
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 16px 12px;scroll-padding:0 16px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:2px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(31,111,102,.25);transition:all .25s}
+.dots i.on{background:var(--teal-deep);width:18px;border-radius:6px}
+.svc{flex:0 0 78%;scroll-snap-align:center;border-radius:18px;overflow:hidden;position:relative;aspect-ratio:4/5;background:#cfe6e0;box-shadow:0 10px 26px rgba(31,111,102,.16)}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.svc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,40,36,0) 45%,rgba(14,40,36,.78) 100%)}
+.svc .in{position:absolute;left:0;right:0;bottom:0;padding:16px;z-index:2;color:#fff}
+.svc .k{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#f3dfae}
+.svc h3{font-size:26px;margin:3px 0 8px}
+.svc .go{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:2px}
+
+/* FEATURE CARDS */
+.feat{display:grid;gap:12px;padding:0 16px}
+.fc{display:block;padding:20px 18px;position:relative;overflow:hidden}
+.fc .eyebrow{display:block;margin-bottom:6px}
+.fc h3{font-size:26px;margin-bottom:6px}
+.fc p{margin:0 0 12px;font-size:14px;color:var(--ink2)}
+.fc .go{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.fc.tb{background:linear-gradient(135deg,#1c4f48,#16443E);color:#fff;border-color:rgba(184,150,79,.55)}
+.fc.tb h3{color:#fff}.fc.tb p{color:#d6efe9}.fc.tb .go{color:#f3dfae}
+.fc.tb .eyebrow{background:none;-webkit-text-fill-color:#f3dfae;color:#f3dfae}
+.fc .big{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--teal-deep);line-height:1;float:right;margin-left:10px}
+.fc.tb .big{color:#bff2e0}
+
+/* PRODUCTS */
+.prod{flex:0 0 52%;scroll-snap-align:start;padding:12px 12px 14px;text-align:center;display:flex;flex-direction:column;gap:8px}
+.prod .im{height:150px;display:grid;place-items:center}
+.prod img{max-height:150px;max-width:100%;object-fit:contain}
+.prod h3{font-size:18px;min-height:40px;display:grid;place-items:center}
+.prod .new{font-size:9.5px;letter-spacing:.24em;color:#fff;background:var(--teal-deep);border-radius:20px;padding:2px 9px;justify-self:center}
+.prod .go{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+
+/* WHY */
+.why{flex:0 0 78%;scroll-snap-align:center;padding:20px 18px}
+.why .n{font-family:var(--serif);font-size:34px;color:var(--teal);line-height:1}
+.why h3{font-size:22px;margin:6px 0 6px}
+.why p{margin:0;font-size:14px;color:var(--ink2)}
+
+/* REVIEWS */
+.rev{flex:0 0 82%;scroll-snap-align:center;padding:18px}
+.rev .st{color:#c8962f;letter-spacing:.12em;font-size:14px}
+.rev p{margin:8px 0 10px;font-size:14px;color:var(--ink);font-style:italic;font-family:var(--serif);font-size:17px;line-height:1.35;font-weight:500}
+.rev .who{font-size:12px;color:var(--ink2);letter-spacing:.04em}
+.rating{text-align:center;font-size:13px;color:var(--ink2);margin-top:4px}
+.rating b{color:var(--teal-deep);font-weight:500}
+
+/* VISIT */
+.visit{margin:30px 16px 0;padding:22px 18px}
+.visit h2{font-size:28px;margin:6px 0 10px}
+.visit address{font-style:normal;font-size:14.5px;margin-bottom:10px}
+.hrs{display:grid;grid-template-columns:auto 1fr;gap:3px 16px;font-size:13.5px;margin:8px 0 14px}
+.hrs span:nth-child(odd){color:var(--ink2)}
+.hrs .cl{color:#a0645a}
+.visit .btns .btn{color:var(--teal-deep);border:1px solid var(--teal-deep);background:#fff;font-size:13.5px}
+.visit .btns .btn.pri{background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;border:0}
+.pay{text-align:center;font-size:11.5px;color:var(--ink2);padding:18px 16px 26px}
+
+html{background:#e9eeea}
+body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(28,62,58,.12)}
+.band{background:linear-gradient(165deg,#133C37,#1F6F66 70%,#2a8a7e);margin-top:34px;padding:34px 0 26px;color:#fff}
+.band h2{color:#fff}.band .eyebrow{background:none;-webkit-text-fill-color:#f3dfae;color:#f3dfae}
+.band .why{background:rgba(255,255,255,.09);border:1px solid rgba(243,223,174,.35);border-radius:18px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:none;position:relative;overflow:hidden}
+.band .why .n{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:22px;color:#133C37;background:linear-gradient(135deg,#f3dfae,#d9b56a);margin-bottom:8px}
+.band .why h3{color:#fff;font-size:24px}.band .why p{color:#d6efe9;font-size:14.5px}
+.band .dots i{background:rgba(255,255,255,.3)}.band .dots i.on{background:#f3dfae}
+.rev{position:relative;padding:26px 20px 18px;border-top:3px solid #c8962f}
+.rev:before{content:"\201C";position:absolute;top:-6px;right:16px;font-family:var(--serif);font-size:90px;line-height:1;color:rgba(91,191,173,.35)}
+.rev .who{display:flex;align-items:center;gap:10px;margin-top:4px}
+.rev .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;font-weight:500;font-size:14px}
+.rating{margin:6px 16px 0;padding:12px;border-radius:14px;background:var(--frost);font-size:14px}
+</style></head>
+<body>
+
+<section class="hero">
+ <img src="https://static.wixstatic.com/media/11062b_3fb69880258d4841895386230f4fa76b~mv2.jpeg/v1/fill/w_900,h_1200,al_c,q_82/hero.jpg" alt="Radiant, smiling client" fetchpriority="high">
+ <div class="txt">
+  <div class="eyebrow">Houston's Wellness Center</div>
+  <h1>Look Good. Feel Better. <em>Live Younger.</em></h1>
+  <p>From injectables to IV therapy, every treatment is designed to help you look and feel your absolute best.</p>
+  <div class="btns"><a class="btn pri" href="https://www.myaestheticspro.com/BN/index.cfm?D2BFB64A9DF9C64D43CE5587075B5B52FBC66F7FCA968DDF12B85466368C5E81" target="_top">Book Now</a><a class="btn sec2" href="tel:8329098031" target="_top">Call Us</a></div>
+ </div>
+</section>
+
+<nav class="glass quick" aria-label="Quick actions">
+ <a href="https://www.myaestheticspro.com/BN/index.cfm?D2BFB64A9DF9C64D43CE5587075B5B52FBC66F7FCA968DDF12B85466368C5E81" target="_top"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>Book</a>
+ <a href="tel:8329098031" target="_top"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call</a>
+ <a href="https://www.google.com/maps/search/?api=1&query=16316+FM+529+Suite+C+Houston+TX+77095" target="_top"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Directions</a>
+</nav>
+<div class="open" id="open">Tuesday, Wednesday, Friday and Saturday, 10am to 6pm</div>
+
+<section class="sec">
+ <div class="hd"><h2>Explore</h2><a class="more" href="https://www.10yearsyounger4u.com/services" target="_top">All services</a></div>
+ <div class="rail" id="r1">
+  <a class="svc" href="https://www.10yearsyounger4u.com/filler-and-facial-augmentation" target="_top"><img loading="lazy" src="img/injectables.jpg" alt=""><div class="in"><div class="k">Explore</div><h3>Injectables</h3><span class="go">View services</span></div></a>
+  <a class="svc" href="https://www.10yearsyounger4u.com/iv-therapy" target="_top"><img loading="lazy" src="img/iv-therapy.jpg" alt=""><div class="in"><div class="k">Explore</div><h3>IV Therapy</h3><span class="go">View services</span></div></a>
+  <a class="svc" href="https://www.10yearsyounger4u.com/facials-scrubs" target="_top"><img loading="lazy" src="https://static.wixstatic.com/media/11062b_e41b46226a764e7b9a37bc361d485f24~mv2.jpg/v1/fill/w_600,h_750,al_c,q_80/x.jpg" alt=""><div class="in"><div class="k">Explore</div><h3>Skin &amp; Aesthetics</h3><span class="go">View services</span></div></a>
+ </div>
+ <div class="dots" data-for="r1"><i class="on"></i><i></i><i></i></div>
+</section>
+
+<section class="sec">
+ <div class="hd"><h2>This month</h2></div>
+ <div class="feat">
+  <a class="glass fc" href="https://www.10yearsyounger4u.com/specials" target="_top"><span class="eyebrow">November specials</span><h3>A Great Big Thank You</h3><p>Our monthly specials, a new one nearly every day. Tap to see what is on today.</p><span class="go">See the specials</span></a>
+  <a class="glass fc tb" href="https://www.10yearsyounger4u.com/tox-box-offer" target="_top"><span class="big">$1,100</span><span class="eyebrow">New this month</span><h3>The Tox Box</h3><p>100 units of wrinkle relaxer, kept on file just for you.</p><span class="go">Get yours</span></a>
+ </div>
+</section>
+
+<section class="sec">
+ <div class="hd"><h2>Must have items</h2><a class="more" href="https://www.10yearsyounger4u.com/sale" target="_top">Shop</a></div>
+ <div class="rail" id="r2">
+  <a class="glass prod" href="https://www.10yearsyounger4u.com/product-page/soap-bar" target="_top"><div class="im"><img loading="lazy" src="https://static.wixstatic.com/media/1760c7_c90cace144644574b92bd3715888aca3~mv2.png/v1/fit/w_400,h_500,q_85/x.png" alt="Brightening and Toning Corrector"></div><h3>Brightening and Toning Corrector</h3><span class="go">View details</span></a>
+  <a class="glass prod" href="https://www.10yearsyounger4u.com/product-page/vitamin-c-age-defying-antioxidant-serum" target="_top"><div class="im"><img loading="lazy" src="https://static.wixstatic.com/media/1760c7_e0a7b354a75a472fb8f255bcb8c11011~mv2.png/v1/fit/w_400,h_500,q_85/x.png" alt="Vitamin C Age Defying Antioxidant Serum"></div><h3>Vitamin C Age Defying Serum</h3><span class="go">View details</span></a>
+  <a class="glass prod" href="https://www.10yearsyounger4u.com/product-page/facial-moisturizer" target="_top"><div class="im"><img loading="lazy" src="https://static.wixstatic.com/media/1760c7_903db2183c8348adb9055df378f860a6~mv2.png/v1/fit/w_400,h_500,q_85/x.png" alt="The Post Treatment Healing Aid"></div><span class="new">NEW</span><h3>The Post Treatment Healing Aid</h3><span class="go">View details</span></a>
+ </div>
+</section>
+
+<section class="sec band">
+ <div class="hd"><div><div class="eyebrow">Why Ten Years Younger</div><h2 style="margin-top:6px">The standard of care you deserve</h2></div></div>
+ <div class="rail" id="r3">
+  <div class="why"><div class="n">1</div><h3>White Glove Treatment</h3><p>From your first consultation to your last treatment, every visit is personalized, unhurried, and crafted around you.</p></div>
+  <div class="why"><div class="n">2</div><h3>Love How You Look &amp; Feel</h3><p>We want you to feel like the most confident, radiant version of yourself every single time you leave us.</p></div>
+  <div class="why"><div class="n">3</div><h3>Houston's Best Kept Secret</h3><p>Tucked away in Houston's FM 529 corridor, we have been quietly transforming how women look and feel, one treatment at a time.</p></div>
+ </div>
+ <div class="dots" data-for="r3"><i class="on"></i><i></i><i></i></div>
+</section>
+
+<section class="sec">
+ <div class="hd"><div><div class="eyebrow">Client love</div><h2 style="margin-top:6px">What our clients are saying</h2></div></div>
+ <div class="rail" id="r4">
+  <div class="glass rev"><div class="st">★★★★★</div><p>"I am truly happy with all of my services here. They have a great staff that always goes above and beyond! I have had filler services here and Renee is a perfectionist when it comes to contouring the face."</p><div class="who"><span class="av">C</span>Cynthia B. &middot; Google Review</div></div>
+  <div class="glass rev"><div class="st">★★★★★</div><p>"Every time I visit, I feel warmly welcomed, and the staff always takes the time to share details about their deals. The facility is consistently clean."</p><div class="who"><span class="av">L</span>Lucy F. &middot; Google Review</div></div>
+  <div class="glass rev"><div class="st">★★★★★</div><p>"VERY attentive staff, super helpful and explain everything, answered all my questions. Also offered drinks and snacks. Will definitely be back!!"</p><div class="who"><span class="av">O</span>Orpha P. &middot; Google Local Guide</div></div>
+ </div>
+ <div class="dots" data-for="r4"><i class="on"></i><i></i><i></i></div>
+ <div class="rating"><b>Rated 5.0 on Google</b> &middot; 80+ five-star reviews</div>
+</section>
+
+<section class="glass visit">
+ <div class="eyebrow">Visit us</div>
+ <h2>Ready to feel like yourself again?</h2>
+ <address>16316 FM 529, Suite C<br>Houston, TX 77095</address>
+ <div class="hrs"><span>Mon</span><span class="cl">Closed</span><span>Tue</span><span>10am to 6pm</span><span>Wed</span><span>10am to 6pm</span><span>Thu</span><span class="cl">Closed</span><span>Fri</span><span>10am to 6pm</span><span>Sat</span><span>10am to 6pm</span></div>
+ <div class="btns"><a class="btn pri" href="https://www.myaestheticspro.com/BN/index.cfm?D2BFB64A9DF9C64D43CE5587075B5B52FBC66F7FCA968DDF12B85466368C5E81" target="_top">Book My Appointment</a></div>
+ <div class="btns" style="margin-top:10px"><a class="btn" href="tel:8329098031" target="_top">Call</a><a class="btn" href="mailto:Info@10yearsyounger4u.com" target="_top">Email</a></div>
+</section>
+<div class="pay">Same-day appointments available. No pressure, just results.<br>We accept Visa, MasterCard, PayPal, CareCredit, and Cherry.</div>
+
+<script>
+try{
+document.querySelectorAll('.dots').forEach(function(d){var r=document.getElementById(d.getAttribute('data-for')),ds=d.children;if(!r)return;r.addEventListener('scroll',function(){var c=r.children,m=r.scrollLeft+r.clientWidth/2,b=0,bd=1e9;for(var i=0;i<c.length;i++){var x=Math.abs(c[i].offsetLeft+c[i].offsetWidth/2-m);if(x<bd){bd=x;b=i}}for(var j=0;j<ds.length;j++)ds[j].className=j===b?'on':''},{passive:true})});
+var now=new Date(),h=now.getHours(),dow=new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'})),d=dow.getDay(),hr=dow.getHours(),el=document.getElementById('open');
+var openDay=[2,3,5,6].indexOf(d)>-1;
+if(openDay&&hr>=10&&hr<18)el.innerHTML='<b>Open now</b> until 6pm today';
+else if(openDay&&hr<10)el.innerHTML='Opens today at <b>10am</b>';
+else{var nxt=[2,3,5,6],names={2:'Tuesday',3:'Wednesday',5:'Friday',6:'Saturday',0:'',1:'',4:''},k,n=0;for(k=1;k<=7;k++){if(nxt.indexOf((d+k)%7)>-1){n=(d+k)%7;break}}el.innerHTML='Closed now. Opens <b>'+(k===1?'tomorrow':names[n])+'</b> at 10am'}
+}catch(e){}
+</script>
+</body></html>
