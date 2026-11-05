@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Gold or Chrome? | Ten Years Younger</title>
+<!-- PROVENANCE: Internal staff comparison page, built by Allen (Claude) for Jasmine Wiseman, 2026-11-05. Shows the new phone home page in gold vs chrome. Links inside the previews are disabled. -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#1F6F66;--ink:#1C3E3A}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:'Jost',system-ui,sans-serif;font-weight:300;color:var(--ink);background:#eef2f1;min-height:100vh}
+header{text-align:center;padding:22px 18px 10px}
+.eb{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#5f6f77}
+h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;margin:6px 0 8px;line-height:1.05}
+p{margin:0 auto;max-width:520px;font-size:15px;line-height:1.5}
+.tabs{display:flex;justify-content:center;gap:10px;margin:16px 0 12px}
+.tabs button{font:500 14px 'Jost';letter-spacing:.1em;text-transform:uppercase;padding:11px 26px;border-radius:999px;border:1px solid #9aa5ad;background:#fff;color:var(--teal);cursor:pointer}
+.tabs button.on{background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;border-color:transparent}
+.wrap{display:flex;justify-content:center;gap:28px;padding:0 12px 28px}
+.pane{width:100%;max-width:420px}
+.pane h2{text-align:center;font-family:'Cormorant Garamond',serif;font-size:24px;margin:4px 0 8px}
+iframe{display:block;width:100%;height:calc(100vh - 230px);min-height:520px;border:1px solid #cdd6d9;border-radius:22px;background:#fff;box-shadow:0 14px 34px rgba(28,62,58,.18)}
+.pane{display:none}.pane.on{display:block}
+.foot{text-align:center;font-size:13px;color:#5f6f77;padding:0 18px 28px}
+@media(min-width:900px){.tabs{display:none}.pane{display:block}.pane h2{display:block}iframe{height:820px;max-width:390px;margin:0 auto}}
+@media(max-width:899px){.pane h2{display:none}}
+</style></head><body>
+<header><div class="eb">Ten Years Younger</div><h1>Gold or Chrome?</h1>
+<p>Our new phone home page in two metal finishes. Scroll through each one, then tell Jasmine which feels more like us.</p></header>
+<div class="tabs"><button id="tg" class="on">Gold</button><button id="tc">Chrome</button></div>
+<div class="wrap">
+ <div class="pane on" id="pg"><h2>Gold</h2><iframe sandbox="allow-scripts allow-same-origin" src="gold/" title="Gold version"></iframe></div>
+ <div class="pane" id="pc"><h2>Chrome</h2><iframe sandbox="allow-scripts allow-same-origin" src="chrome/" title="Chrome version"></iframe></div>
+</div>
+<div class="foot">Buttons and links inside the previews are turned off on this page.</div>
+<script>
+var g=document.getElementById('pg'),c=document.getElementById('pc'),tg=document.getElementById('tg'),tc=document.getElementById('tc');
+function pick(x){g.classList.toggle('on',x==='g');c.classList.toggle('on',x==='c');tg.classList.toggle('on',x==='g');tc.classList.toggle('on',x==='c')}
+tg.onclick=function(){pick('g')};tc.onclick=function(){pick('c')};
+</script></body></html>
