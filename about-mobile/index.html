@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ten Years Younger | About (phone)</title>
+<!-- PROVENANCE: Phone-only About page body, built by Allen (Claude) for Jasmine Wiseman, 2026-11-06. Content and direction from About Page Mock v6 (2026-11-03): private, boutique, no team or staff featured. Photos are the generated clinic images from Desktop/TYY Creatives/Review/About Page Mock. Chrome theme per the phone-page rules. NOT yet placed in Wix. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#5BBFAD;--teal-deep:#1F6F66;--teal-light:#A8DDD6;--frost:#E8F7F5;--ink:#1C3E3A;--ink2:#4A6B66;--cream:#F4F7F4;--gold:#6b7b83;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--cream)}
+body{color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;margin:0}
+.eyebrow{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;background:linear-gradient(100deg,#46555c,#7d8b94 45%,#4f5d64);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pad{padding:0 16px}
+.sec{padding:30px 0 6px}
+.sec .hd{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding:0 16px;margin-bottom:12px}
+.sec h2{font-size:27px}
+.sec .more{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);font-weight:500;white-space:nowrap;padding-bottom:3px}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(236,248,244,.78));border:1px solid rgba(157,234,200,.7);border-radius:18px;box-shadow:0 8px 24px rgba(31,111,102,.10)}
+
+/* HERO */
+.hero{position:relative;width:100%;aspect-ratio:4/5.35;overflow:hidden;background:#d9c9b8}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 30%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,40,36,0) 38%,rgba(14,40,36,.55) 70%,rgba(14,40,36,.86) 100%)}
+.hero .txt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 18px 22px;color:#fff}
+.hero .eyebrow{background:none;color:#E3E9EC;-webkit-text-fill-color:#E3E9EC}
+.hero h1{font-size:41px;margin:8px 0 8px;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero h1 em{font-style:italic;font-weight:500;color:#bff2e0}
+.hero p{margin:0 0 16px;font-size:14.5px;opacity:.94;max-width:290px}
+.btns{display:flex;gap:10px}
+.btn{flex:1;text-align:center;font-weight:500;font-size:14.5px;letter-spacing:.04em;padding:13px 10px;border-radius:999px}
+.btn.pri{background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;box-shadow:0 8px 22px rgba(31,111,102,.4)}
+.btn.sec2{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.7);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* QUICK STRIP */
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:-16px 16px 0;position:relative;z-index:3;padding:12px 8px}
+.quick a{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.quick svg{width:22px;height:22px;stroke:var(--teal-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.open{margin:10px 16px 0;text-align:center;font-size:12.5px;color:var(--ink2)}
+.open b{color:var(--teal-deep);font-weight:500}
+
+/* RAILS */
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 16px 12px;scroll-padding:0 16px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:2px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(31,111,102,.25);transition:all .25s}
+.dots i.on{background:var(--teal-deep);width:18px;border-radius:6px}
+.svc{flex:0 0 78%;scroll-snap-align:center;border-radius:18px;overflow:hidden;position:relative;aspect-ratio:4/5;background:#cfe6e0;box-shadow:0 10px 26px rgba(31,111,102,.16)}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.svc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,40,36,0) 45%,rgba(14,40,36,.78) 100%)}
+.svc .in{position:absolute;left:0;right:0;bottom:0;padding:16px;z-index:2;color:#fff}
+.svc .k{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#E3E9EC}
+.svc h3{font-size:26px;margin:3px 0 8px}
+.svc .go{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:2px}
+
+/* FEATURE CARDS */
+.feat{display:grid;gap:12px;padding:0 16px}
+.fc{display:block;padding:20px 18px;position:relative;overflow:hidden}
+.fc .eyebrow{display:block;margin-bottom:6px}
+.fc h3{font-size:26px;margin-bottom:6px}
+.fc p{margin:0 0 12px;font-size:14px;color:var(--ink2)}
+.fc .go{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.fc.tb{background:linear-gradient(135deg,#1c4f48,#16443E);color:#fff;border-color:rgba(176,188,196,.7)}
+.fc.tb h3{color:#fff}.fc.tb p{color:#d6efe9}.fc.tb .go{color:#E3E9EC}
+.fc.tb .eyebrow{background:none;-webkit-text-fill-color:#E3E9EC;color:#E3E9EC}
+.fc .big{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--teal-deep);line-height:1;float:right;margin-left:10px}
+.fc.tb .big{color:#bff2e0}
+
+/* PRODUCTS */
+.prod{flex:0 0 52%;scroll-snap-align:start;padding:12px 12px 14px;text-align:center;display:flex;flex-direction:column;gap:8px}
+.prod .im{height:150px;display:grid;place-items:center}
+.prod img{max-height:150px;max-width:100%;object-fit:contain}
+.prod h3{font-size:18px;min-height:40px;display:grid;place-items:center}
+.prod .new{font-size:9.5px;letter-spacing:.24em;color:#fff;background:var(--teal-deep);border-radius:20px;padding:2px 9px;justify-self:center}
+.prod .go{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+
+/* WHY */
+.why{flex:0 0 78%;scroll-snap-align:center;padding:20px 18px}
+.why .n{font-family:var(--serif);font-size:34px;color:var(--teal);line-height:1}
+.why h3{font-size:22px;margin:6px 0 6px}
+.why p{margin:0;font-size:14px;color:var(--ink2)}
+
+/* REVIEWS */
+.rev{flex:0 0 82%;scroll-snap-align:center;padding:18px}
+.rev .st{color:#c8962f;letter-spacing:.12em;font-size:14px}
+.rev p{margin:8px 0 10px;font-size:14px;color:var(--ink);font-style:italic;font-family:var(--serif);font-size:17px;line-height:1.35;font-weight:500}
+.rev .who{font-size:12px;color:var(--ink2);letter-spacing:.04em}
+.rating{text-align:center;font-size:13px;color:var(--ink2);margin-top:4px}
+.rating b{color:var(--teal-deep);font-weight:500}
+
+/* VISIT */
+.visit{margin:30px 16px 0;padding:22px 18px}
+.visit h2{font-size:28px;margin:6px 0 10px}
+.visit address{font-style:normal;font-size:14.5px;margin-bottom:10px}
+.hrs{display:grid;grid-template-columns:auto 1fr;gap:3px 16px;font-size:13.5px;margin:8px 0 14px}
+.hrs span:nth-child(odd){color:var(--ink2)}
+.hrs .cl{color:#a0645a}
+.visit .btns .btn{color:var(--teal-deep);border:1px solid var(--teal-deep);background:#fff;font-size:13.5px}
+.visit .btns .btn.pri{background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;border:0}
+.pay{text-align:center;font-size:11.5px;color:var(--ink2);padding:18px 16px 26px}
+
+html{background:#e9eeea}
+body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(28,62,58,.12)}
+.band{background:linear-gradient(165deg,#133C37,#1F6F66 70%,#2a8a7e);margin-top:34px;padding:34px 0 26px;color:#fff}
+.band h2{color:#fff}.band .eyebrow{background:none;-webkit-text-fill-color:#E3E9EC;color:#E3E9EC}
+.band .why{background:rgba(255,255,255,.09);border:1px solid rgba(225,232,236,.35);border-radius:18px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:none;position:relative;overflow:hidden}
+.band .why .n{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:22px;color:#133C37;background:linear-gradient(135deg,#ffffff 0%,#d5dce0 28%,#9aa5ad 52%,#eef2f4 74%,#b4bec5 100%);margin-bottom:8px}
+.band .why h3{color:#fff;font-size:24px}.band .why p{color:#d6efe9;font-size:14.5px}
+.band .dots i{background:rgba(255,255,255,.3)}.band .dots i.on{background:#E3E9EC}
+.rev{position:relative;padding:26px 20px 18px;border-top:3px solid #b4bec5}
+.rev:before{content:"\201C";position:absolute;top:-6px;right:16px;font-family:var(--serif);font-size:90px;line-height:1;color:rgba(91,191,173,.35)}
+.rev .who{display:flex;align-items:center;gap:10px;margin-top:4px}
+.rev .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;font-weight:500;font-size:14px}
+.rating{margin:6px 16px 0;padding:12px;border-radius:14px;background:var(--frost);font-size:14px}
+.pill{position:absolute;top:14px;left:14px;right:14px;z-index:3;display:flex;align-items:center;justify-content:center;text-align:center;gap:9px;padding:9px 14px;border-radius:999px;font-size:12.5px;line-height:1.3;font-weight:400;color:#fff;background:rgba(14,40,36,.55);border:1px solid rgba(225,232,236,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.pill i{flex:0 0 8px;height:8px;border-radius:50%;background:#E3E9EC;box-shadow:0 0 0 4px rgba(225,232,236,.25)}
+
+/* SERVICES */
+.hero{aspect-ratio:4/5.1}
+.hero img{object-position:50% 40%}
+.svc .soon{position:absolute;top:12px;left:12px;z-index:3;font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:5px 11px;border-radius:999px;color:#15302d;background:linear-gradient(135deg,#ffffff 0%,#d5dce0 28%,#9aa5ad 52%,#eef2f4 74%,#b4bec5 100%);font-weight:500}
+.svc .d{font-size:13px;line-height:1.35;margin:-2px 0 9px;color:#e8f1ee;max-width:230px}
+.svc:after{background:linear-gradient(180deg,rgba(14,40,36,0) 28%,rgba(14,40,36,.62) 58%,rgba(14,40,36,.9) 100%)}
+.svc .k,.svc .d,.svc h3{text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.svc h3{font-size:25px}
+.sub{padding:0 16px;margin:-4px 0 10px;font-size:13.5px;color:var(--ink2)}
+.sec .hd .eyebrow{display:block}
+.help{margin:0 16px;padding:22px 18px;text-align:center}
+.help h2{font-size:27px;margin:6px 0 8px}
+.help p{margin:0 0 14px;font-size:14px;color:var(--ink2)}
+.help .btn.pri{display:block}
+.help .note{margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(176,188,196,.7);font-size:12.5px;line-height:1.45;color:var(--ink2)}
+.help .note a{color:var(--teal-deep);font-weight:500;border-bottom:1px solid rgba(31,111,102,.4)}
+.band .step{flex:0 0 78%;scroll-snap-align:center}
+.visit2{margin:30px 16px 0;padding:20px 18px}
+.visit2 h2{font-size:26px;margin:6px 0 8px}
+.visit2 address{font-style:normal;font-size:14px;margin-bottom:6px}
+.visit2 .hl{font-size:13px;color:var(--ink2);margin-bottom:14px}
+.visit2 .btns .btn{color:var(--teal-deep);border:1px solid var(--teal-deep);background:#fff;font-size:13.5px}
+.visit2 .btns .btn.pri{background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;border:0}
+
+
+/* ABOUT */
+.hero{aspect-ratio:4/5.35}
+.hero img{object-position:50% 50%}
+.hero h1{font-size:40px;margin-bottom:16px}
+.intro{padding:30px 22px 4px;text-align:left}
+.intro h2{font-size:30px;margin:6px 0 12px}
+.intro p{margin:0 0 12px;font-size:14.5px;color:var(--ink2)}
+.ph{flex:0 0 78%;scroll-snap-align:center;border-radius:18px;overflow:hidden;position:relative;aspect-ratio:4/5;background:#e9dcc8;box-shadow:0 10px 26px rgba(31,111,102,.16)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,40,36,0) 55%,rgba(14,40,36,.82) 100%)}
+.ph .in{position:absolute;left:0;right:0;bottom:0;padding:16px;z-index:2;color:#fff}
+.ph .k{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#E3E9EC;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.ph h3{font-size:25px;margin:3px 0 4px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.ph p{margin:0;font-size:13px;line-height:1.35;color:#eef5f2;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.quote{margin:22px 16px 0;padding:26px 22px;text-align:center}
+.quote q{display:block;quotes:none;font-family:var(--serif);font-style:italic;font-weight:500;font-size:25px;line-height:1.22;color:var(--ink)}
+.quote .eyebrow{display:block;margin-top:12px}
+.fchips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.fchips span{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid rgba(225,232,236,.45);color:#e4f2ee;background:rgba(255,255,255,.07)}
+.band .lead{padding:0 16px;margin:-2px 0 14px;font-size:14px;color:#d6efe9}
+.band .why{flex:0 0 78%}
+.bo{margin:30px 16px 0;padding:24px 18px;text-align:left}
+.bo .eyebrow{display:block}
+.bo h2{font-size:30px;margin:6px 0 10px}
+.bo p.t{margin:0 0 12px;font-size:14.5px;color:var(--ink2)}
+.acc{border-top:1px solid rgba(176,188,196,.7)}
+.acc details{border-bottom:1px solid rgba(176,188,196,.7);padding:12px 2px}
+.acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.1}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:after{content:"+";margin-left:auto;font-family:var(--sans);font-weight:300;font-size:22px;color:var(--teal-deep)}
+.acc details[open] summary:after{content:"\2212"}
+.acc .n{flex:0 0 30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:16px;color:#133C37;background:linear-gradient(135deg,#ffffff 0%,#d5dce0 28%,#9aa5ad 52%,#eef2f4 74%,#b4bec5 100%)}
+.acc p{margin:8px 0 2px 42px;font-size:14px;color:var(--ink2)}
+.bo .fchips span{color:var(--ink2);border-color:rgba(176,188,196,.9);background:#fff}
+.bo .btns{margin-top:16px}
+.thanks{text-align:center;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink);padding:6px 20px 0}
+</style></head>
+<body>
+
+<section class="hero">
+ <img src="img/hero.jpg" alt="Ten Years Younger at dusk" fetchpriority="high">
+ <div class="txt">
+  <div class="eyebrow">Ten Years Younger &middot; Houston, Texas</div>
+  <h1>Where discretion is the <em>standard</em></h1>
+  <div class="btns"><a class="btn pri" href="mailto:Info@10yearsyounger4u.com?subject=Private%20inquiry" target="_top">Inquire Privately</a><a class="btn sec2" href="tel:8329098031" target="_top">Call Us</a></div>
+ </div>
+</section>
+
+<nav class="glass quick" aria-label="Quick actions">
+ <a href="https://www.myaestheticspro.com/BN/index.cfm?D2BFB64A9DF9C64D43CE5587075B5B52FBC66F7FCA968DDF12B85466368C5E81" target="_top"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>Book</a>
+ <a href="tel:8329098031" target="_top"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call</a>
+ <a href="https://www.google.com/maps/search/?api=1&query=16316+FM+529+Suite+C+Houston+TX+77095" target="_top"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Directions</a>
+</nav>
+<div class="open" id="open">Tuesday, Wednesday, Friday and Saturday, 10am to 6pm</div>
+
+<section class="intro">
+ <div class="eyebrow">The sanctuary</div>
+ <h2>A hidden gem, by design</h2>
+ <p>A boutique wellness sanctuary for those who value privacy, precision and care designed entirely around them.</p>
+ <p>Ten Years Younger was never meant to be loud. Our private parking is tucked away from street view, the space is immaculate, and the experience is calm from the moment you arrive.</p>
+ <p>Some of the people we care for live very public lives. Here, that stays outside. Whether it is your first visit or your fiftieth, you receive the same warmth, attention and care.</p>
+</section>
+
+<section class="sec" style="padding-top:14px">
+ <div class="rail" id="r1">
+ <div class="ph"><img loading="lazy" src="img/lobby.jpg" alt=""><div class="in"><div class="k">The lobby</div><h3>A calm arrival</h3><p>Soft light, quiet corners, and nothing rushed.</p></div></div>
+ <div class="ph"><img loading="lazy" src="img/sofa.jpg" alt=""><div class="in"><div class="k">The lounge</div><h3>Wait in comfort</h3><p>A private place to settle in before your visit.</p></div></div>
+ <div class="ph"><img loading="lazy" src="img/room.jpg" alt=""><div class="in"><div class="k">Treatment room</div><h3>Designed around you</h3><p>Clean, comfortable and entirely your own.</p></div></div>
+ </div>
+ <div class="dots" data-for="r1"><i class="on"></i><i></i><i></i></div>
+</section>
+
+<div class="glass quote"><q>The most luxurious thing we can offer is privacy.</q><span class="eyebrow">Our promise</span></div>
+
+<section class="sec band">
+ <div class="hd"><div><div class="eyebrow">Who we serve</div><h2 style="margin-top:6px">Care for people who value discretion</h2></div></div>
+ <p class="lead">If your calendar is guarded and your time is rare, you are who we built this for. So is everyone else who walks through our door. We value each and every client.</p>
+ <div class="rail" id="r2">
+  <div class="why"><div class="n">1</div><h3>Absolute discretion</h3><p>We never discuss who walks through our doors. Your visit, your plan and your name stay with us.</p></div>
+  <div class="why"><div class="n">2</div><h3>Customized to you</h3><p>No menus to choose from, no one-size plans. Every treatment is tailored to your goals, your schedule and your standards.</p></div>
+  <div class="why"><div class="n">3</div><h3>Catered to your comfort</h3><p>From complimentary refreshments to the pace of your day, the details are arranged before you arrive.</p></div>
+ </div>
+ <div class="dots" data-for="r2"><i class="on"></i><i></i><i></i></div>
+</section>
+
+<div class="thanks" style="margin-top:26px">&ldquo;Where the well known and the well loved come to be simply well.&rdquo;</div>
+
+<section class="glass bo">
+ <div class="eyebrow">The private buyout</div>
+ <h2>The entire house, reserved for you</h2>
+ <p class="t">On days when you prefer not to share the building with anyone, we close our doors to everyone else. Full buyouts are accepted exclusively at Ten Years Younger, by inquiry.</p>
+ <div class="acc">
+  <details><summary><span class="n">1</span>Inquire privately</summary><p>Reach us directly. We will learn your goals, your preferences and the day you have in mind.</p></details>
+  <details><summary><span class="n">2</span>Design your day</summary><p>Your treatments, timing and refreshments are planned in advance, built around you.</p></details>
+  <details><summary><span class="n">3</span>Arrive to a closed house</summary><p>No waiting room, no other guests. The space and our full attention are yours alone.</p></details>
+ </div>
+ <div class="fchips" style="margin-top:14px"><span>Exclusive use of the facility</span><span>Private, discreet arrival</span><span>Personalized catering</span><span>Complimentary refreshments</span><span>Friends or guests, if you wish</span></div>
+ <div class="btns"><a class="btn pri" href="mailto:Info@10yearsyounger4u.com?subject=Private%20inquiry" target="_top">Inquire Privately</a></div>
+</section>
+
+<section class="glass visit">
+ <div class="eyebrow">We would love to host you</div>
+ <h2>Find us</h2>
+ <address>16316 FM 529, Suite C<br>Houston, TX 77095</address>
+ <div class="hrs"><span>Mon</span><span class="cl">Closed</span><span>Tue</span><span>10am to 6pm</span><span>Wed</span><span>10am to 6pm</span><span>Thu</span><span class="cl">Closed</span><span>Fri</span><span>10am to 6pm</span><span>Sat</span><span>10am to 6pm</span></div>
+ <div class="btns"><a class="btn pri" href="https://www.myaestheticspro.com/BN/index.cfm?D2BFB64A9DF9C64D43CE5587075B5B52FBC66F7FCA968DDF12B85466368C5E81" target="_top">Book My Appointment</a></div>
+ <div class="btns" style="margin-top:10px"><a class="btn" href="tel:8329098031" target="_top">832-909-8031</a><a class="btn" href="mailto:Info@10yearsyounger4u.com" target="_top">Email</a></div>
+</section>
+<div class="pay">We accept Visa, MasterCard, PayPal, CareCredit, and Cherry.<br>Thank you for being part of the Ten Years Younger family.</div>
+
+<script>
+try{
+document.querySelectorAll('.dots').forEach(function(d){var r=document.getElementById(d.getAttribute('data-for')),ds=d.children;if(!r)return;r.addEventListener('scroll',function(){var c=r.children,m=r.scrollLeft+r.clientWidth/2,b=0,bd=1e9;for(var i=0;i<c.length;i++){var x=Math.abs(c[i].offsetLeft+c[i].offsetWidth/2-m);if(x<bd){bd=x;b=i}}for(var j=0;j<ds.length;j++)ds[j].className=j===b?'on':''},{passive:true})});
+
+var now=new Date(),h=now.getHours(),dow=new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'})),d=dow.getDay(),hr=dow.getHours(),el=document.getElementById('open');
+var openDay=[2,3,5,6].indexOf(d)>-1;
+if(openDay&&hr>=10&&hr<18)el.innerHTML='<b>Open now</b> until 6pm today';
+else if(openDay&&hr<10)el.innerHTML='Opens today at <b>10am</b>';
+else{var nxt=[2,3,5,6],names={2:'Tuesday',3:'Wednesday',5:'Friday',6:'Saturday',0:'',1:'',4:''},k,n=0;for(k=1;k<=7;k++){if(nxt.indexOf((d+k)%7)>-1){n=(d+k)%7;break}}el.innerHTML='Closed now. Opens <b>'+(k===1?'tomorrow':names[n])+'</b> at 10am'}
+}catch(e){}
+</script>
+</body></html>
