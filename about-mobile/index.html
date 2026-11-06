@@ -262,13 +262,13 @@ body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(28,62,58,.12)}
   <form id="inqf" novalidate>
    <p class="s">We will follow up with you personally.</p>
    <input name="name" id="iq-n" placeholder="Your name" autocomplete="name" aria-label="Your name" required>
-   <input name="email" type="email" placeholder="Email" autocomplete="email" aria-label="Email" required>
-   <input name="phone" type="tel" placeholder="Phone (optional)" autocomplete="tel" aria-label="Phone">
+   <input name="email" type="email" placeholder="Email" autocomplete="email" aria-label="Email">
+   <input name="phone" type="tel" placeholder="Phone" autocomplete="tel" aria-label="Phone">
    <textarea name="message" placeholder="A date in mind, a question" aria-label="Note"></textarea>
    <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
    <div class="row"><button type="button" class="lnk addn" id="addn">+ Add a note</button><button type="button" class="lnk mute" id="canq">Cancel</button></div>
    <button class="go" type="submit">Send privately</button>
-   <div class="fine">Please keep medical details out of this note.</div>
+   <div class="fine">Email or phone, whichever you prefer. Please keep medical details out of this note.</div>
   </form>
   <div class="ok"><h3>Thank you</h3><p class="s">We will be in touch personally.</p></div>
  </div>
@@ -290,7 +290,7 @@ var ENDPOINT='https://formsubmit.co/ajax/Info@10yearsyounger4u.com';/* set to a 
 var iq=document.getElementById('inquire'),fm=document.getElementById('inqf');
 document.querySelectorAll('[data-inq]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var bb=iq.previousElementSibling;if(bb)bb.style.display='none';iq.classList.add('open');iq.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){try{document.getElementById('iq-n').focus({preventScroll:true})}catch(x){}},400)})});
 document.getElementById('addn').onclick=function(){iq.classList.add('note');fm.message.focus()};document.getElementById('canq').onclick=function(){iq.classList.remove('open');iq.previousElementSibling.style.display=''};
-fm.addEventListener('submit',function(e){e.preventDefault();if(fm.website.value)return;var n=fm.name.value.trim(),em=fm.email.value.trim();if(!n||!/^\S+@\S+\.\S+$/.test(em)){(n?fm.email:fm.name).focus();return}
+fm.addEventListener('submit',function(e){e.preventDefault();if(fm.website.value)return;var n=fm.name.value.trim(),em=fm.email.value.trim();var ph=fm.phone.value.trim();if(!n){fm.name.focus();return}if(!/^\S+@\S+\.\S+$/.test(em)&&ph.replace(/\D/g,'').length<7){(em?fm.email:fm.email).focus();fm.email.placeholder='Email or phone, so we can reach you';return}
 var d={name:n,email:em,phone:fm.phone.value.trim(),message:fm.message.value.trim(),_subject:'Private inquiry from '+n};
 if(ENDPOINT){fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;iq.classList.add('sent')}).catch(function(){location.href=mail(d)})}
 else{window.top.location.href=mail(d);iq.classList.add('sent')}});
