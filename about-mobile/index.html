@@ -177,6 +177,22 @@ body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(28,62,58,.12)}
 .bo .fchips span{color:var(--ink2);border-color:rgba(176,188,196,.9);background:#fff}
 .bo .btns{margin-top:16px}
 .thanks{text-align:center;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink);padding:6px 20px 0}
+
+.inq{display:none;margin-top:16px;text-align:left}
+.inq.open{display:block}
+.inq .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.inq h3{font-size:24px;margin:2px 0 4px}
+.inq p.s{font-size:13.5px;color:var(--ink2);margin:0 0 12px}
+.inq label{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);font-weight:500;margin:10px 0 4px}
+.inq input,.inq textarea{width:100%;font:300 16px var(--sans);color:var(--ink);background:rgba(255,255,255,.85);border:1px solid rgba(154,165,173,.8);border-radius:14px;padding:12px 14px;outline:0;box-sizing:border-box}
+.inq textarea{min-height:84px;resize:vertical}
+.inq input:focus,.inq textarea:focus{border-color:var(--teal-deep);box-shadow:0 0 0 3px rgba(91,191,173,.25)}
+.inq .hp{position:absolute;left:-9999px;opacity:0}
+.inq button{width:100%;margin-top:14px;border:0;cursor:pointer;font:500 14.5px var(--sans);letter-spacing:.04em;padding:14px;border-radius:999px;background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;box-shadow:0 8px 22px rgba(31,111,102,.35)}
+.inq .fine{font-size:12px;color:var(--ink2);margin-top:10px;text-align:center}
+.inq .ok{display:none;text-align:center;padding:14px 4px}
+.inq .ok h3{font-size:26px}
+.inq.sent form{display:none}.inq.sent .ok{display:block}
 </style></head>
 <body>
 
@@ -185,7 +201,7 @@ body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(28,62,58,.12)}
  <div class="txt">
   <div class="eyebrow">Ten Years Younger &middot; Houston, Texas</div>
   <h1>Where discretion is the <em>standard</em></h1>
-  <div class="btns"><a class="btn pri" href="mailto:Info@10yearsyounger4u.com?subject=Private%20inquiry" target="_top">Inquire Privately</a><a class="btn sec2" href="tel:8329098031" target="_top">Call Us</a></div>
+  <div class="btns"><a class="btn pri" href="#inquire" data-inq>Inquire Privately</a><a class="btn sec2" href="tel:8329098031" target="_top">Call Us</a></div>
  </div>
 </section>
 
@@ -197,9 +213,9 @@ body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(28,62,58,.12)}
 <div class="open" id="open">Tuesday, Wednesday, Friday and Saturday, 10am to 6pm</div>
 
 <section class="intro">
- <div class="eyebrow">The sanctuary</div>
+ <div class="eyebrow">A haven on earth</div>
  <h2>A hidden gem, by design</h2>
- <p>A boutique wellness sanctuary for those who value privacy, precision and care designed entirely around them.</p>
+ <p>A boutique wellness retreat for those who value privacy, precision and care designed entirely around them.</p>
  <p>Ten Years Younger was never meant to be loud. Our private parking is tucked away from street view, the space is immaculate, and the experience is calm from the moment you arrive.</p>
  <p>Some of the people we care for live very public lives. Here, that stays outside. Whether it is your first visit or your fiftieth, you receive the same warmth, attention and care.</p>
 </section>
@@ -220,7 +236,7 @@ body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(28,62,58,.12)}
  <p class="lead">If your calendar is guarded and your time is rare, you are who we built this for. So is everyone else who walks through our door. We value each and every client.</p>
  <div class="rail" id="r2">
   <div class="why"><div class="n">1</div><h3>Absolute discretion</h3><p>We never discuss who walks through our doors. Your visit, your plan and your name stay with us.</p></div>
-  <div class="why"><div class="n">2</div><h3>Customized to you</h3><p>No menus to choose from, no one-size plans. Every treatment is tailored to your goals, your schedule and your standards.</p></div>
+  <div class="why"><div class="n">2</div><h3>Customized to you</h3><p>Our menu is only where we begin. Every treatment is then tailored entirely to you: your goals, your schedule and your standards.</p></div>
   <div class="why"><div class="n">3</div><h3>Catered to your comfort</h3><p>From complimentary refreshments to the pace of your day, the details are arranged before you arrive.</p></div>
  </div>
  <div class="dots" data-for="r2"><i class="on"></i><i></i><i></i></div>
@@ -238,7 +254,21 @@ body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(28,62,58,.12)}
   <details><summary><span class="n">3</span>Arrive to a closed house</summary><p>No waiting room, no other guests. The space and our full attention are yours alone.</p></details>
  </div>
  <div class="fchips" style="margin-top:14px"><span>Exclusive use of the facility</span><span>Private, discreet arrival</span><span>Personalized catering</span><span>Complimentary refreshments</span><span>Friends or guests, if you wish</span></div>
- <div class="btns"><a class="btn pri" href="mailto:Info@10yearsyounger4u.com?subject=Private%20inquiry" target="_top">Inquire Privately</a></div>
+ <div class="btns"><a class="btn pri" href="#inquire" data-inq>Inquire Privately</a></div>
+ <div class="inq" id="inquire">
+  <form id="inqf" novalidate>
+   <div class="k">Private inquiry</div><h3>Tell us a little</h3>
+   <p class="s">We will follow up with you personally and discreetly.</p>
+   <label for="iq-n">Your name</label><input id="iq-n" name="name" autocomplete="name" required>
+   <label for="iq-e">Email</label><input id="iq-e" name="email" type="email" autocomplete="email" required>
+   <label for="iq-p">Phone (optional)</label><input id="iq-p" name="phone" type="tel" autocomplete="tel">
+   <label for="iq-m">How can we help? (optional)</label><textarea id="iq-m" name="message" placeholder="A date in mind, a private buyout, a question"></textarea>
+   <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+   <button type="submit">Send privately</button>
+   <div class="fine">Please do not include medical details here.</div>
+  </form>
+  <div class="ok"><h3>Thank you</h3><p class="s">Your inquiry has been received. We will be in touch personally.</p></div>
+ </div>
 </section>
 
 <section class="glass visit">
@@ -253,6 +283,15 @@ body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(28,62,58,.12)}
 
 <script>
 try{
+var ENDPOINT='https://formsubmit.co/ajax/Info@10yearsyounger4u.com';/* set to a form service URL to send inquiries automatically; empty uses a private email draft */
+var iq=document.getElementById('inquire'),fm=document.getElementById('inqf');
+document.querySelectorAll('[data-inq]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();iq.classList.add('open');iq.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){try{document.getElementById('iq-n').focus({preventScroll:true})}catch(x){}},400)})});
+fm.addEventListener('submit',function(e){e.preventDefault();if(fm.website.value)return;var n=fm.name.value.trim(),em=fm.email.value.trim();if(!n||!/^\S+@\S+\.\S+$/.test(em)){(n?fm.email:fm.name).focus();return}
+var d={name:n,email:em,phone:fm.phone.value.trim(),message:fm.message.value.trim(),_subject:'Private inquiry from '+n};
+if(ENDPOINT){fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;iq.classList.add('sent')}).catch(function(){location.href=mail(d)})}
+else{window.top.location.href=mail(d);iq.classList.add('sent')}});
+function mail(d){return 'mailto:Info@10yearsyounger4u.com?subject='+encodeURIComponent(d._subject)+'&body='+encodeURIComponent('Name: '+d.name+'\nEmail: '+d.email+'\nPhone: '+d.phone+'\n\n'+d.message)}
+
 document.querySelectorAll('.dots').forEach(function(d){var r=document.getElementById(d.getAttribute('data-for')),ds=d.children;if(!r)return;r.addEventListener('scroll',function(){var c=r.children,m=r.scrollLeft+r.clientWidth/2,b=0,bd=1e9;for(var i=0;i<c.length;i++){var x=Math.abs(c[i].offsetLeft+c[i].offsetWidth/2-m);if(x<bd){bd=x;b=i}}for(var j=0;j<ds.length;j++)ds[j].className=j===b?'on':''},{passive:true})});
 
 var now=new Date(),h=now.getHours(),dow=new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'})),d=dow.getDay(),hr=dow.getHours(),el=document.getElementById('open');
