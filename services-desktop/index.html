@@ -134,6 +134,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .fd{animation:fd .32s ease both}
 @keyframes fd{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.fd{animation:none}}
+
+.rail{display:grid;grid-template-columns:repeat(5,1fr);overflow:visible;padding:8px 2px 10px;margin:0}
+.rail .pt{flex:none;height:330px}.rail .pt h4{font-size:23px}.rail .pt p{-webkit-line-clamp:2}
+.gcs.sub{grid-template-columns:repeat(var(--n,3),1fr)}
+.gcs.sub .gc{min-height:380px}
+.cat:first-child{margin-top:8px}
 </style></head><body>
 <section class="top"><div class="wrap" id="topw"></div></section>
 <section class="lst"><div class="wrap" id="lst"></div></section>
@@ -187,29 +193,34 @@ var GIMG={inj:['filler','50% 18%',1.3],skin:['facials','45% 30%',1.2],well:['iv'
 var GCONC={lines:'inj',volume:'inj',pigment:'skin',tight:'skin',glow:'skin'};
 function gcount(g){var n=0;g[3].forEach(function(c){n+=ITEMS.filter(function(i){return i.cat===c[0]}).length});return n}
 function gcards(){return '<div class="gcs">'+GROUPS.map(function(g){var m=GIMG[g[0]],n=gcount(g);return '<button type="button" class="gc" data-v="g:'+g[0]+'"><span class="ph"><img alt="" src="'+IM+m[0]+'.jpg" style="object-position:'+m[1]+';transform-origin:'+m[1]+';transform:scale('+m[2]+')"></span><span class="tx"><span class="k">'+n+(n===1?' option':' treatments')+'</span><h3>'+esc(g[1])+'</h3><span class="s">'+esc(g[2])+'</span><span class="go">Explore &rarr;</span></span></button>'}).join('')+'</div>'}
+function subcards(g){var n=g[3].length;return '<div class="gcs sub" style="--n:'+Math.min(n,4)+'">'+g[3].map(function(c){var cnt=ITEMS.filter(function(i){return i.cat===c[0]}).length,pl=POOL[c[0]]||['hero'],v=VAR[0];return '<button type="button" class="gc" data-v="s:'+c[0]+'"><span class="ph"><img alt="" src="'+IM+pl[0]+'.jpg" style="object-position:'+v[0]+';transform-origin:'+v[0]+';transform:scale(1.15)"></span><span class="tx"><span class="k">'+cnt+(cnt===1?' option':' options')+'</span><h3>'+esc(c[1])+'</h3><span class="s">'+esc(c[2])+'</span><span class="go">See options &rarr;</span></span></button>'}).join('')+'</div>'}
 function concrow(){return '<div class="cr"><span class="crl">Or start with a concern</span>'+CONC.map(function(c){return '<button type="button" class="cp" data-v="c:'+c.id+'">'+esc(c.t)+'</button>'}).join('')+'</div>'}
 function fade(){['topw','lst'].forEach(function(id){var e=document.getElementById(id);e.classList.remove('fd');void e.offsetWidth;e.classList.add('fd')})}
-function listHtml(gid){
+function listHtml(gid,only){
  var out='';
  GROUPS.forEach(function(g){
   if(gid&&g[0]!==gid)return;
-  var cats=g[3].map(function(c){
+  var cats=g[3].filter(function(c){return !only||c[0]===only}).map(function(c){
    var list=ITEMS.filter(function(i){return i.cat===c[0]&&(!cur||i.g.indexOf(cur)>-1)});
    return list.length?{c:c,list:list}:null}).filter(Boolean);
   if(!cats.length)return;
   out+='<div class="grp">'+(gid?'':'<div class="gh"><div><h2>'+esc(g[1])+'</h2></div></div>')+cats.map(function(x){
    var c=x.c;
-   return '<div class="cat"><div class="ch"><h3>'+esc(c[1])+'</h3><span class="cn">'+x.list.length+(x.list.length===1?' option':' options')+'</span><p>'+esc(c[2])+'</p>'+(c[3]?'<a class="lm" href="'+c[3]+'" target="_top">Learn more</a>':'')+(x.list.length>4?'<span class="nv"><button type="button" class="rb" data-d="-1" aria-label="Previous">&#8249;</button><button type="button" class="rb" data-d="1" aria-label="Next">&#8250;</button></span>':'')+'</div><div class="rw">'+(x.list.length>4?'<button type="button" class="rb l" data-d="-1" aria-label="Previous">&#8249;</button><button type="button" class="rb r" data-d="1" aria-label="Next">&#8250;</button>':'')+'<div class="rail">'+x.list.map(function(it,k){return card(it,k,c[0])}).join('')+'</div></div>'+(cur?'':addon(c[0]))+'</div>'}).join('')+'</div>';
+   return '<div class="cat">'+(only?'':'<div class="ch"><h3>'+esc(c[1])+'</h3><span class="cn">'+x.list.length+(x.list.length===1?' option':' options')+'</span><p>'+esc(c[2])+'</p>'+(c[3]?'<a class="lm" href="'+c[3]+'" target="_top">Learn more</a>':'')+'</div>')+'<div class="rw">'+'<div class="rail">'+x.list.map(function(it,k){return card(it,k,c[0])}).join('')+'</div></div>'+(cur?'':addon(c[0]))+'</div>'}).join('')+'</div>';
  });
  return out||'<div class="none">Nothing here yet.</div>';
 }
 function render(){
  var t=document.getElementById('topw'),l=document.getElementById('lst'),p=view.split(':'),h;
  cur=p[0]==='c'?p[1]:null;
- if(p[0]==='g'){
+ if(p[0]==='s'){
+  var sc=null,sg=null;GROUPS.forEach(function(x){x[3].forEach(function(c){if(c[0]===p[1]){sc=c;sg=x}})});
+  h='<button type="button" class="back" data-v="g:'+sg[0]+'">&larr; '+esc(sg[1])+'</button><h1>'+esc(sc[1])+'</h1><p class="lead">'+esc(sc[2])+'</p>';
+  l.innerHTML=listHtml(sg[0],sc[0]);
+ }else if(p[0]==='g'){
   var g=GROUPS.filter(function(x){return x[0]===p[1]})[0];
   h='<button type="button" class="back" data-v="hub">&larr; All services</button><div class="gnav">'+GROUPS.map(function(x){return '<button type="button" class="pill'+(x[0]===p[1]?' on':'')+'" data-v="g:'+x[0]+'">'+esc(x[1])+'</button>'}).join('')+'</div><span class="eyebrow">Our services</span><h1>'+esc(g[1])+'</h1><p class="lead">'+esc(g[2])+'</p>';
-  l.innerHTML=listHtml(p[1]);
+  l.innerHTML=(gcount(g)>9&&g[3].length>1)?subcards(g):listHtml(p[1]);
  }else if(p[0]==='c'){
   var c=CONC.filter(function(x){return x.id===p[1]})[0];
   h='<button type="button" class="back" data-v="hub">&larr; All services</button><span class="eyebrow">Start with a concern</span><h1>'+esc(c.t)+'</h1><p class="lead">'+esc(c.s)+'</p>';
@@ -231,14 +242,14 @@ render();
 /* Warm every photo so moving between views never waits on an image. */
 setTimeout(function(){['facials','filler','hero','iv','lab','laser','microneedle','sexual','uro','weight'].forEach(function(n){var i=new Image();i.src=IM+n+'.jpg'})},300);
 /* Deep links: the shared nav script (on the parent page) reads ?cat= or ?concern= and tells us, and keeps the address bar in step as we move around. */
-function fromMsg(v){if(v==='hub'||/^g:(inj|skin|well|her|start)$/.test(v)||/^c:(lines|volume|pigment|tight|glow)$/.test(v))go(v,true)}
+function fromMsg(v){if(v==='hub'||/^g:(inj|skin|well|her|start)$/.test(v)||/^c:(lines|volume|pigment|tight|glow)$/.test(v)||(/^s:[a-z]+$/.test(v)&&GROUPS.some(function(x){return x[3].some(function(c){return 's:'+c[0]===v})})))go(v,true)}
 window.addEventListener('message',function(e){
  if(!/^https:\/\/(www\.)?10yearsyounger4u\.com$/.test(e.origin))return;
  var d=e.data; if(!d||typeof d!=='object')return;
  if(typeof d.tyyView==='string')fromMsg(d.tyyView);
  else if(d.tyyConcern)fromMsg('c:'+d.tyyConcern);
 });
-try{var q=new URLSearchParams(location.search),cc=q.get('concern'),ct=q.get('cat');if(cc)fromMsg('c:'+cc);else if(ct)fromMsg('g:'+ct)}catch(x){}
+try{var q=new URLSearchParams(location.search),cc=q.get('concern'),ct=q.get('cat'),sb=q.get('sub');if(cc)fromMsg('c:'+cc);else if(sb)fromMsg('s:'+sb);else if(ct)fromMsg('g:'+ct)}catch(x){}
 try{parent.postMessage({tyyReady:1},'*')}catch(x){}
 (function(){var last=0;function send(){var h=Math.ceil(document.body.getBoundingClientRect().height);if(h&&h!==last){last=h;try{parent.postMessage({tyyHeight:h},'*')}catch(x){}}}
 if(window.ResizeObserver)new ResizeObserver(send).observe(document.body);window.addEventListener('load',send);window.addEventListener('resize',send);setInterval(send,1500)})();
