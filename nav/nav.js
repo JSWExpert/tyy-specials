@@ -46,6 +46,13 @@
     if (host) host.style.display = on ? '' : 'none';
     if (root) root.querySelectorAll('ul a').forEach(function (a) { a.className = a.getAttribute('data-p').split(',').indexOf(p) > -1 ? 'on' : ''; });
   }
+  /* Concern deep links: /services-9?concern=lines. The Services embed asks (tyyReady) and we answer with the concern. */
+  var OKC = ['lines', 'volume', 'pigment', 'tight', 'glow'];
+  window.addEventListener('message', function (e) {
+    if (!e.data || !e.data.tyyReady || !e.source) return;
+    var c = null; try { c = new URLSearchParams(location.search).get('concern'); } catch (x) {}
+    if (c && OKC.indexOf(c) > -1) { try { e.source.postMessage({ tyyConcern: c }, '*'); } catch (x) {} }
+  });
   function start() { build(); apply(); setInterval(apply, 600); window.addEventListener('resize', apply); }
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();

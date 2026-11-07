@@ -157,5 +157,13 @@ function setCur(v){cur=v;render()}
 cc5.addEventListener('click',function(e){var b=e.target.closest('.cc');if(!b)return;var id=CONC[+b.getAttribute('data-i')].id;setCur(cur===id?null:id)});
 document.addEventListener('click',function(e){if(e.target.id==='clr'||e.target.id==='clr2'){e.preventDefault();setCur(null)}});
 render();
+/* Deep link: Home sends users here as /services-9?concern=lines. The shared nav script (on the parent page) reads that and tells us. */
+function applyConcern(id){if(CONC.some(function(c){return c.id===id})){setCur(id)}}
+window.addEventListener('message',function(e){
+ if(!/^https:\/\/(www\.)?10yearsyounger4u\.com$/.test(e.origin))return;
+ var d=e.data; if(d&&typeof d==='object'&&d.tyyConcern)applyConcern(d.tyyConcern);
+});
+try{var q=new URLSearchParams(location.search).get('concern');if(q)applyConcern(q)}catch(x){}
+try{parent.postMessage({tyyReady:1},'*')}catch(x){}
 </script>
 </body></html>
