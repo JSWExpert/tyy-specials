@@ -13,6 +13,11 @@ PAGES={
   goodkick='Good for',goodh='Who it is for',good=['Not sure where to begin','Comparing a few treatments','Wanting a plan that fits your schedule'],
   stepsh='Three easy steps',steps=[('1. Tell us','What you would like to change.'),('2. We recommend','The treatment that fits, and what to use at home.'),('3. You decide','At your pace, with every question answered.')],
   note='',ctah='Not sure where to start?',ctap='Book your appointment and we will walk through it together.'),
+ 'soon':dict(title='Coming soon',kick='Under construction',h1='Something lovely is <em>on its way.</em>',
+  lead='We are rebuilding this part of our site so it is easier to explore. In the meantime, we are happy to guide you in person.',img='../../services-mobile/img/hero.jpg',cta='Book a consultation',
+  goodkick='Coming soon',goodh='What to look forward to',good=['A short quiz that points you to the right treatment','Every treatment explained, with what to expect','Easy booking when you are ready'],
+  stepsh='Until then',steps=[('1. Book','Choose a time that suits you.'),('2. Talk with us','We listen first, then recommend.'),('3. Begin','At your pace, no pressure.')],
+  note='',ctah='Want to start now?',ctap='Book online or call us. We will take it from there.'),
 }
 tpl=open('template.html').read()
 for slug,p in PAGES.items():
