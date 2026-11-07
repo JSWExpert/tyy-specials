@@ -353,20 +353,24 @@ var CONC=[
 ];
 var ccs=document.getElementById('ccs'), cpanel=document.getElementById('cpanel');
 ccs.innerHTML=CONC.map(function(c,i){return '<button type="button" class="cc" data-i="'+i+'"><span class="ic">'+(i+1)+'</span><h3>'+c.t+'</h3><span class="s">'+c.s+'</span></button>'}).join('');
+function showConcern(c,b){
+ [].forEach.call(ccs.children,function(x){x.classList.toggle('on',x===b)});
+ var list=c?c.svc.map(function(k){return SVCS.filter(function(s){return s.key===k})[0]}).filter(Boolean):SVCS;
+ var h=c?'<h3 class="ph">'+c.t+'</h3><p class="pl">Here is where we would start. <a href="#" class="clr" style="color:var(--teal-deep);font-weight:500;text-decoration:underline">Show everything</a></p>':'<h3 class="ph">Or browse everything</h3><p class="pl">Tap a concern above to narrow it down.</p>';
+ h+='<div class="rail">'+list.map(svcCard).join('')+'</div>';
+ if(c&&c.tox)h+='<div class="tbx"><a class="btn chrome" href="'+SITE+'tox-box-offer" target="_top">See the Tox Box</a></div>';
+ if(c&&c.shop)h+='<div class="tbx"><a class="btn chrome" href="'+SITE+'shop" target="_top">Shop skincare</a></div>';
+ var hcs=c?c.hc.map(function(sl){return PRODS.filter(function(p){return p.s===sl})[0]}).filter(Boolean):[];
+ if(hcs.length)h+='<div class="hc"><span class="lbl">Pair it with</span>'+hcs.map(function(p){return '<a href="'+SITE+'product-page/'+p.s+'" target="_top"><img alt="" src="https://static.wixstatic.com/media/'+p.i+'/v1/fit/w_120,h_120,q_85/file.png">'+esc(p.n)+'</a>'}).join('')+'</div>';
+ cpanel.innerHTML=h; cpanel.hidden=false;
+}
 ccs.addEventListener('click',function(e){
  var b=e.target.closest('.cc'); if(!b)return;
- var c=CONC[+b.getAttribute('data-i')];
- [].forEach.call(ccs.children,function(x){x.classList.toggle('on',x===b)});
- var cards=c.svc.map(function(k){return SVCS.filter(function(s){return s.key===k})[0]}).filter(Boolean).map(svcCard).join('');
- var h='<h3 class="ph">'+c.t+'</h3><p class="pl">Here is where we would start.</p><div class="rail">'+cards+'</div>';
- if(c.tox)h+='<div class="tbx"><a class="btn chrome" href="'+SITE+'tox-box-offer" target="_top">See the Tox Box</a></div>';
- if(c.shop)h+='<div class="tbx"><a class="btn chrome" href="'+SITE+'shop" target="_top">Shop skincare</a></div>';
- var hcs=c.hc.map(function(sl){return sl==='ha'?{ha:1}:PRODS.filter(function(p){return p.s===sl})[0]}).filter(Boolean);
- if(hcs.length)h+='<div class="hc"><span class="lbl">Pair it with</span>'+hcs.map(function(p){if(p.ha)return '<span class="hcs"><b>Hyaluronic acid serum</b><small>Ask us at your visit</small></span>';return '<a href="'+SITE+'product-page/'+p.s+'" target="_top"><img alt="" src="https://static.wixstatic.com/media/'+p.i+'/v1/fit/w_120,h_120,q_85/file.png">'+esc(p.n)+'</a>'}).join('')+'</div>';
- cpanel.innerHTML=h; cpanel.hidden=false;
- if(e.isTrusted)cpanel.scrollIntoView({behavior:'smooth',block:'nearest'});
+ var on=b.classList.contains('on');
+ showConcern(on?null:CONC[+b.getAttribute('data-i')],on?null:b);
 });
-ccs.querySelector('.cc').click();
+cpanel.addEventListener('click',function(e){if(e.target.closest('.clr')){e.preventDefault();showConcern(null,null)}});
+showConcern(null,null);
 var tabs=document.getElementById('tabs');
 tabs.innerHTML=TABS.map(function(t,i){return '<button class="tab'+(i?'':' on')+'" data-f="'+t[0]+'">'+t[1]+'</button>'}).join('');
 tabs.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;
