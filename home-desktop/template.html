@@ -197,20 +197,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .cc .ic{width:46px;height:46px;border-radius:50%;background:var(--chrome);display:grid;place-items:center;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--teal-ink)}
 .cc h3{font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.1;color:var(--teal-ink);margin:0}
 .cc span.s{font-size:13px;color:var(--ink2);line-height:1.4}
+.cc .go{margin-top:auto;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--teal-deep);transition:letter-spacing .25s}
+.cc:hover .go{letter-spacing:.22em}
+.cc{transition:transform .3s,box-shadow .3s}.cc:hover{transform:translateY(-4px)}
 .cc.on{background:linear-gradient(160deg,#1F6F66,#133C37);box-shadow:0 22px 44px -18px rgba(19,60,55,.6)}
 .cc.on h3{color:#fff}.cc.on span.s{color:#cfe8e3}
-.cpanel{margin-top:26px;padding:34px 0 6px;min-height:700px;animation:fin .5s both}
-.cpanel h3.ph{font-family:var(--serif);font-weight:500;font-size:34px;color:var(--teal-ink);margin:0 0 6px}
-.cpanel .pl{color:var(--ink2);margin:0 0 22px}
-.cpanel .rail{padding:10px 30px 44px;margin:0 -30px;scroll-padding:0 30px}
-.cpanel .tg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.cpanel .it{display:flex;flex-direction:column;padding:20px 22px 18px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(236,248,244,.8));border:1px solid rgba(157,234,200,.6);box-shadow:0 10px 26px rgba(31,111,102,.09);transition:transform .3s,box-shadow .3s}
-.cpanel .it:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(31,111,102,.16)}
-.cpanel .it h4{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.1;color:var(--teal-ink);margin:0 0 8px}
-.cpanel .it .tm{align-self:flex-start;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--teal-ink);padding:4px 11px;border-radius:999px;background:var(--chrome);margin-bottom:10px}
-.cpanel .it p{margin:0 0 12px;font-size:14px;color:var(--ink2);line-height:1.45}
-.cpanel .it .bk{margin-top:auto;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--teal-deep)}
-.cpanel .seeall{margin-top:22px}
 .hc{margin-top:26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .hc .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);font-weight:500}
 .hc a{display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:999px;background:#fff;box-shadow:0 10px 24px -14px rgba(19,60,55,.4);color:var(--teal-ink);font-weight:500}
@@ -248,7 +239,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
  <div class="wrap">
   <div class="sech"><div><span class="eyebrow">What can we fix for you?</span><h2>Start with what you want to change</h2><p>Tap a concern and we will show you the treatment that fits.</p></div></div>
   <div class="ccs" id="ccs"></div>
-  <div class="cpanel" id="cpanel" hidden></div>
  </div>
 </section>
 
@@ -360,32 +350,8 @@ var CONC=[
  {id:'tight',t:'Skin tightening & firming',s:'Collagen support for firmer skin.',svc:['microneedle','laser'],hc:['collagen-boosting-hydrating-serum']},
  {id:'glow',t:'Daily maintenance & glow',s:'Facials and skincare to keep it going.',svc:['facials'],shop:1,hc:[]}
 ];
-var ccs=document.getElementById('ccs'), cpanel=document.getElementById('cpanel');
-ccs.innerHTML=CONC.map(function(c,i){return '<button type="button" class="cc" data-i="'+i+'"><span class="ic">'+(i+1)+'</span><h3>'+c.t+'</h3><span class="s">'+c.s+'</span></button>'}).join('');
-function itCard(i){return '<article class="it"><h4>'+esc(i.n)+'</h4>'+((SHOWP&&i.p)?'<span class="tm">From '+money(i.p)+'</span>':'')+'<p>'+esc(i.d)+'</p><a class="bk" href="'+(i.soon?SITE+'coming-soon-01':BOOK)+'" target="_top">'+(i.soon?'Learn more':'Book this')+' &rarr;</a></article>'}
-function showConcern(c,b){
- [].forEach.call(ccs.children,function(x){x.classList.toggle('on',x===b)});
- var h;
- if(c){
-  var list=ITEMS.filter(function(i){return i.g.indexOf(c.id)>-1&&!i.soon});
-  var shown=list.slice(0,8);
-  h='<h3 class="ph">'+c.t+'</h3><p class="pl">Here is where we would start. <a href="#" class="clr" style="color:var(--teal-deep);font-weight:500;text-decoration:underline">Show everything</a></p><div class="tg">'+shown.map(itCard).join('')+'</div><div class="seeall"><a class="btn chrome" href="'+SITE+'services-9" target="_top">See all '+list.length+' on the Services page</a></div>';
- }else{
-  h='<h3 class="ph">Or browse everything</h3><p class="pl">Tap a concern above to narrow it down.</p><div class="rail">'+SVCS.map(svcCard).join('')+'</div>';
- }
- if(c&&c.tox)h+='<div class="tbx"><a class="btn chrome" href="'+SITE+'tox-box-offer" target="_top">See the Tox Box</a></div>';
- if(c&&c.shop)h+='<div class="tbx"><a class="btn chrome" href="'+SITE+'shop" target="_top">Shop skincare</a></div>';
- var hcs=c?c.hc.map(function(sl){return PRODS.filter(function(p){return p.s===sl})[0]}).filter(Boolean):[];
- if(hcs.length)h+='<div class="hc"><span class="lbl">Pair it with</span>'+hcs.map(function(p){return '<a href="'+SITE+'product-page/'+p.s+'" target="_top"><img alt="" src="https://static.wixstatic.com/media/'+p.i+'/v1/fit/w_120,h_120,q_85/file.png">'+esc(p.n)+'</a>'}).join('')+'</div>';
- cpanel.innerHTML=h; cpanel.hidden=false;
-}
-ccs.addEventListener('click',function(e){
- var b=e.target.closest('.cc'); if(!b)return;
- var on=b.classList.contains('on');
- showConcern(on?null:CONC[+b.getAttribute('data-i')],on?null:b);
-});
-cpanel.addEventListener('click',function(e){if(e.target.closest('.clr')){e.preventDefault();showConcern(null,null)}});
-showConcern(null,null);
+var ccs=document.getElementById('ccs');
+ccs.innerHTML=CONC.map(function(c,i){return '<a class="cc" href="'+SITE+'services-9?concern='+c.id+'" target="_top"><span class="ic">'+(i+1)+'</span><h3>'+c.t+'</h3><span class="s">'+c.s+'</span><span class="go">See treatments &rarr;</span></a>'}).join('');
 var tabs=document.getElementById('tabs');
 tabs.innerHTML=TABS.map(function(t,i){return '<button class="tab'+(i?'':' on')+'" data-f="'+t[0]+'">'+t[1]+'</button>'}).join('');
 tabs.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;
