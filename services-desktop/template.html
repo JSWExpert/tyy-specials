@@ -79,6 +79,37 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .agw{overflow-x:auto}.ag{width:100%;border-collapse:collapse;font-size:15px}.ag th,.ag td{padding:11px 14px;text-align:center;border-top:1px solid rgba(31,111,102,.14)}.ag thead th{border-top:0;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}.ag tbody th{text-align:left;font-weight:500;color:var(--teal-ink)}.ag td{color:var(--ink2)}
 .al{display:flex;flex-wrap:wrap;gap:10px}.chip.ad b{margin-left:10px;font-weight:500;color:var(--teal-deep)}
 .none{padding:40px 0;text-align:center;color:var(--ink2)}
+
+/* IMAGERY: streaming-style poster rails */
+.cc{position:relative;overflow:hidden;min-height:210px;justify-content:flex-end;padding:0;background:#133C37;color:#fff;isolation:isolate}
+.cc .ph{position:absolute;inset:0;z-index:-2}
+.cc .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.cc:hover .ph img{transform:scale(1.07)}
+.cc:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(19,60,55,.05) 25%,rgba(19,60,55,.92) 100%)}
+.cc .tx{padding:0 18px 18px}
+.cc h3{color:#fff;font-size:22px}.cc .s{color:#d6ece7}
+.cc.on{background:#133C37;box-shadow:0 0 0 3px #5BBFAD,0 16px 36px rgba(19,60,55,.35)}.cc.on h3{color:#fff}.cc.on .s{color:#d6ece7}
+.rw{position:relative}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;padding:8px 2px 24px;margin:0 -2px;scroll-behavior:smooth}
+.rail::-webkit-scrollbar{display:none}
+.pt{position:relative;flex:0 0 280px;height:372px;border-radius:22px;overflow:hidden;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:#133C37;box-shadow:0 12px 30px rgba(19,60,55,.22);transition:transform .35s,box-shadow .35s;isolation:isolate}
+.pt .ph{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.pt .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.pt:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 46px rgba(19,60,55,.34)}
+.pt:hover .ph img{transform:scale(1.08)!important}
+.pt:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(19,60,55,0) 30%,rgba(19,60,55,.55) 58%,rgba(14,46,42,.96) 100%)}
+.pt .px{position:absolute;top:14px;left:14px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--teal-ink);padding:5px 12px;border-radius:999px;background:var(--chrome);box-shadow:inset 0 1px 0 rgba(255,255,255,.85)}
+.pt .bd{padding:0 20px 18px}
+.pt h4{font-family:var(--serif);font-weight:600;font-size:27px;line-height:1.05;color:#fff;margin:0 0 7px}
+.pt p{margin:0 0 8px;font-size:14px;line-height:1.4;color:#dcefea;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pt .op{font-size:12.5px;color:#9fd2c8}
+.pt .bk{display:inline-block;margin-top:6px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:#fff;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px}
+.pt.soon{opacity:.92}
+.rb{position:absolute;top:50%;margin-top:-34px;z-index:5;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;font-size:22px;color:var(--teal-ink);background:var(--chrome);box-shadow:0 8px 22px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.85);opacity:0;transition:opacity .25s}
+.rw:hover .rb{opacity:1}.rb.l{left:-18px}.rb.r{right:-18px}
+.ch .nv{margin-left:auto;display:flex;gap:8px}
+.ch .nv .rb{position:static;margin:0;opacity:1;width:36px;height:36px;font-size:17px}
+@media (max-width:900px){.rb{display:none}}
 </style></head><body>
 <section class="top">
  <div class="wrap">
@@ -114,13 +145,18 @@ var CONC=[
  {id:'pigment',t:'Clearing pigment & sun damage',s:'Even tone, fresher looking skin.'},
  {id:'tight',t:'Skin tightening & firming',s:'Collagen support for firmer skin.'},
  {id:'glow',t:'Daily maintenance & glow',s:'Facials and skincare to keep it going.'}];
+var IM='../services-mobile/img/';
+var POOL={toxin:['filler','laser','facials'],filler:['filler','laser','microneedle'],facials:['facials','microneedle','laser'],needle:['microneedle','facials'],peel:['facials','laser'],eye:['laser','facials','microneedle'],spot:['microneedle','laser'],iv:['iv'],shots:['iv','filler'],weight:['weight'],labs:['lab'],her:['sexual','uro'],cons:['hero','sexual']};
+var VAR=[['50% 40%',1],['20% 15%',1.7],['85% 70%',1.6],['30% 85%',1.8],['75% 15%',1.5],['55% 55%',2.0],['10% 50%',1.6],['90% 30%',1.7]];
+function thumb(cat,k){var pl=POOL[cat]||['hero'],img=pl[k%pl.length],v=VAR[(k+Math.floor(k/pl.length))%VAR.length];return '<span class="ph"><img loading="lazy" alt="" src="'+IM+img+'.jpg" style="object-position:'+v[0]+';transform-origin:'+v[0]+';transform:scale('+v[1]+')"></span>'}
 var cur=null;
 var cc5=document.getElementById('cc5');
-cc5.innerHTML=CONC.map(function(c,i){return '<button type="button" class="cc" data-i="'+i+'"><span class="n">'+(i+1)+'</span><h3>'+c.t+'</h3><span class="s">'+c.s+'</span></button>'}).join('');
-function card(it){
- var pr=(SHOWP&&it.p)?'<span class="tm">From '+money(it.p)+'</span>':'';
- return '<article class="it'+(it.soon?' soon':'')+'"><h4>'+esc(it.n)+'</h4>'+pr+(it.d?'<p>'+esc(it.d)+'</p>':'')+(it.o.length?'<p class="op"><b>Options:</b> '+it.o.map(esc).join(' &middot; ')+'</p>':'')+
- (it.soon?'<a class="bk" href="https://www.10yearsyounger4u.com/coming-soon-01" target="_top">Learn more &rarr;</a>':'<a class="bk" href="'+BOOK+'" target="_top">Book this &rarr;</a>')+'</article>';
+var CIMG=[['filler',['50% 10%',1.4]],['filler',['50% 80%',1.1]],['facials',['40% 30%',1.3]],['laser',['70% 50%',1.3]],['microneedle',['50% 30%',1.1]]];
+cc5.innerHTML=CONC.map(function(c,i){var m=CIMG[i];return '<button type="button" class="cc" data-i="'+i+'"><span class="ph"><img alt="" src="'+IM+m[0]+'.jpg" style="object-position:'+m[1][0]+';transform-origin:'+m[1][0]+';transform:scale('+m[1][1]+')"></span><span class="tx"><h3>'+c.t+'</h3><span class="s">'+c.s+'</span></span></button>'}).join('');
+function card(it,k,cat){
+ var pr=(SHOWP&&it.p)?'<span class="px">From '+money(it.p)+'</span>':'';
+ var href=it.soon?'https://www.10yearsyounger4u.com/coming-soon-01':BOOK;
+ return '<a class="pt'+(it.soon?' soon':'')+'" href="'+href+'" target="_top">'+thumb(cat,k)+pr+'<span class="bd"><h4>'+esc(it.n)+'</h4>'+(it.d?'<p>'+esc(it.d)+'</p>':'')+(it.o.length?'<span class="op">Options: '+it.o.map(esc).join(' &middot; ')+'</span><br>':'')+'<span class="bk">'+(it.soon?'Learn more':'Book this')+' &rarr;</span></span></a>';
 }
 function addon(k){
  var a=ADDONS[k]; if(!a)return '';
@@ -143,7 +179,7 @@ function render(){
   pills+='<a class="pill" href="#g_'+g[0]+'">'+esc(g[1])+'</a>';
   out+='<div class="grp" id="g_'+g[0]+'"><div class="gh"><div><h2>'+esc(g[1])+'</h2><p>'+esc(g[2])+'</p></div></div>'+cats.map(function(x){
    var c=x.c, jelly=c[0]==='jelly';
-   return '<div class="cat"><div class="ch"><h3>'+esc(c[1])+'</h3><span class="cn">'+x.list.length+(x.list.length===1?' option':' options')+'</span><p>'+esc(c[2])+'</p>'+(c[3]?'<a class="lm" href="'+c[3]+'" target="_top">Learn more</a>':'')+'</div>'+(jelly?'<div class="chips">'+x.list.map(card).join('')+'</div>':'<div class="tg'+(x.list.length===4?' c4':'')+'">'+x.list.map(card).join('')+'</div>')+(cur?'':addon(c[0]))+'</div>'}).join('')+'</div>';
+   return '<div class="cat"><div class="ch"><h3>'+esc(c[1])+'</h3><span class="cn">'+x.list.length+(x.list.length===1?' option':' options')+'</span><p>'+esc(c[2])+'</p>'+(c[3]?'<a class="lm" href="'+c[3]+'" target="_top">Learn more</a>':'')+(x.list.length>4?'<span class="nv"><button type="button" class="rb" data-d="-1" aria-label="Previous">&#8249;</button><button type="button" class="rb" data-d="1" aria-label="Next">&#8250;</button></span>':'')+'</div><div class="rw">'+(x.list.length>4?'<button type="button" class="rb l" data-d="-1" aria-label="Previous">&#8249;</button><button type="button" class="rb r" data-d="1" aria-label="Next">&#8250;</button>':'')+'<div class="rail">'+x.list.map(function(it,k){return card(it,k,c[0])}).join('')+'</div></div>'+(cur?'':addon(c[0]))+'</div>'}).join('')+'</div>';
  });
  if(!out)out='<div class="none">Nothing matches that yet. <a href="#" id="clr2" style="text-decoration:underline">Show everything</a></div>';
  document.getElementById('lst').innerHTML=out;
@@ -155,6 +191,7 @@ function render(){
 }
 function setCur(v){cur=v;render()}
 cc5.addEventListener('click',function(e){var b=e.target.closest('.cc');if(!b)return;var id=CONC[+b.getAttribute('data-i')].id;setCur(cur===id?null:id)});
+document.addEventListener('click',function(e){var rb=e.target.closest&&e.target.closest('.rb');if(rb){var cat=rb.closest('.cat'),rail=cat.querySelector('.rail');rail.scrollBy({left:(+rb.getAttribute('data-d'))*rail.clientWidth*0.85,behavior:'smooth'});return}});
 document.addEventListener('click',function(e){if(e.target.id==='clr'||e.target.id==='clr2'){e.preventDefault();setCur(null)}});
 render();
 /* Deep link: Home sends users here as /services-9?concern=lines. The shared nav script (on the parent page) reads that and tells us. */
