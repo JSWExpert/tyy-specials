@@ -111,9 +111,9 @@ ADDONS={
 G=[
  ('inj','Injectables','Smooth lines and restore shape, kept natural.',[('toxin','Wrinkle relaxers','Choose the area. We plan the rest with you at your visit.',''),('filler','Fillers & contouring','Lips, cheeks, chin, jawline and more.','')]),
  ('skin','Skin','Glow, clarity and firmer-feeling skin.',[('facials','Facials & scrubs','Glow-first facials tailored to your skin.',''),('needle','Micro-needling','Collagen-boosting sessions to refine texture and tone.',''),('peel','Chemical peel','Renew the surface for a fresher, smoother complexion.',''),('eye','Under-eye & smile lines','Targeted care for the delicate areas.',''),('spot','Scars & marks','Targeted help for texture and discoloration.','')]),
- ('well','Wellness','Hydration, nutrients and support when you need it.',[('iv','IV therapy','Hydration and nutrients, delivered while you relax.',''),('shots','Vitamin injections','Quick shots, in and out in minutes.',''),('weight','Weight support','Everything we offer that supports your weight goals.',''),('labs','Lab testing','Know your numbers.','')]),
+ ('well','Wellness','Hydration, nutrients and support when you need it.',[('iv','IV therapy','Hydration and nutrients, delivered while you relax.',''),('shots','Vitamin injections','Quick shots, in and out in minutes.',''),('weight','Weight support','Everything we offer that supports your weight goals.','')]),
  ('her',"Women's health",'Private, respectful care for intimate wellness and confidence.',[('her',"Women's health",'Private, respectful care.','')]),
- ('start','Start here','Not sure where to begin? A conversation is the best first step.',[('cons','Consultations','Your consultation happens at your appointment.','')]),
+ ('start','Start here','Not sure where to begin? A conversation is the best first step.',[('cons','Consultations','Your consultation happens at your appointment.',''),('labs','Lab testing','Know your numbers, then plan.','')]),
 ]
 tpl=open('template.html').read()
 html=(tpl.replace('/*ITEMS*/',json.dumps(I,ensure_ascii=False)).replace('/*GROUPS*/',json.dumps(G,ensure_ascii=False)).replace('/*ADDONS*/',json.dumps(ADDONS,ensure_ascii=False)).replace('/*SHOWP*/',json.dumps(SHOW_PRICES)).replace('BOOKURL',BOOK))

@@ -84,14 +84,34 @@
   var OKC = ['lines', 'volume', 'pigment', 'tight', 'glow'];
   window.addEventListener('message', function (e) {
     if (e.data && e.data.tyyHeight && e.source) { fitEmbed(e.source, +e.data.tyyHeight); return; }
+    if (e.data && typeof e.data.tyyNav === 'string' && e.source) {
+      var nv = e.data.tyyNav, qs = nv === 'hub' ? '' : (nv.indexOf('g:') === 0 ? '?cat=' + nv.slice(2) : '?concern=' + nv.slice(2));
+      try { history.pushState(null, '', location.pathname + qs); } catch (x) {}
+      window.scrollTo(0, 0);
+      return;
+    }
     if (e.data && typeof e.data.tyyScroll === 'number' && e.source) {
       var fr = [].slice.call(document.querySelectorAll('iframe')).filter(function (x) { return x.contentWindow === e.source; })[0];
       if (fr) window.scrollTo({ top: fr.getBoundingClientRect().top + window.pageYOffset + e.data.tyyScroll - 100, behavior: 'smooth' });
       return;
     }
     if (!e.data || !e.data.tyyReady || !e.source) return;
-    var c = null; try { c = new URLSearchParams(location.search).get('concern'); } catch (x) {}
-    if (c && OKC.indexOf(c) > -1) { try { e.source.postMessage({ tyyConcern: c }, '*'); } catch (x) {} }
+    var v = viewFromUrl();
+    if (v) { try { e.source.postMessage({ tyyView: v }, '*'); } catch (x) {} }
+  });
+  /* The Services embed is one page with several views. Keep the address bar in step (no reload) and honour Back/Forward. */
+  var GK = ['inj', 'skin', 'well', 'her', 'start'];
+  function viewFromUrl() {
+    try {
+      var q = new URLSearchParams(location.search), c = q.get('concern'), g = q.get('cat');
+      if (c && OKC.indexOf(c) > -1) return 'c:' + c;
+      if (g && GK.indexOf(g) > -1) return 'g:' + g;
+    } catch (x) {}
+    return 'hub';
+  }
+  function svcFrame() { return [].slice.call(document.querySelectorAll('iframe')).filter(function (x) { return /services-desktop/.test(x.src); })[0]; }
+  window.addEventListener('popstate', function () {
+    var f = svcFrame(); if (f && f.contentWindow) { try { f.contentWindow.postMessage({ tyyView: viewFromUrl() }, '*'); } catch (x) {} }
   });
   function start() { build(); apply(); setInterval(apply, 600); window.addEventListener('resize', apply); }
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);

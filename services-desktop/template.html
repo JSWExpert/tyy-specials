@@ -110,17 +110,32 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .ch .nv{margin-left:auto;display:flex;gap:8px}
 .ch .nv .rb{position:static;margin:0;opacity:1;width:36px;height:36px;font-size:17px}
 @media (max-width:900px){.rb{display:none}}
+
+/* HUB + CATEGORY VIEWS */
+.top{padding-bottom:6px}
+.top h1{margin-top:14px}
+.gcs{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:38px}
+.gc{position:relative;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;text-align:left;border:0;cursor:pointer;padding:0;border-radius:26px;background:#133C37;color:#fff;isolation:isolate;box-shadow:0 16px 38px rgba(19,60,55,.26);transition:transform .35s,box-shadow .35s}
+.gc .ph{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.gc .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.gc:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(19,60,55,.04) 28%,rgba(19,60,55,.55) 60%,rgba(14,46,42,.96) 100%)}
+.gc:hover{transform:translateY(-6px);box-shadow:0 26px 52px rgba(19,60,55,.36)}.gc:hover .ph img{transform:scale(1.1)!important}
+.gc .tx{padding:0 22px 24px}
+.gc .k{display:inline-block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--teal-ink);padding:5px 12px;border-radius:999px;background:var(--chrome);box-shadow:inset 0 1px 0 rgba(255,255,255,.85);margin-bottom:12px}
+.gc h3{font-size:34px;color:#fff;margin:0 0 8px}.gc .s{display:block;font-size:14.5px;line-height:1.4;color:#dcefea;margin-bottom:12px}
+.gc .go{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px}
+.cr{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:30px}
+.crl{flex-basis:100%;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-deep);font-weight:500;margin-right:6px}
+.cp{font-size:15px;color:var(--teal-ink);background:#fff;border:0;cursor:pointer;padding:11px 20px;border-radius:999px;box-shadow:0 4px 14px rgba(31,111,102,.10);transition:transform .25s,box-shadow .25s}.cp:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,111,102,.18)}
+.back{display:inline-block;border:0;background:none;cursor:pointer;padding:0;margin-bottom:22px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--teal-deep);border-bottom:1px solid rgba(31,111,102,.4)}
+.gnav{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
+.gnav .pill{border:0;cursor:pointer;font-family:inherit}.gnav .pill.on{color:#fff;background:linear-gradient(135deg,#2F9486,#1F6F66)}
+.lst .grp:first-child{margin-top:20px}
+.fd{animation:fd .32s ease both}
+@keyframes fd{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fd{animation:none}}
 </style></head><body>
-<section class="top">
- <div class="wrap">
-  <span class="eyebrow">Our services</span>
-  <h1>Start with what you want <em>to change.</em></h1>
-  <p class="lead">Tap a concern to narrow things down, or scroll to see everything we offer.</p>
-  <div class="cc5" id="cc5"></div>
-  <div class="bar" id="bar" hidden><span id="bart"></span><a href="#" id="clr">Show everything</a></div>
-  <nav class="pills" id="pills" aria-label="Categories"></nav>
- </div>
-</section>
+<section class="top"><div class="wrap" id="topw"></div></section>
 <section class="lst"><div class="wrap" id="lst"></div></section>
 <section class="consult">
  <div class="wrap"><div class="cg">
@@ -152,10 +167,7 @@ var PAGES={toxin:'neuromodulators',filler:'filler-and-facial-augmentation',facia
 var POOL={toxin:['filler','laser','facials'],filler:['filler','laser','microneedle'],facials:['facials','microneedle','laser'],needle:['microneedle','facials'],peel:['facials','laser'],eye:['laser','facials','microneedle'],spot:['microneedle','laser'],iv:['iv'],shots:['iv','filler'],weight:['weight'],labs:['lab'],her:['sexual','uro'],cons:['hero','sexual']};
 var VAR=[['50% 40%',1],['20% 15%',1.7],['85% 70%',1.6],['30% 85%',1.8],['75% 15%',1.5],['55% 55%',2.0],['10% 50%',1.6],['90% 30%',1.7]];
 function thumb(cat,k){var pl=POOL[cat]||['hero'],img=pl[k%pl.length],v=VAR[(k+Math.floor(k/pl.length))%VAR.length];return '<span class="ph"><img loading="lazy" alt="" src="'+IM+img+'.jpg" style="object-position:'+v[0]+';transform-origin:'+v[0]+';transform:scale('+v[1]+')"></span>'}
-var cur=null;
-var cc5=document.getElementById('cc5');
-var CIMG=[['filler',['50% 10%',1.4]],['filler',['50% 80%',1.1]],['facials',['40% 30%',1.3]],['laser',['70% 50%',1.3]],['microneedle',['50% 30%',1.1]]];
-cc5.innerHTML=CONC.map(function(c,i){var m=CIMG[i];return '<button type="button" class="cc" data-i="'+i+'"><span class="ph"><img alt="" src="'+IM+m[0]+'.jpg" style="object-position:'+m[1][0]+';transform-origin:'+m[1][0]+';transform:scale('+m[1][1]+')"></span><span class="tx"><h3>'+c.t+'</h3><span class="s">'+c.s+'</span></span></button>'}).join('');
+var cur=null,view='hub';
 function card(it,k,cat){
  var pr=(SHOWP&&it.p)?'<span class="px">From '+money(it.p)+'</span>':'';
  var href=it.soon?SITEU+'coming-soon-01':(PAGES[cat]?SITEU+PAGES[cat]:BOOK);
@@ -171,40 +183,62 @@ function addon(k){
  }
  return h+'</div>';
 }
-function render(){
- var out='', pills='';
+var GIMG={inj:['filler','50% 18%',1.3],skin:['facials','45% 30%',1.2],well:['iv','50% 40%',1.1],her:['sexual','50% 35%',1.1],start:['hero','30% 30%',1.1]};
+var GCONC={lines:'inj',volume:'inj',pigment:'skin',tight:'skin',glow:'skin'};
+function gcount(g){var n=0;g[3].forEach(function(c){n+=ITEMS.filter(function(i){return i.cat===c[0]}).length});return n}
+function gcards(){return '<div class="gcs">'+GROUPS.map(function(g){var m=GIMG[g[0]],n=gcount(g);return '<button type="button" class="gc" data-v="g:'+g[0]+'"><span class="ph"><img alt="" src="'+IM+m[0]+'.jpg" style="object-position:'+m[1]+';transform-origin:'+m[1]+';transform:scale('+m[2]+')"></span><span class="tx"><span class="k">'+n+(n===1?' option':' treatments')+'</span><h3>'+esc(g[1])+'</h3><span class="s">'+esc(g[2])+'</span><span class="go">Explore &rarr;</span></span></button>'}).join('')+'</div>'}
+function concrow(){return '<div class="cr"><span class="crl">Or start with a concern</span>'+CONC.map(function(c){return '<button type="button" class="cp" data-v="c:'+c.id+'">'+esc(c.t)+'</button>'}).join('')+'</div>'}
+function fade(){['topw','lst'].forEach(function(id){var e=document.getElementById(id);e.classList.remove('fd');void e.offsetWidth;e.classList.add('fd')})}
+function listHtml(gid){
+ var out='';
  GROUPS.forEach(function(g){
+  if(gid&&g[0]!==gid)return;
   var cats=g[3].map(function(c){
    var list=ITEMS.filter(function(i){return i.cat===c[0]&&(!cur||i.g.indexOf(cur)>-1)});
-   if(g[0]==='her'&&c[0]==='her'){}
    return list.length?{c:c,list:list}:null}).filter(Boolean);
   if(!cats.length)return;
-  pills+='<a class="pill" href="#g_'+g[0]+'">'+esc(g[1])+'</a>';
-  out+='<div class="grp" id="g_'+g[0]+'"><div class="gh"><div><h2>'+esc(g[1])+'</h2><p>'+esc(g[2])+'</p></div></div>'+cats.map(function(x){
-   var c=x.c, jelly=c[0]==='jelly';
+  out+='<div class="grp">'+(gid?'':'<div class="gh"><div><h2>'+esc(g[1])+'</h2></div></div>')+cats.map(function(x){
+   var c=x.c;
    return '<div class="cat"><div class="ch"><h3>'+esc(c[1])+'</h3><span class="cn">'+x.list.length+(x.list.length===1?' option':' options')+'</span><p>'+esc(c[2])+'</p>'+(c[3]?'<a class="lm" href="'+c[3]+'" target="_top">Learn more</a>':'')+(x.list.length>4?'<span class="nv"><button type="button" class="rb" data-d="-1" aria-label="Previous">&#8249;</button><button type="button" class="rb" data-d="1" aria-label="Next">&#8250;</button></span>':'')+'</div><div class="rw">'+(x.list.length>4?'<button type="button" class="rb l" data-d="-1" aria-label="Previous">&#8249;</button><button type="button" class="rb r" data-d="1" aria-label="Next">&#8250;</button>':'')+'<div class="rail">'+x.list.map(function(it,k){return card(it,k,c[0])}).join('')+'</div></div>'+(cur?'':addon(c[0]))+'</div>'}).join('')+'</div>';
  });
- if(!out)out='<div class="none">Nothing matches that yet. <a href="#" id="clr2" style="text-decoration:underline">Show everything</a></div>';
- document.getElementById('lst').innerHTML=out;
- document.getElementById('pills').innerHTML=pills;
- var bar=document.getElementById('bar');
- bar.hidden=!cur;
- if(cur)document.getElementById('bart').innerHTML='Showing treatments for <b>'+esc(CONC.filter(function(c){return c.id===cur})[0].t)+'</b>';
- [].forEach.call(cc5.children,function(b){b.classList.toggle('on',CONC[+b.getAttribute('data-i')].id===cur)});
+ return out||'<div class="none">Nothing here yet.</div>';
 }
-function setCur(v){cur=v;render()}
-cc5.addEventListener('click',function(e){var b=e.target.closest('.cc');if(!b)return;var id=CONC[+b.getAttribute('data-i')].id;setCur(cur===id?null:id)});
-document.addEventListener('click',function(e){var pl=e.target.closest&&e.target.closest('.pill');if(pl){e.preventDefault();var t=document.querySelector(pl.getAttribute('href'));if(t){var y=t.getBoundingClientRect().top+window.pageYOffset;try{parent.postMessage({tyyScroll:y},'*')}catch(x){}window.scrollTo({top:y-90,behavior:'smooth'})}return}});
+function render(){
+ var t=document.getElementById('topw'),l=document.getElementById('lst'),p=view.split(':'),h;
+ cur=p[0]==='c'?p[1]:null;
+ if(p[0]==='g'){
+  var g=GROUPS.filter(function(x){return x[0]===p[1]})[0];
+  h='<button type="button" class="back" data-v="hub">&larr; All services</button><div class="gnav">'+GROUPS.map(function(x){return '<button type="button" class="pill'+(x[0]===p[1]?' on':'')+'" data-v="g:'+x[0]+'">'+esc(x[1])+'</button>'}).join('')+'</div><span class="eyebrow">Our services</span><h1>'+esc(g[1])+'</h1><p class="lead">'+esc(g[2])+'</p>';
+  l.innerHTML=listHtml(p[1]);
+ }else if(p[0]==='c'){
+  var c=CONC.filter(function(x){return x.id===p[1]})[0];
+  h='<button type="button" class="back" data-v="hub">&larr; All services</button><span class="eyebrow">Start with a concern</span><h1>'+esc(c.t)+'</h1><p class="lead">'+esc(c.s)+'</p>';
+  l.innerHTML=listHtml(null);
+ }else{
+  h='<span class="eyebrow">Our services</span><h1>Find your <em>treatment.</em></h1><p class="lead">Choose where to begin. Every path leads to a clear next step and an easy booking.</p>'+gcards()+concrow();
+  l.innerHTML='';
+ }
+ t.innerHTML=h;fade();
+}
+function go(v,fromParent){
+ if(v===view)return;
+ view=v;render();window.scrollTo(0,0);
+ if(!fromParent){try{parent.postMessage({tyyNav:v},'*')}catch(x){}}
+}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-v]');if(b){e.preventDefault();go(b.getAttribute('data-v'))}});
 document.addEventListener('click',function(e){var rb=e.target.closest&&e.target.closest('.rb');if(rb){var cat=rb.closest('.cat'),rail=cat.querySelector('.rail');rail.scrollBy({left:(+rb.getAttribute('data-d'))*rail.clientWidth*0.85,behavior:'smooth'});return}});
-document.addEventListener('click',function(e){if(e.target.id==='clr'||e.target.id==='clr2'){e.preventDefault();setCur(null)}});
 render();
-/* Deep link: Home sends users here as /services-9?concern=lines. The shared nav script (on the parent page) reads that and tells us. */
-function applyConcern(id){if(CONC.some(function(c){return c.id===id})){setCur(id)}}
+/* Warm every photo so moving between views never waits on an image. */
+setTimeout(function(){['facials','filler','hero','iv','lab','laser','microneedle','sexual','uro','weight'].forEach(function(n){var i=new Image();i.src=IM+n+'.jpg'})},300);
+/* Deep links: the shared nav script (on the parent page) reads ?cat= or ?concern= and tells us, and keeps the address bar in step as we move around. */
+function fromMsg(v){if(v==='hub'||/^g:(inj|skin|well|her|start)$/.test(v)||/^c:(lines|volume|pigment|tight|glow)$/.test(v))go(v,true)}
 window.addEventListener('message',function(e){
  if(!/^https:\/\/(www\.)?10yearsyounger4u\.com$/.test(e.origin))return;
- var d=e.data; if(d&&typeof d==='object'&&d.tyyConcern)applyConcern(d.tyyConcern);
+ var d=e.data; if(!d||typeof d!=='object')return;
+ if(typeof d.tyyView==='string')fromMsg(d.tyyView);
+ else if(d.tyyConcern)fromMsg('c:'+d.tyyConcern);
 });
-try{var q=new URLSearchParams(location.search).get('concern');if(q)applyConcern(q)}catch(x){}
+try{var q=new URLSearchParams(location.search),cc=q.get('concern'),ct=q.get('cat');if(cc)fromMsg('c:'+cc);else if(ct)fromMsg('g:'+ct)}catch(x){}
 try{parent.postMessage({tyyReady:1},'*')}catch(x){}
 (function(){var last=0;function send(){var h=Math.ceil(document.body.getBoundingClientRect().height);if(h&&h!==last){last=h;try{parent.postMessage({tyyHeight:h},'*')}catch(x){}}}
 if(window.ResizeObserver)new ResizeObserver(send).observe(document.body);window.addEventListener('load',send);window.addEventListener('resize',send);setInterval(send,1500)})();
