@@ -88,7 +88,7 @@
   window.addEventListener('message', function (e) {
     if (e.data && e.data.tyyHeight && e.source) { fitEmbed(e.source, +e.data.tyyHeight); return; }
     if (e.data && typeof e.data.tyyNav === 'string' && e.source) {
-      var nv = e.data.tyyNav, qs = nv === 'hub' ? '' : (nv.indexOf('g:') === 0 ? '?cat=' + nv.slice(2) : nv.indexOf('s:') === 0 ? '?sub=' + nv.slice(2) : '?concern=' + nv.slice(2));
+      var nv = e.data.tyyNav, qs = nv === 'hub' ? '' : (nv.indexOf('g:') === 0 ? '?cat=' + nv.slice(2) : nv.indexOf('s:') === 0 ? '?sub=' + nv.slice(2) : nv.indexOf('t:') === 0 ? '?t=' + nv.slice(2) : '?concern=' + nv.slice(2));
       try { history.pushState(null, '', location.pathname + qs); } catch (x) {}
       window.scrollTo(0, 0);
       return;
@@ -108,9 +108,11 @@
     try {
       var q = new URLSearchParams(location.search), c = q.get('concern'), g = q.get('cat');
       if (c && OKC.indexOf(c) > -1) return 'c:' + c;
+      var tt0 = q.get('t'); if (tt0 && /^[a-z0-9-]+$/.test(tt0)) return 't:' + tt0;
       var sb0 = q.get('sub'); if (sb0 && /^[a-z]+$/.test(sb0)) return 's:' + sb0;
       if (g && GK.indexOf(g) > -1) return 'g:' + g;
       var sb = q.get('sub'); if (sb && /^[a-z]+$/.test(sb)) return 's:' + sb;
+      var tt = q.get('t'); if (tt && /^[a-z0-9-]+$/.test(tt)) return 't:' + tt;
     } catch (x) {}
     return 'hub';
   }

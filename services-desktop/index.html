@@ -144,6 +144,23 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .np{background:radial-gradient(120% 80% at 80% 0%,rgba(91,191,173,.55),rgba(91,191,173,0) 60%),linear-gradient(160deg,#2a7f75,#17514a 70%)}
 .np1{background:radial-gradient(120% 80% at 15% 0%,rgba(200,226,222,.45),rgba(200,226,222,0) 60%),linear-gradient(160deg,#3a8f84,#1c5c54 70%)}
 .np2{background:radial-gradient(120% 80% at 50% 0%,rgba(157,234,200,.4),rgba(157,234,200,0) 62%),linear-gradient(160deg,#256f66,#133C37 72%)}
+
+.dhero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;margin-top:4px}
+.dhero h1{font-size:clamp(44px,4.6vw,70px);color:var(--teal-ink);margin:12px 0 14px}
+.dhero .lead{font-size:19px;color:#3c5a55;max-width:560px;margin:0 0 20px}
+.dimg{border-radius:30px;overflow:hidden;box-shadow:0 26px 56px rgba(19,60,55,.28);height:500px;background:#133C37}.dimg img{width:100%;height:100%;object-fit:cover;display:block}
+.dopt{font-size:15px;color:var(--teal-deep);margin:0 0 16px}.dopt b{font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:12px;margin-right:8px}
+.dch{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 26px}
+.chipx{font-size:13.5px;color:var(--teal-ink);background:#fff;padding:7px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(31,111,102,.10)}
+.drow{display:flex;gap:12px;flex-wrap:wrap}
+.dsec{margin-top:64px}.dsec h2{font-size:clamp(32px,3.2vw,46px);color:var(--teal-ink);margin:8px 0 0}
+.good{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.good div{padding:26px;border-radius:24px;background:linear-gradient(135deg,#fff,#EAF5F2);box-shadow:0 10px 28px rgba(31,111,102,.10);font-family:var(--serif);font-size:23px;line-height:1.2;color:var(--teal-ink)}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.steps3 div{padding:26px;border-radius:24px;background:linear-gradient(160deg,#1c4f48,#133C37);color:#fff;box-shadow:0 18px 40px -20px rgba(19,60,55,.6)}
+.steps3 b{display:block;font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:6px}.steps3 span{color:#cfeae3;font-size:15.5px}
+.dnote{margin:20px 0 0;font-size:14px;color:var(--ink2)}
+@media (max-width:900px){.dhero,.good,.steps3{grid-template-columns:1fr}}
 </style></head><body>
 <section class="top"><div class="wrap" id="topw"></div></section>
 <section class="lst"><div class="wrap" id="lst"></div></section>
@@ -177,6 +194,21 @@ var PAGES={toxin:'neuromodulators',filler:'filler-and-facial-augmentation',facia
 var POOL={toxin:['filler','laser','facials'],filler:['filler','laser','microneedle'],facials:['facials','microneedle','laser'],needle:['microneedle','facials'],peel:['facials','laser'],eye:['laser','facials','microneedle'],spot:['microneedle','laser'],iv:['iv'],shots:['iv','filler'],weight:['weight'],labs:['lab'],her:['sexual','uro'],cons:['hero','sexual']};
 var VAR=[['50% 40%',1],['20% 15%',1.7],['85% 70%',1.6],['30% 85%',1.8],['75% 15%',1.5],['55% 55%',2.0],['10% 50%',1.6],['90% 30%',1.7]];
 var NEWP={lips:'img/lips.jpg',forehead:'img/forehead.jpg',facial:'img/facial.jpg',shot:'img/shot.jpg'};
+function slug(t){return String(t).toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+(function(){var seen={};ITEMS.forEach(function(i){var b=i.cat+'-'+slug(i.n),x=b,n=2;while(seen[x]){x=b+'-'+n++}seen[x]=1;i.s=x})})();
+var DETAIL={
+ toxin:[['Lines that show when you smile, squint or frown','A natural, rested look, never frozen','Planning one area at a time'],['Tell us','Show us what you notice in the mirror.'],['We plan','We map the area and explain what to expect.'],['Treatment','A short visit, with simple aftercare guidance.']],
+ filler:[['Adding shape and softness where volume has faded','Defining lips, cheeks, chin or jawline','Subtle changes that still look like you'],['Tell us','What you would like to refresh or balance.'],['We plan','We talk through shape, proportion and options.'],['Treatment','A comfortable visit, with aftercare guidance.']],
+ facials:[['A fresh, clean glow','Skin that feels hydrated and refined','A relaxing reset between treatments'],['Tell us','How your skin feels right now.'],['We choose','The facial that fits your skin today.'],['Relax','Settle in while we take care of the rest.']],
+ needle:[['Smoother-looking texture and tone','Supporting your skin over a series of visits','Refining the look of fine lines and pores'],['Consult','We look at your skin and your goals.'],['Treatment','A focused session, tailored to you.'],['Aftercare','Simple steps for the days that follow.']],
+ peel:[['Fresher, brighter-looking skin','Evening the look of tone and texture','Renewing the surface of the skin'],['Consult','We check your skin and your routine.'],['Treatment','A peel chosen to suit your skin.'],['Aftercare','Clear guidance for the days after.']],
+ eye:[['Rested-looking eyes','Softening the look of shadows and fine lines','Gentle, targeted care for a delicate area'],['Consult','We assess the area with you.'],['Plan','We recommend the right approach.'],['Treatment','Careful, unhurried, and comfortable.']],
+ spot:[['Softening the look of marks and texture','Targeted care for areas you notice','A plan built around your skin'],['Consult','Show us what you would like to improve.'],['Plan','We recommend what fits.'],['Treatment','Focused care, with aftercare guidance.']],
+ iv:[['Hydration and replenishing nutrients','Support when you feel run down or busy','Relaxing in a comfortable chair while it works'],['Book','Choose a time that suits you.'],['Settle in','Get comfortable while your drip runs.'],['Go about your day','No downtime needed.']],
+ shots:[['A quick boost in minutes','Easy to add to a regular routine','No long appointment needed'],['Book','Choose a quick visit.'],['Your shot','In and out in minutes.'],['Carry on','Back to your day right away.']],
+ weight:[['Support alongside a plan made for you','Regular check-ins and guidance','Options that fit your goals'],['Talk','We start with your goals.'],['Plan','Your plan is shaped around you.'],['Support','Check-ins along the way.']],
+ her:[['Private, respectful, one-on-one care','Clear explanations in plain language','A comfortable, unhurried visit'],['Talk','A private, no-pressure conversation.'],['Plan','We recommend what fits you.'],['Visit','Comfortable and unhurried.']]
+};
 var NOPH={toxin:1,filler:1,facials:1,shots:1};
 var OWN={'forehead lines':'forehead','lips':'lips','deluxe facial':'facial','b12 injection':'shot'};
 function own(it,cat){return OWN[(it&&it.n||'').toLowerCase()]||null}
@@ -187,7 +219,8 @@ var cur=null,view='hub';
 function card(it,k,cat){
  var pr=(SHOWP&&it.p)?'<span class="px">From '+money(it.p)+'</span>':'';
  var href=it.soon?SITEU+'coming-soon-01':(PAGES[cat]?SITEU+PAGES[cat]:BOOK);
- return '<a class="pt'+(it.soon?' soon':'')+'" href="'+href+'" target="_top">'+thumb(cat,k,it)+pr+'<span class="bd"><h4>'+esc(it.n)+'</h4>'+(it.d?'<p>'+esc(it.d)+'</p>':'')+(it.o.length?'<span class="op">Options: '+it.o.map(esc).join(' &middot; ')+'</span><br>':'')+'<span class="bk">Learn more &rarr;</span></span></a>';
+ var tv=!it.soon&&cat!=='labs'&&cat!=='cons';
+ return '<a class="pt'+(it.soon?' soon':'')+'" href="'+(tv?'#':href)+'"'+(tv?' data-v="t:'+it.s+'"':' target="_top"')+'>'+thumb(cat,k,it)+pr+'<span class="bd"><h4>'+esc(it.n)+'</h4>'+(it.d?'<p>'+esc(it.d)+'</p>':'')+(it.o.length?'<span class="op">Options: '+it.o.map(esc).join(' &middot; ')+'</span><br>':'')+'<span class="bk">Learn more &rarr;</span></span></a>';
 }
 function addon(k){
  var a=ADDONS[k]; if(!a)return '';
@@ -224,7 +257,15 @@ function listHtml(gid,only){
 function render(){
  var t=document.getElementById('topw'),l=document.getElementById('lst'),p=view.split(':'),h;
  cur=p[0]==='c'?p[1]:null;
- if(p[0]==='s'){
+ if(p[0]==='t'){
+  var ti=ITEMS.filter(function(x){return x.s===p[1]})[0],tg=null,tc=null;
+  GROUPS.forEach(function(x){x[3].forEach(function(c){if(c[0]===ti.cat){tc=c;tg=x}})});
+  var back=(gcount(tg)>9&&tg[3].length>1)?'s:'+tc[0]:'g:'+tg[0],dt=DETAIL[ti.cat]||DETAIL.her,pic=own(ti,ti.cat),src=pic?NEWP[pic]:(SUBIMG[ti.cat]||IM+((POOL[ti.cat]||['hero'])[0])+'.jpg');
+  var ch=ti.g.map(function(id){var c=CONC.filter(function(x){return x.id===id})[0];return c?'<span class="chipx">'+esc(c.t)+'</span>':''}).join('');
+  h='<button type="button" class="back" data-v="'+back+'">&larr; '+esc(back.charAt(0)==='s'?tc[1]:tg[1])+'</button><div class="dhero"><div><span class="eyebrow">'+esc(tc[1])+'</span><h1>'+esc(ti.n)+'</h1><p class="lead">'+esc(ti.d||tc[2])+'</p>'+(ti.o.length?'<p class="dopt"><b>Options</b> '+ti.o.map(esc).join(' &middot; ')+'</p>':'')+(ch?'<div class="dch"><span class="crl">Often chosen for</span>'+ch+'</div>':'')+'<div class="drow"><a class="btn pri" href="'+BOOK+'" target="_top">Book a consultation</a><a class="btn soft" href="tel:8329098031" target="_top">Call (832) 909-8031</a></div></div><div class="dimg"><img alt="" src="'+src+'"></div></div>';
+  var sib=ITEMS.filter(function(x){return x.cat===ti.cat&&x.s!==ti.s}).slice(0,5);
+  l.innerHTML='<div class="dsec"><span class="eyebrow">Good for</span><h2>What it is for</h2><div class="good">'+dt[0].map(function(g){return '<div>'+esc(g)+'</div>'}).join('')+'</div></div><div class="dsec"><span class="eyebrow">How it works</span><h2>Simple from start to finish</h2><div class="steps3">'+dt.slice(1).map(function(x,i){return '<div><b>'+(i+1)+'. '+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>'}).join('')+'</div><p class="dnote">Your provider will talk through what is right for you at your visit, including cost. Results vary.</p></div>'+addon(ti.cat)+(sib.length?'<div class="dsec"><span class="eyebrow">More like this</span><div class="rw"><div class="rail">'+sib.map(function(x,k){return card(x,k+1,x.cat)}).join('')+'</div></div></div>':'');
+ }else if(p[0]==='s'){
   var sc=null,sg=null;GROUPS.forEach(function(x){x[3].forEach(function(c){if(c[0]===p[1]){sc=c;sg=x}})});
   h='<button type="button" class="back" data-v="g:'+sg[0]+'">&larr; '+esc(sg[1])+'</button><h1>'+esc(sc[1])+'</h1><p class="lead">'+esc(sc[2])+'</p>';
   l.innerHTML=listHtml(sg[0],sc[0]);
@@ -253,14 +294,14 @@ render();
 /* Warm every photo so moving between views never waits on an image. */
 setTimeout(function(){['facials','filler','hero','iv','lab','laser','microneedle','sexual','uro','weight'].forEach(function(n){var i=new Image();i.src=IM+n+'.jpg'})},300);
 /* Deep links: the shared nav script (on the parent page) reads ?cat= or ?concern= and tells us, and keeps the address bar in step as we move around. */
-function fromMsg(v){if(v==='hub'||/^g:(inj|skin|well|her|start)$/.test(v)||/^c:(lines|volume|pigment|tight|glow)$/.test(v)||(/^s:[a-z]+$/.test(v)&&GROUPS.some(function(x){return x[3].some(function(c){return 's:'+c[0]===v})})))go(v,true)}
+function fromMsg(v){if(v==='hub'||/^g:(inj|skin|well|her|start)$/.test(v)||/^c:(lines|volume|pigment|tight|glow)$/.test(v)||(/^t:[a-z0-9-]+$/.test(v)&&ITEMS.some(function(i){return 't:'+i.s===v}))||(/^s:[a-z]+$/.test(v)&&GROUPS.some(function(x){return x[3].some(function(c){return 's:'+c[0]===v})})))go(v,true)}
 window.addEventListener('message',function(e){
  if(!/^https:\/\/(www\.)?10yearsyounger4u\.com$/.test(e.origin))return;
  var d=e.data; if(!d||typeof d!=='object')return;
  if(typeof d.tyyView==='string')fromMsg(d.tyyView);
  else if(d.tyyConcern)fromMsg('c:'+d.tyyConcern);
 });
-try{var q=new URLSearchParams(location.search),cc=q.get('concern'),ct=q.get('cat'),sb=q.get('sub');if(cc)fromMsg('c:'+cc);else if(sb)fromMsg('s:'+sb);else if(ct)fromMsg('g:'+ct)}catch(x){}
+try{var q=new URLSearchParams(location.search),cc=q.get('concern'),ct=q.get('cat'),sb=q.get('sub'),tt=q.get('t');if(cc)fromMsg('c:'+cc);else if(tt)fromMsg('t:'+tt);else if(sb)fromMsg('s:'+sb);else if(ct)fromMsg('g:'+ct)}catch(x){}
 try{parent.postMessage({tyyReady:1},'*')}catch(x){}
 (function(){var last=0;function send(){var h=Math.ceil(document.body.getBoundingClientRect().height);if(h&&h!==last){last=h;try{parent.postMessage({tyyHeight:h},'*')}catch(x){}}}
 if(window.ResizeObserver)new ResizeObserver(send).observe(document.body);window.addEventListener('load',send);window.addEventListener('resize',send);setInterval(send,1500)})();
