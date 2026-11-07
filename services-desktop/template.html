@@ -194,6 +194,7 @@ function render(){
 }
 function setCur(v){cur=v;render()}
 cc5.addEventListener('click',function(e){var b=e.target.closest('.cc');if(!b)return;var id=CONC[+b.getAttribute('data-i')].id;setCur(cur===id?null:id)});
+document.addEventListener('click',function(e){var pl=e.target.closest&&e.target.closest('.pill');if(pl){e.preventDefault();var t=document.querySelector(pl.getAttribute('href'));if(t){var y=t.getBoundingClientRect().top+window.pageYOffset;try{parent.postMessage({tyyScroll:y},'*')}catch(x){}window.scrollTo({top:y-90,behavior:'smooth'})}return}});
 document.addEventListener('click',function(e){var rb=e.target.closest&&e.target.closest('.rb');if(rb){var cat=rb.closest('.cat'),rail=cat.querySelector('.rail');rail.scrollBy({left:(+rb.getAttribute('data-d'))*rail.clientWidth*0.85,behavior:'smooth'});return}});
 document.addEventListener('click',function(e){if(e.target.id==='clr'||e.target.id==='clr2'){e.preventDefault();setCur(null)}});
 render();
