@@ -71,12 +71,14 @@
     chain.forEach(function (e) { if (e.__tyy) { e.style.removeProperty('height'); e.style.removeProperty('min-height'); e.style.removeProperty('grid-template-rows'); } });
     var B = f.getBoundingClientRect().height;
     var info = chain.map(function (e) { return { e: e, r: e.getBoundingClientRect().height, g: getComputedStyle(e).gridTemplateRows }; });
-    info.forEach(function (n) {
+    info.forEach(function (n, i) {
       if (n.r >= B - 1) {
         n.e.__tyy = 1;
         n.e.style.setProperty('height', (H + (n.r - B)) + 'px', 'important');
         n.e.style.setProperty('min-height', '0', 'important');
-        if (n.g && n.g !== 'none') n.e.style.setProperty('grid-template-rows', n.g.split(' ').map(function (x) { return Math.abs(parseFloat(x) - B) < 1 ? H + 'px' : x; }).join(' '), 'important');
+        /* A grid row holds its child (the previous link in the chain): resize the row that matches that child's natural height. */
+        var ch = i ? info[i - 1] : { r: B };
+        if (n.g && n.g !== 'none') n.e.style.setProperty('grid-template-rows', n.g.split(' ').map(function (x) { return Math.abs(parseFloat(x) - ch.r) < 1.5 ? (H + (ch.r - B)) + 'px' : x; }).join(' '), 'important');
       }
     });
   }
