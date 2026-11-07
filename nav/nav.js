@@ -69,6 +69,11 @@
   var OKC = ['lines', 'volume', 'pigment', 'tight', 'glow'];
   window.addEventListener('message', function (e) {
     if (e.data && e.data.tyyHeight && e.source) { fitEmbed(e.source, +e.data.tyyHeight); return; }
+    if (e.data && typeof e.data.tyyScroll === 'number' && e.source) {
+      var fr = [].slice.call(document.querySelectorAll('iframe')).filter(function (x) { return x.contentWindow === e.source; })[0];
+      if (fr) window.scrollTo({ top: fr.getBoundingClientRect().top + window.pageYOffset + e.data.tyyScroll - 100, behavior: 'smooth' });
+      return;
+    }
     if (!e.data || !e.data.tyyReady || !e.source) return;
     var c = null; try { c = new URLSearchParams(location.search).get('concern'); } catch (x) {}
     if (c && OKC.indexOf(c) > -1) { try { e.source.postMessage({ tyyConcern: c }, '*'); } catch (x) {} }

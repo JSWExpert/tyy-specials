@@ -214,6 +214,37 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 @media (max-width:640px){.brand small{display:none}}
 @media (max-width:1080px){.quick{grid-template-columns:1fr 1fr}.tgrid,.vgrid{grid-template-columns:1fr}.pillars,.rgrid{grid-template-columns:1fr}.tb{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- TWO PATHS ---------- */
+.fork{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:6px}
+.fk{all:unset;box-sizing:border-box;position:relative;cursor:pointer;height:330px;border-radius:28px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;isolation:isolate;box-shadow:0 20px 44px -18px rgba(19,60,55,.5);transition:transform .35s,box-shadow .35s}
+.fk img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .7s}
+.fk:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(19,60,55,.05) 25%,rgba(14,46,42,.92) 100%)}
+.fk:hover{transform:translateY(-5px)}.fk:hover img{transform:scale(1.06)}
+.fk:focus-visible{outline:3px solid var(--teal)}
+.fk .fx{padding:0 34px 30px;display:block}
+.fk .k{display:inline-block;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:6px 14px;border-radius:999px;background:var(--chrome);color:var(--teal-ink);margin-bottom:14px}
+.fk h3{font-family:var(--serif);font-weight:500;font-size:40px;line-height:1.05;margin:0 0 8px;color:#fff}
+.fk p{margin:0 0 14px;font-size:16.5px;color:#dcefea;max-width:420px}
+.fk .go{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;border-bottom:1px solid rgba(255,255,255,.55);padding-bottom:3px}
+.quiz{min-height:330px;border-radius:28px;padding:30px 36px;background:linear-gradient(160deg,#fff,#EAF5F2);box-shadow:0 20px 44px -22px rgba(19,60,55,.4);position:relative}
+.quiz[hidden]{display:none}.fork[hidden]{display:none}
+.qtop{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.qdots{display:flex;gap:8px}.qdots i{width:34px;height:5px;border-radius:5px;background:rgba(31,111,102,.18)}.qdots i.on{background:var(--teal-deep)}
+.qlink{all:unset;cursor:pointer;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--teal-deep);border-bottom:1px solid rgba(31,111,102,.4)}
+.quiz h3{font-family:var(--serif);font-weight:500;font-size:36px;line-height:1.08;color:var(--teal-ink);margin:0 0 20px}
+.qopts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.qo{all:unset;box-sizing:border-box;cursor:pointer;padding:18px 20px;border-radius:20px;background:#fff;box-shadow:0 8px 22px rgba(31,111,102,.12);font-family:var(--serif);font-size:23px;line-height:1.1;color:var(--teal-ink);transition:transform .25s,box-shadow .25s,background .25s;display:flex;flex-direction:column;gap:6px;min-height:84px}
+.qo small{font-family:var(--sans);font-size:13px;color:var(--ink2);line-height:1.35}
+.qo:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(31,111,102,.2);background:#F1FAF7}.qo:focus-visible{outline:2px solid var(--teal)}
+.qres{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.qr{position:relative;height:190px;border-radius:20px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;isolation:isolate}
+.qr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.qr:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(19,60,55,0) 25%,rgba(14,46,42,.94) 100%)}
+.qr span{padding:0 16px 14px;font-family:var(--serif);font-size:22px;line-height:1.05;font-weight:500}
+.qr small{display:block;font-family:var(--sans);font-size:12.5px;font-weight:300;color:#cfe8e3;margin-top:3px}
+.qcta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:18px}.qcta .fine{margin:0;font-size:13px;color:var(--ink2)}
+@media (max-width:900px){.fork,.qopts,.qres{grid-template-columns:1fr}}
 </style></head>
 <body>
 
@@ -237,8 +268,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 
 <section class="hub" id="hub">
  <div class="wrap">
-  <div class="sech"><div><span class="eyebrow">What can we fix for you?</span><h2>Start with what you want to change</h2><p>Tap a concern and we will show you the treatment that fits.</p></div></div>
-  <div class="ccs" id="ccs"></div>
+  <div class="sech"><div><span class="eyebrow">Two ways to begin</span><h2>How would you like to start?</h2><p>Let us guide you, or look around at your own pace.</p></div></div>
+  <div class="fork" id="fork">
+   <button type="button" class="fk" id="goGuide"><img src="../services-mobile/img/microneedle.jpg" alt=""><span class="fx"><span class="k">Guided</span><h3>Help me choose</h3><p>Two quick questions, then a starting plan made for you.</p><span class="go">Start the quiz &rarr;</span></span></button>
+   <a class="fk" href="#explore" id="goExplore"><img src="../services-mobile/img/facials.jpg" alt=""><span class="fx"><span class="k">Explore</span><h3>Let me look around</h3><p>Browse by mood at your own pace. No pressure.</p><span class="go">Browse treatments &rarr;</span></span></a>
+  </div>
+  <div class="quiz" id="quiz" hidden></div>
  </div>
 </section>
 
@@ -350,8 +385,36 @@ var CONC=[
  {id:'tight',t:'Skin tightening & firming',s:'Collagen support for firmer skin.',svc:['microneedle','laser'],hc:['collagen-boosting-hydrating-serum']},
  {id:'glow',t:'Daily maintenance & glow',s:'Facials and skincare to keep it going.',svc:['facials'],shop:1,hc:[]}
 ];
-var ccs=document.getElementById('ccs');
-ccs.innerHTML=CONC.map(function(c,i){return '<a class="cc" href="'+SITE+'services-9?concern='+c.id+'" target="_top"><span class="ic">'+(i+1)+'</span><h3>'+c.t+'</h3><span class="s">'+c.s+'</span><span class="go">See treatments &rarr;</span></a>'}).join('');
+/* Guided path: two questions, then a starting plan. */
+(function(){
+ var q=document.getElementById('quiz'), fork=document.getElementById('fork');
+ var BY={}; SVCS.forEach(function(x){BY[x.key]=x});
+ var C=CONC.concat([{id:'notsure',t:'Not sure yet',s:'Show me where people usually begin.',svc:['facials','filler','iv']}]);
+ var W=[{id:'fast',t:'A fresh look, soon',s:'Visible results I can enjoy right away.',pref:['filler','facials','iv']},
+  {id:'long',t:'Healthy skin over time',s:'Building better skin, step by step.',pref:['microneedle','laser','facials']},
+  {id:'feel',t:'Feeling my best overall',s:'Energy, wellness and glow together.',pref:['iv','weight','facials']}];
+ var st={c:null,w:null};
+ function dots(n){return '<span class="qdots">'+[0,1,2].map(function(i){return '<i'+(i<=n?' class="on"':'')+'></i>'}).join('')+'</span>'}
+ function open(){fork.hidden=true;q.hidden=false;step1()}
+ function close(){q.hidden=true;fork.hidden=false;st={c:null,w:null}}
+ function step1(){
+  q.innerHTML='<div class="qtop">'+dots(0)+'<button type="button" class="qlink" data-q="close">Close</button></div><h3>What would you like to change?</h3><div class="qopts">'+C.map(function(c,i){return '<button type="button" class="qo" data-q="c" data-i="'+i+'">'+esc(c.t)+'<small>'+esc(c.s)+'</small></button>'}).join('')+'</div>';
+ }
+ function step2(){
+  q.innerHTML='<div class="qtop">'+dots(1)+'<button type="button" class="qlink" data-q="back1">Back</button></div><h3>What matters most right now?</h3><div class="qopts">'+W.map(function(w,i){return '<button type="button" class="qo" data-q="w" data-i="'+i+'">'+esc(w.t)+'<small>'+esc(w.s)+'</small></button>'}).join('')+'</div>';
+ }
+ function result(){
+  var keys=[]; (st.c.svc||[]).forEach(function(k){if(keys.indexOf(k)<0)keys.push(k)});
+  st.w.pref.forEach(function(k){if(keys.length<3&&keys.indexOf(k)<0)keys.push(k)});
+  keys=keys.slice(0,3).filter(function(k){return BY[k]});
+  var more=st.c.id==='notsure'?SITE+'services-9':SITE+'services-9?concern='+st.c.id;
+  q.innerHTML='<div class="qtop">'+dots(2)+'<button type="button" class="qlink" data-q="again">Start over</button></div><h3>Your starting plan</h3><div class="qres">'+keys.map(function(k){var x=BY[k];return '<a class="qr" href="'+(x.soon?SITE+'coming-soon-01':BOOK)+'" target="_top"><img src="../services-mobile/'+x.img+'" alt=""><span>'+esc(x.title)+'<small>'+esc(x.d)+'</small></span></a>'}).join('')+'</div><div class="qcta"><a class="btn pri" href="'+BOOK+'" target="_top">Book my consultation</a><a class="btn soft" href="'+more+'" target="_top">See all treatments for this</a><p class="fine">A starting point only. Your consultation confirms what fits you best.</p></div>';
+ }
+ document.getElementById('goGuide').addEventListener('click',open);
+ document.getElementById('goExplore').addEventListener('click',function(e){e.preventDefault();var y=document.getElementById('explore').getBoundingClientRect().top+window.pageYOffset;try{parent.postMessage({tyyScroll:y},'*')}catch(x){}window.scrollTo({top:y-90,behavior:'smooth'})});
+ q.addEventListener('click',function(e){var b=e.target.closest('[data-q]');if(!b)return;var a=b.getAttribute('data-q'),i=+b.getAttribute('data-i');
+  if(a==='c'){st.c=C[i];step2()}else if(a==='w'){st.w=W[i];result()}else if(a==='back1'){step1()}else if(a==='again'){st={c:null,w:null};step1()}else if(a==='close'){close()}});
+})();
 var tabs=document.getElementById('tabs');
 tabs.innerHTML=TABS.map(function(t,i){return '<button class="tab'+(i?'':' on')+'" data-f="'+t[0]+'">'+t[1]+'</button>'}).join('');
 tabs.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;

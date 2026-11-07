@@ -1,6 +1,6 @@
 import json
 BOOK="https://www.myaestheticspro.com/BN/index.cfm?D2BFB64A9DF9C64D43CE5587075B5B52FBC66F7FCA968DDF12B85466368C5E81"
-SHOW_PRICES=True   # flip to False to hide every "From $X" chip
+SHOW_PRICES=False   # flip to False to hide every "From $X" chip
 # (cat, name, desc, from_price or 0, options, concern tags)
 I=[]
 def a(cat,name,desc,p=0,opts=(),tags=()): I.append(dict(cat=cat,n=name,d=desc,p=p,o=list(opts),g=list(tags)))
