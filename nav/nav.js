@@ -64,16 +64,16 @@
     if (!(H > 200 && H < 20000)) return;
     var f = [].slice.call(document.querySelectorAll('iframe')).filter(function (x) { return x.contentWindow === src; })[0];
     if (!f) return;
-    var old = f.__tyyOld || f.getBoundingClientRect().height; f.__tyyOld = H;
-    if (Math.abs(old - H) < 2) return;
-    var el = f;
+    /* Idempotent: remember each container's ORIGINAL size once, then always derive from it. */
+    if (!f.__b) f.__b = f.getBoundingClientRect().height;
+    var B = f.__b, el = f;
     while (el && el !== document.body) {
-      var r = el.getBoundingClientRect().height;
-      if (r >= old - 1) {
-        el.style.setProperty('height', (H + (r - old)) + 'px', 'important');
+      if (el.__o === undefined) { el.__o = el.getBoundingClientRect().height; el.__g = getComputedStyle(el).gridTemplateRows; }
+      if (el.__o >= B - 1) {
+        el.style.setProperty('height', (H + (el.__o - B)) + 'px', 'important');
         el.style.setProperty('min-height', '0', 'important');
-        var g = getComputedStyle(el).gridTemplateRows;
-        if (g && g !== 'none') el.style.setProperty('grid-template-rows', g.split(' ').map(function (x) { return Math.abs(parseFloat(x) - old) < 1 ? H + 'px' : x; }).join(' '), 'important');
+        var g = el.__g;
+        if (g && g !== 'none') el.style.setProperty('grid-template-rows', g.split(' ').map(function (x) { return Math.abs(parseFloat(x) - B) < 1 ? H + 'px' : x; }).join(' '), 'important');
       }
       el = el.parentElement;
     }
