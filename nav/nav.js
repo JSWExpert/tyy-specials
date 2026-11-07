@@ -36,12 +36,25 @@
     root.innerHTML = '<style>' + CSS + '</style><nav class="nav" aria-label="Main"><a class="lg" href="' + SITE + '/"><img src="' + BASE + 'logo.png" alt="Ten Years Younger logo"><span><b>Ten Years Younger</b><small>Anti-Aging &amp; Wellness</small></span></a><ul>' + li + '</ul><div class="rt"><a class="pts" href="' + SITE + '/account/my-rewards">View points</a><a class="ic" href="' + SITE + '/account/my-account" aria-label="Log in"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></svg></a><a class="ic" href="' + SITE + '/cart" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></a><a class="bk" href="' + BOOK + '">Book Now</a></div></nav>';
     document.body.appendChild(host);
   }
+  /* On pages whose first real content is a full-width embed, hide the empty Wix sections above it (the embed pads itself for the nav). */
+  function lead() {
+    var f = document.querySelector('iframe[src*="services-desktop"],iframe[src*="services-detail"]');
+    var sec = f && f.closest('section');
+    if (!sec || !sec.parentElement) return false;
+    var kids = [].slice.call(sec.parentElement.children);
+    for (var i = 0; i < kids.indexOf(sec); i++) {
+      var k = kids[i];
+      if (!k.querySelector('iframe') && k.getBoundingClientRect().height <= 80) k.classList.add('tyy-lead');
+    }
+    return true;
+  }
   var st;
   function apply() {
     var on = wide();
     if (!st) { st = document.createElement('style'); st.id = 'tyy-nav-style'; document.head.appendChild(st); }
     var p = location.pathname.replace(/\/$/, '') || '/', home = p === '/';
-    var css = on ? '#SITE_HEADER{display:none!important}' + (home ? '' : 'body{padding-top:96px!important}') : '';
+    var emb = !home && on && lead();
+    var css = on ? '#SITE_HEADER{display:none!important}' + (home || emb ? '' : 'body{padding-top:96px!important}') + (emb ? 'body{padding-top:0!important}.tyy-lead{display:none!important}' : '') : '';
     if (st.textContent !== css) st.textContent = css;
     if (host) host.style.display = on ? '' : 'none';
     if (root) root.querySelectorAll('ul a').forEach(function (a) { a.className = a.getAttribute('data-p').split(',').indexOf(p) > -1 ? 'on' : ''; });
