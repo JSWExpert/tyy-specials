@@ -203,7 +203,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .cc span.s{font-size:13px;color:var(--ink2);line-height:1.4}
 .cc.on{background:linear-gradient(160deg,#1F6F66,#133C37);box-shadow:0 22px 44px -18px rgba(19,60,55,.6)}
 .cc.on h3{color:#fff}.cc.on span.s{color:#cfe8e3}
-.cpanel{margin-top:26px;padding:34px 0 6px;animation:fin .5s both}
+.cpanel{margin-top:26px;padding:34px 0 6px;min-height:700px;animation:fin .5s both}
 .cpanel h3.ph{font-family:var(--serif);font-weight:500;font-size:34px;color:var(--teal-ink);margin:0 0 6px}
 .cpanel .pl{color:var(--ink2);margin:0 0 22px}
 .cpanel .rail{padding:10px 30px 44px;margin:0 -30px;scroll-padding:0 30px}
@@ -369,8 +369,9 @@ ccs.addEventListener('click',function(e){
  var hcs=c.hc.map(function(sl){return sl==='ha'?{ha:1}:PRODS.filter(function(p){return p.s===sl})[0]}).filter(Boolean);
  if(hcs.length)h+='<div class="hc"><span class="lbl">Pair it with</span>'+hcs.map(function(p){if(p.ha)return '<span class="hcs"><b>Hyaluronic acid serum</b><small>Ask us at your visit</small></span>';return '<a href="'+SITE+'product-page/'+p.s+'" target="_top"><img alt="" src="https://static.wixstatic.com/media/'+p.i+'/v1/fit/w_120,h_120,q_85/file.png">'+esc(p.n)+'</a>'}).join('')+'</div>';
  cpanel.innerHTML=h; cpanel.hidden=false;
- cpanel.scrollIntoView({behavior:'smooth',block:'nearest'});
+ if(e.isTrusted)cpanel.scrollIntoView({behavior:'smooth',block:'nearest'});
 });
+ccs.querySelector('.cc').click();
 var tabs=document.getElementById('tabs');
 tabs.innerHTML=TABS.map(function(t,i){return '<button class="tab'+(i?'':' on')+'" data-f="'+t[0]+'">'+t[1]+'</button>'}).join('');
 tabs.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;
