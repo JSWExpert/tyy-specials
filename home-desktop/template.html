@@ -254,7 +254,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
   <span class="eyebrow">Houston's wellness center</span>
   <h1>Look Good. Feel Better. <em>Live Younger.</em></h1>
   <p>From injectables to IV therapy, every treatment is designed to help you look and feel your absolute best.</p>
-  <div class="btns"><a class="btn pri" href="BOOK" target="_top">Book Now</a><a class="btn soft" href="#explore">Explore services</a></div>
+  <div class="btns"><a class="btn pri" href="BOOK" target="_top">Book Now</a><a class="btn soft" href="https://www.10yearsyounger4u.com/services-9" target="_top">Explore services</a></div>
  </div></div>
  <a class="glass tb" href="https://www.10yearsyounger4u.com/tox-box-offer" target="_top"><span class="eyebrow">New this month</span><h3>The Tox Box</h3><span class="big">$1,100</span><p>100 units of wrinkle relaxer, kept on file just for you.</p><span class="btn chrome">Get yours</span></a>
 </header>
@@ -271,7 +271,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
   <div class="sech"><div><span class="eyebrow">Two ways to begin</span><h2>How would you like to start?</h2><p>Let us guide you, or look around at your own pace.</p></div></div>
   <div class="fork" id="fork">
    <button type="button" class="fk" id="goGuide"><img src="../services-mobile/img/microneedle.jpg" alt=""><span class="fx"><span class="k">Guided</span><h3>Help me choose</h3><p>Two quick questions, then a starting plan made for you.</p><span class="go">Start the quiz &rarr;</span></span></button>
-   <a class="fk" href="#explore" id="goExplore"><img src="../services-mobile/img/facials.jpg" alt=""><span class="fx"><span class="k">Explore</span><h3>Let me look around</h3><p>Browse by mood at your own pace. No pressure.</p><span class="go">Browse treatments &rarr;</span></span></a>
+   <a class="fk" href="https://www.10yearsyounger4u.com/services-9" target="_top" id="goExplore"><img src="../services-mobile/img/facials.jpg" alt=""><span class="fx"><span class="k">Explore</span><h3>Let me look around</h3><p>Browse every treatment at your own pace. No pressure.</p><span class="go">Browse treatments &rarr;</span></span></a>
   </div>
   <div class="quiz" id="quiz" hidden></div>
  </div>
@@ -284,7 +284,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
  </div>
 </section>
 
-<section class="explore" id="explore">
+<section class="explore" id="explore" hidden>
  <div class="wrap"><div class="sech"><div><span class="eyebrow">Pick your mood</span><h2>What are you in the mood for?</h2></div><div class="arrows"><button class="arw" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button class="arw" id="next" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
  <div class="tabs" id="tabs"></div></div>
  <div class="rail" id="svcrail"></div>
@@ -411,7 +411,6 @@ var CONC=[
   q.innerHTML='<div class="qtop">'+dots(2)+'<button type="button" class="qlink" data-q="again">Start over</button></div><h3>Your starting plan</h3><div class="qres">'+keys.map(function(k){var x=BY[k];return '<a class="qr" href="'+(x.soon?SITE+'coming-soon-01':(x.full||SITE+'services-9'))+'" target="_top"><img src="../services-mobile/'+x.img+'" alt=""><span>'+esc(x.title)+'<small>'+esc(x.d)+'</small></span></a>'}).join('')+'</div><div class="qcta"><a class="btn pri" href="'+BOOK+'" target="_top">Book my consultation</a><a class="btn soft" href="'+more+'" target="_top">See all treatments for this</a><p class="fine">A starting point only. Your consultation confirms what fits you best.</p></div>';
  }
  document.getElementById('goGuide').addEventListener('click',open);
- document.getElementById('goExplore').addEventListener('click',function(e){e.preventDefault();var y=document.getElementById('explore').getBoundingClientRect().top+window.pageYOffset;try{parent.postMessage({tyyScroll:y},'*')}catch(x){}window.scrollTo({top:y-90,behavior:'smooth'})});
  q.addEventListener('click',function(e){var b=e.target.closest('[data-q]');if(!b)return;var a=b.getAttribute('data-q'),i=+b.getAttribute('data-i');
   if(a==='c'){st.c=C[i];step2()}else if(a==='w'){st.w=W[i];result()}else if(a==='back1'){step1()}else if(a==='again'){st={c:null,w:null};step1()}else if(a==='close'){close()}});
 })();
