@@ -65,6 +65,7 @@
     var f = [].slice.call(document.querySelectorAll('iframe')).filter(function (x) { return x.contentWindow === src; })[0];
     if (!f || f.__last === H) return;
     f.__last = H;
+    apply(); /* make sure the empty Wix sections above the embed are already hidden before we measure */
     /* Idempotent: clear our own overrides, measure the natural layout, then apply from that. */
     var chain = [], el = f;
     while (el && el !== document.body) { chain.push(el); el = el.parentElement; }
