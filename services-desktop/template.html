@@ -73,6 +73,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .it.soon{opacity:.85}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{padding:11px 20px;border-radius:999px;background:#fff;color:var(--teal-ink);font-size:15px;box-shadow:0 4px 14px rgba(31,111,102,.10);transition:transform .25s,box-shadow .25s}.chip:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,111,102,.18)}
+.ao{margin-top:20px;padding:22px 26px;border-radius:22px;border:1.5px dashed rgba(31,111,102,.38);background:rgba(232,247,245,.55)}
+.aoh{display:flex;gap:16px;align-items:center;margin-bottom:16px}.aoh .plus{flex:0 0 40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:26px;font-weight:300;color:var(--teal-ink);background:var(--chrome)}
+.aoh h5{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--teal-ink);margin:0}.aoh p{margin:2px 0 0;font-size:14px;color:var(--ink2)}
+.agw{overflow-x:auto}.ag{width:100%;border-collapse:collapse;font-size:15px}.ag th,.ag td{padding:11px 14px;text-align:center;border-top:1px solid rgba(31,111,102,.14)}.ag thead th{border-top:0;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}.ag tbody th{text-align:left;font-weight:500;color:var(--teal-ink)}.ag td{color:var(--ink2)}
+.al{display:flex;flex-wrap:wrap;gap:10px}.chip.ad b{margin-left:10px;font-weight:500;color:var(--teal-deep)}
 .none{padding:40px 0;text-align:center;color:var(--ink2)}
 </style></head><body>
 <section class="top">
@@ -100,7 +105,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 </section>
 <div class="foot">16316 FM 529, Suite C, Houston, TX 77095</div>
 <script>
-var BOOK='BOOKURL', ITEMS=/*ITEMS*/, GROUPS=/*GROUPS*/;
+var BOOK='BOOKURL', ITEMS=/*ITEMS*/, GROUPS=/*GROUPS*/, ADDONS=/*ADDONS*/, SHOWP=/*SHOWP*/;
+function money(n){return '$'+(n%1?n.toFixed(2):n)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var CONC=[
  {id:'lines',t:'Smoothing lines & wrinkles',s:'Soften the lines you see in the mirror.'},
@@ -112,9 +118,19 @@ var cur=null;
 var cc5=document.getElementById('cc5');
 cc5.innerHTML=CONC.map(function(c,i){return '<button type="button" class="cc" data-i="'+i+'"><span class="n">'+(i+1)+'</span><h3>'+c.t+'</h3><span class="s">'+c.s+'</span></button>'}).join('');
 function card(it){
- if(it.cat==='jelly')return '<a class="chip" href="'+BOOK+'" target="_top">'+esc(it.n)+'</a>';
- return '<article class="it'+(it.soon?' soon':'')+'"><h4>'+esc(it.n)+'</h4>'+(it.t?'<span class="tm">'+esc(it.t)+'</span>':'')+(it.b?'<p>'+esc(it.b)+'</p>':'')+(it.o.length?'<p class="op"><b>Options:</b> '+it.o.map(esc).join(' &middot; ')+'</p>':'')+
+ var pr=(SHOWP&&it.p)?'<span class="tm">From '+money(it.p)+'</span>':'';
+ return '<article class="it'+(it.soon?' soon':'')+'"><h4>'+esc(it.n)+'</h4>'+pr+(it.d?'<p>'+esc(it.d)+'</p>':'')+(it.o.length?'<p class="op"><b>Options:</b> '+it.o.map(esc).join(' &middot; ')+'</p>':'')+
  (it.soon?'<a class="bk" href="https://www.10yearsyounger4u.com/coming-soon-01" target="_top">Learn more &rarr;</a>':'<a class="bk" href="'+BOOK+'" target="_top">Book this &rarr;</a>')+'</article>';
+}
+function addon(k){
+ var a=ADDONS[k]; if(!a)return '';
+ var h='<div class="ao"><div class="aoh"><span class="plus">+</span><div><h5>'+esc(a.title)+'</h5><p>'+esc(a.note)+'</p></div></div>';
+ if(a.type==='grid'){
+  h+='<div class="agw"><table class="ag"><thead><tr><th></th>'+a.cols.map(function(c){return '<th>'+esc(c)+'</th>'}).join('')+'</tr></thead><tbody>'+a.rows.map(function(r){return '<tr><th>'+esc(r[0])+'</th>'+r[1].map(function(v){return '<td>'+(v?(SHOWP?'+'+money(v):'&#10003;'):'&ndash;')+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>';
+ }else{
+  h+='<div class="al">'+a.items.map(function(i){return '<a class="chip ad" href="'+BOOK+'" target="_top">'+esc(i[0])+(SHOWP?'<b>+'+money(i[1])+'</b>':'')+'</a>'}).join('')+'</div>';
+ }
+ return h+'</div>';
 }
 function render(){
  var out='', pills='';
@@ -127,7 +143,7 @@ function render(){
   pills+='<a class="pill" href="#g_'+g[0]+'">'+esc(g[1])+'</a>';
   out+='<div class="grp" id="g_'+g[0]+'"><div class="gh"><div><h2>'+esc(g[1])+'</h2><p>'+esc(g[2])+'</p></div></div>'+cats.map(function(x){
    var c=x.c, jelly=c[0]==='jelly';
-   return '<div class="cat"><div class="ch"><h3>'+esc(c[1])+'</h3><span class="cn">'+x.list.length+(x.list.length===1?' option':' options')+'</span><p>'+esc(c[2])+'</p>'+(c[3]?'<a class="lm" href="'+c[3]+'" target="_top">Learn more</a>':'')+'</div>'+(jelly?'<div class="chips">'+x.list.map(card).join('')+'</div>':'<div class="tg'+(x.list.length===4?' c4':'')+'">'+x.list.map(card).join('')+'</div>')+'</div>'}).join('')+'</div>';
+   return '<div class="cat"><div class="ch"><h3>'+esc(c[1])+'</h3><span class="cn">'+x.list.length+(x.list.length===1?' option':' options')+'</span><p>'+esc(c[2])+'</p>'+(c[3]?'<a class="lm" href="'+c[3]+'" target="_top">Learn more</a>':'')+'</div>'+(jelly?'<div class="chips">'+x.list.map(card).join('')+'</div>':'<div class="tg'+(x.list.length===4?' c4':'')+'">'+x.list.map(card).join('')+'</div>')+(cur?'':addon(c[0]))+'</div>'}).join('')+'</div>';
  });
  if(!out)out='<div class="none">Nothing matches that yet. <a href="#" id="clr2" style="text-decoration:underline">Show everything</a></div>';
  document.getElementById('lst').innerHTML=out;
