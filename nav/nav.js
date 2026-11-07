@@ -63,20 +63,22 @@
   function fitEmbed(src, H) {
     if (!(H > 200 && H < 20000)) return;
     var f = [].slice.call(document.querySelectorAll('iframe')).filter(function (x) { return x.contentWindow === src; })[0];
-    if (!f) return;
-    /* Idempotent: remember each container's ORIGINAL size once, then always derive from it. */
-    if (!f.__b) f.__b = f.getBoundingClientRect().height;
-    var B = f.__b, el = f;
-    while (el && el !== document.body) {
-      if (el.__o === undefined) { el.__o = el.getBoundingClientRect().height; el.__g = getComputedStyle(el).gridTemplateRows; }
-      if (el.__o >= B - 1) {
-        el.style.setProperty('height', (H + (el.__o - B)) + 'px', 'important');
-        el.style.setProperty('min-height', '0', 'important');
-        var g = el.__g;
-        if (g && g !== 'none') el.style.setProperty('grid-template-rows', g.split(' ').map(function (x) { return Math.abs(parseFloat(x) - B) < 1 ? H + 'px' : x; }).join(' '), 'important');
+    if (!f || f.__last === H) return;
+    f.__last = H;
+    /* Idempotent: clear our own overrides, measure the natural layout, then apply from that. */
+    var chain = [], el = f;
+    while (el && el !== document.body) { chain.push(el); el = el.parentElement; }
+    chain.forEach(function (e) { if (e.__tyy) { e.style.removeProperty('height'); e.style.removeProperty('min-height'); e.style.removeProperty('grid-template-rows'); } });
+    var B = f.getBoundingClientRect().height;
+    var info = chain.map(function (e) { return { e: e, r: e.getBoundingClientRect().height, g: getComputedStyle(e).gridTemplateRows }; });
+    info.forEach(function (n) {
+      if (n.r >= B - 1) {
+        n.e.__tyy = 1;
+        n.e.style.setProperty('height', (H + (n.r - B)) + 'px', 'important');
+        n.e.style.setProperty('min-height', '0', 'important');
+        if (n.g && n.g !== 'none') n.e.style.setProperty('grid-template-rows', n.g.split(' ').map(function (x) { return Math.abs(parseFloat(x) - B) < 1 ? H + 'px' : x; }).join(' '), 'important');
       }
-      el = el.parentElement;
-    }
+    });
   }
   /* Concern deep links: /services-9?concern=lines. The Services embed asks (tyyReady) and we answer with the concern. */
   var OKC = ['lines', 'volume', 'pigment', 'tight', 'glow'];
