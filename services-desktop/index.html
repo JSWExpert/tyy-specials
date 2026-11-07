@@ -140,6 +140,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .gcs.sub{grid-template-columns:repeat(var(--n,3),1fr)}
 .gcs.sub .gc{min-height:380px}
 .cat:first-child{margin-top:8px}
+
+.np{background:radial-gradient(120% 80% at 80% 0%,rgba(91,191,173,.55),rgba(91,191,173,0) 60%),linear-gradient(160deg,#2a7f75,#17514a 70%)}
+.np1{background:radial-gradient(120% 80% at 15% 0%,rgba(200,226,222,.45),rgba(200,226,222,0) 60%),linear-gradient(160deg,#3a8f84,#1c5c54 70%)}
+.np2{background:radial-gradient(120% 80% at 50% 0%,rgba(157,234,200,.4),rgba(157,234,200,0) 62%),linear-gradient(160deg,#256f66,#133C37 72%)}
 </style></head><body>
 <section class="top"><div class="wrap" id="topw"></div></section>
 <section class="lst"><div class="wrap" id="lst"></div></section>
@@ -173,14 +177,11 @@ var PAGES={toxin:'neuromodulators',filler:'filler-and-facial-augmentation',facia
 var POOL={toxin:['filler','laser','facials'],filler:['filler','laser','microneedle'],facials:['facials','microneedle','laser'],needle:['microneedle','facials'],peel:['facials','laser'],eye:['laser','facials','microneedle'],spot:['microneedle','laser'],iv:['iv'],shots:['iv','filler'],weight:['weight'],labs:['lab'],her:['sexual','uro'],cons:['hero','sexual']};
 var VAR=[['50% 40%',1],['20% 15%',1.7],['85% 70%',1.6],['30% 85%',1.8],['75% 15%',1.5],['55% 55%',2.0],['10% 50%',1.6],['90% 30%',1.7]];
 var NEWP={lips:'img/lips.jpg',forehead:'img/forehead.jpg',facial:'img/facial.jpg',shot:'img/shot.jpg'};
-function own(it,cat){var n=(it&&it.n||'').toLowerCase();
- if(cat==='toxin'&&/lip/.test(n))return 'lips';
- if(cat==='filler'&&/^lips|lip /.test(n))return 'lips';
- if(cat==='toxin')return 'forehead';
- if(cat==='facials')return 'facial';
- if(cat==='shots')return 'shot';
- return null}
-function thumb(cat,k,it){var o=own(it,cat);if(o){var v=VAR[k%VAR.length];return '<span class="ph"><img loading="lazy" alt="" src="'+NEWP[o]+'" style="object-position:'+v[0]+';transform-origin:'+v[0]+';transform:scale('+(1+(v[1]-1)*0.35).toFixed(2)+')"></span>'}
+var NOPH={toxin:1,filler:1,facials:1,shots:1};
+var OWN={'forehead lines':'forehead','lips':'lips','deluxe facial':'facial','b12 injection':'shot'};
+function own(it,cat){return OWN[(it&&it.n||'').toLowerCase()]||null}
+function thumb(cat,k,it){var o=own(it,cat);if(o){return '<span class="ph"><img loading="lazy" alt="" src="'+NEWP[o]+'" style="object-position:50% 40%"></span>'}
+ if(it&&!it.soon&&NOPH[cat])return '<span class="ph np np'+(k%3)+'"></span>';
 var pl=POOL[cat]||['hero'],img=pl[k%pl.length],v=VAR[(k+Math.floor(k/pl.length))%VAR.length];return '<span class="ph"><img loading="lazy" alt="" src="'+IM+img+'.jpg" style="object-position:'+v[0]+';transform-origin:'+v[0]+';transform:scale('+v[1]+')"></span>'}
 var cur=null,view='hub';
 function card(it,k,cat){
@@ -198,10 +199,10 @@ function addon(k){
  }
  return h+'</div>';
 }
-var GIMG={inj:['../services-desktop/img/forehead','50% 30%',1.0],skin:['../services-desktop/img/facial','50% 40%',1.0],well:['iv','50% 40%',1.1],her:['sexual','50% 35%',1.1],start:['hero','30% 30%',1.1]};
+var GIMG={inj:['img/forehead','50% 30%',1.0],skin:['img/facial','50% 40%',1.0],well:['iv','50% 40%',1.1],her:['sexual','50% 35%',1.1],start:['hero','30% 30%',1.1]};
 var GCONC={lines:'inj',volume:'inj',pigment:'skin',tight:'skin',glow:'skin'};
 function gcount(g){var n=0;g[3].forEach(function(c){n+=ITEMS.filter(function(i){return i.cat===c[0]}).length});return n}
-function gcards(){return '<div class="gcs">'+GROUPS.map(function(g){var m=GIMG[g[0]],n=gcount(g);return '<button type="button" class="gc" data-v="g:'+g[0]+'"><span class="ph"><img alt="" src="'+IM+m[0]+'.jpg" style="object-position:'+m[1]+';transform-origin:'+m[1]+';transform:scale('+m[2]+')"></span><span class="tx"><span class="k">'+n+(n===1?' option':' treatments')+'</span><h3>'+esc(g[1])+'</h3><span class="s">'+esc(g[2])+'</span><span class="go">Explore &rarr;</span></span></button>'}).join('')+'</div>'}
+function gcards(){return '<div class="gcs">'+GROUPS.map(function(g){var m=GIMG[g[0]],n=gcount(g);return '<button type="button" class="gc" data-v="g:'+g[0]+'"><span class="ph"><img alt="" src="'+(m[0].indexOf('img/')===0?m[0]:IM+m[0])+'.jpg" style="object-position:'+m[1]+';transform-origin:'+m[1]+';transform:scale('+m[2]+')"></span><span class="tx"><span class="k">'+n+(n===1?' option':' treatments')+'</span><h3>'+esc(g[1])+'</h3><span class="s">'+esc(g[2])+'</span><span class="go">Explore &rarr;</span></span></button>'}).join('')+'</div>'}
 var SUBIMG={toxin:'img/forehead.jpg',filler:'img/lips.jpg',facials:'img/facial.jpg',shots:'img/shot.jpg'};
 function subcards(g){var n=g[3].length;return '<div class="gcs sub" style="--n:'+Math.min(n,4)+'">'+g[3].map(function(c){var cnt=ITEMS.filter(function(i){return i.cat===c[0]}).length,pl=POOL[c[0]]||['hero'],v=VAR[0];return '<button type="button" class="gc" data-v="s:'+c[0]+'"><span class="ph"><img alt="" src="'+(SUBIMG[c[0]]||IM+pl[0]+'.jpg')+'" style="object-position:'+v[0]+';transform-origin:'+v[0]+';transform:scale(1.15)"></span><span class="tx"><span class="k">'+cnt+(cnt===1?' option':' options')+'</span><h3>'+esc(c[1])+'</h3><span class="s">'+esc(c[2])+'</span><span class="go">See options &rarr;</span></span></button>'}).join('')+'</div>'}
 function concrow(){return '<div class="cr"><span class="crl">Or start with a concern</span>'+CONC.map(function(c){return '<button type="button" class="cp" data-v="c:'+c.id+'">'+esc(c.t)+'</button>'}).join('')+'</div>'}
