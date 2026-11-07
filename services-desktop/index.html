@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ten Years Younger | Services (desktop)</title>
+<!-- PROVENANCE: Desktop Services landing page, drafted by Allen (Claude) for Jasmine Wiseman, 2026-11-07. Concern-first: concern, then treatment, then home care (financing skipped by her decision). Treatment copy, links and photos come from services-mobile and the existing site; no new claims, no staff named, no before/after. Sits under the universal nav (nav/nav.js). -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#5BBFAD;--teal-deep:#1F6F66;--teal-ink:#133C37;--frost:#E8F7F5;--ink:#1C3E3A;--ink2:#4A6B66;--cream:#F4F7F4;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--chrome:linear-gradient(135deg,#ffffff 0%,#d5dce0 28%,#9aa5ad 52%,#eef2f4 74%,#b4bec5 100%);--wrap:min(1240px,calc(100% - 64px))}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--cream)}
+body{color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font-family:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
+.wrap{width:var(--wrap);margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;background:linear-gradient(100deg,#46555c,#7d8b94 45%,#4f5d64);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(236,248,244,.8));border:1px solid rgba(157,234,200,.7);border-radius:24px;box-shadow:0 14px 40px rgba(31,111,102,.10)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:500;font-size:15px;letter-spacing:.04em;padding:15px 30px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s,box-shadow .25s,filter .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri{color:#fff;background:linear-gradient(135deg,#2F9486,#1F6F66);box-shadow:0 10px 26px rgba(31,111,102,.38)}
+.btn.chrome{color:var(--teal-ink);background:var(--chrome);box-shadow:0 8px 22px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.85);letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+.btn.soft{color:var(--ink);background:rgba(255,255,255,.8);box-shadow:0 8px 22px rgba(31,111,102,.14)}
+.sech{margin-bottom:28px}.sech h2{font-size:clamp(34px,3.6vw,52px);margin-top:8px}.sech p{margin:10px 0 0;color:var(--ink2);font-size:17px;max-width:600px}
+
+/* TOP */
+.top{position:relative;padding:34px 0 0;background:radial-gradient(60% 90% at 85% 0%,rgba(91,191,173,.22),rgba(91,191,173,0) 65%),linear-gradient(180deg,#eaf6f3,var(--cream))}
+.top h1{font-size:clamp(46px,5vw,76px);color:var(--teal-ink);margin:12px 0 14px;letter-spacing:-.01em}
+.top h1 em{font-style:italic;font-weight:500;color:var(--teal-deep)}
+.top p.lead{font-size:clamp(17px,1.4vw,20px);color:#3c5a55;max-width:620px;margin:0}
+
+/* CONCERN FINDER */
+.finder{display:grid;grid-template-columns:380px 1fr;gap:28px;margin-top:38px;align-items:start}
+.cl{display:grid;gap:12px}
+.cc{display:flex;gap:16px;align-items:center;text-align:left;border:0;cursor:pointer;padding:18px 20px;border-radius:20px;background:#fff;box-shadow:0 6px 20px rgba(31,111,102,.10);transition:transform .25s,box-shadow .25s,background .25s}
+.cc:hover{transform:translateX(4px)}
+.cc .n{flex:0 0 42px;height:42px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:22px;color:var(--teal-ink);background:var(--chrome);box-shadow:inset 0 1px 0 rgba(255,255,255,.85)}
+.cc h3{font-size:23px;color:var(--teal-ink);margin-bottom:3px}.cc .s{font-size:14px;color:var(--ink2);line-height:1.35;display:block}
+.cc.on{background:linear-gradient(150deg,#1c4f48,#133C37);box-shadow:0 16px 36px rgba(19,60,55,.32)}
+.cc.on h3{color:#fff}.cc.on .s{color:#cfeae3}
+.panel{min-height:720px;padding:34px 34px 30px}
+.panel .ph{font-size:clamp(30px,3vw,42px);color:var(--teal-ink)}
+.panel .pl{margin:8px 0 22px;color:var(--ink2);font-size:16.5px}
+.tr{display:grid;grid-template-columns:230px 1fr;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 10px 28px rgba(31,111,102,.12);margin-bottom:18px}
+.tr img{width:100%;height:100%;object-fit:cover;min-height:230px;display:block}
+.tr .b{padding:22px 26px}
+.tr .k{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.tr h3{font-size:31px;margin:4px 0 8px;color:var(--teal-ink)}
+.tr p{margin:0 0 12px;color:var(--ink2);font-size:15.5px}
+.tr dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0 0 16px;font-size:14.5px;color:var(--ink2)}
+.tr dt{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);font-weight:500;padding-top:3px}.tr dd{margin:0}
+.tr .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.tr .lk{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.soon{display:inline-block;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;padding:5px 12px;border-radius:999px;color:var(--teal-ink);background:var(--chrome);font-weight:500;margin-left:8px;vertical-align:middle}
+.hc{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border-radius:18px;background:var(--frost);margin-top:6px}
+.hc .lbl{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.hc a{display:flex;align-items:center;gap:12px;font-weight:500;color:var(--teal-ink);font-size:15px;padding:6px 14px 6px 6px;border-radius:999px;background:#fff;box-shadow:0 4px 12px rgba(31,111,102,.10)}
+.hc img{width:44px;height:44px;border-radius:50%;object-fit:contain;background:#f1f5f3}
+.extra{margin-top:14px}
+
+/* ALL TREATMENTS */
+.all{padding:84px 0 0}
+.grp{margin-bottom:38px}
+.grp h3{font-size:30px;color:var(--teal-ink);margin:0 0 6px}.grp .gd{margin:0 0 18px;color:var(--ink2);font-size:15.5px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{position:relative;aspect-ratio:4/4.6;border-radius:22px;overflow:hidden;background:#cfe6e0;box-shadow:0 14px 34px rgba(31,111,102,.16);transition:transform .35s,box-shadow .35s;display:block}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(31,111,102,.26)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}.card:hover img{transform:scale(1.05)}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,40,36,0) 38%,rgba(14,40,36,.7) 66%,rgba(14,40,36,.92))}
+.card .in{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px;color:#fff}
+.card .kk{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#E3E9EC;font-weight:500;margin-bottom:4px}
+.card h3{font-size:29px;margin-bottom:6px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.card p{margin:0 0 12px;font-size:14px;line-height:1.4;color:#e8f1ee;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.card .go{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:#bff2e0}
+.card .soon{position:absolute;top:14px;left:14px;z-index:3;margin:0}
+
+/* CONSULT */
+.consult{margin-top:70px}
+.cg{display:grid;grid-template-columns:420px 1fr;border-radius:28px;overflow:hidden;color:#fff;background:linear-gradient(150deg,#1c4f48,#133C37 80%);box-shadow:0 24px 54px rgba(19,60,55,.3);border:1px solid rgba(176,188,196,.7)}
+.cg img{width:100%;height:100%;object-fit:cover;object-position:30% 30%;display:block;min-height:420px}
+.cg .t{padding:46px 50px}
+.cg h2{font-size:clamp(34px,3.4vw,50px);margin:10px 0 14px}
+.cg p{color:#d6ece7;font-size:17px;max-width:560px;margin:0 0 26px}
+.cg .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 30px;padding:0;list-style:none}
+.cg .steps li{font-size:14.5px;color:#cfeae3;padding-top:12px;border-top:1px solid rgba(255,255,255,.2)}
+.cg .steps b{display:block;font-family:var(--serif);font-size:20px;color:#fff;font-weight:600;margin-bottom:2px}
+.cg .row{display:flex;gap:14px;flex-wrap:wrap}
+.cg .btn.ghost{color:#fff;background:rgba(255,255,255,.14)}
+.foot{padding:70px 0 70px;text-align:center;color:var(--ink2);font-size:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+
+<section class="top">
+ <div class="wrap">
+  <span class="eyebrow">Our services</span>
+  <h1>Start with what you want <em>to change.</em></h1>
+  <p class="lead">Tell us the concern. We will show you the treatment that fits, and what to take home to keep it going.</p>
+  <div class="finder">
+   <div class="cl" id="cl"></div>
+   <div class="glass panel" id="panel"></div>
+  </div>
+ </div>
+</section>
+
+<section class="all" id="all">
+ <div class="wrap">
+  <div class="sech"><span class="eyebrow">Browse everything</span><h2>All of our treatments</h2><p>Prefer to browse? Every service we offer, in one place.</p></div>
+  <div id="groups"></div>
+ </div>
+</section>
+
+<section class="consult">
+ <div class="wrap"><div class="cg">
+  <img src="../services-mobile/img/hero.jpg" alt="">
+  <div class="t">
+   <span class="eyebrow" style="background:none;color:#9fd2c8;-webkit-text-fill-color:#9fd2c8">Not sure where to start?</span>
+   <h2>Let us build your plan together.</h2>
+   <p>Your consultation happens at your appointment. We listen first, then shape a plan around your skin, your goals and your schedule. No pressure.</p>
+   <ul class="steps"><li><b>1. Tell us</b>What you would like to change.</li><li><b>2. We recommend</b>The treatment that fits, and what to use at home.</li><li><b>3. You decide</b>At your pace, with every question answered.</li></ul>
+   <div class="row"><a class="btn chrome" href="https://www.myaestheticspro.com/BN/index.cfm?D2BFB64A9DF9C64D43CE5587075B5B52FBC66F7FCA968DDF12B85466368C5E81" target="_top">Book My Appointment</a><a class="btn ghost" href="tel:8329098031" target="_top">Call (832) 909-8031</a></div>
+  </div>
+ </div></div>
+</section>
+<div class="foot">16316 FM 529, Suite C, Houston, TX 77095</div>
+
+<script>
+var SITE='https://www.10yearsyounger4u.com/', BOOK='https://www.myaestheticspro.com/BN/index.cfm?D2BFB64A9DF9C64D43CE5587075B5B52FBC66F7FCA968DDF12B85466368C5E81';
+var SVCS=[{"key": "filler", "img": "img/filler.jpg", "kick": "Face", "title": "Fillers & Facial Augmentation", "d": "Soft, natural contouring for lips, cheeks and more.", "soon": false, "p": "Soft, natural-looking contouring for lips, cheeks, jawline and more.", "good": "Lips, cheeks, jawline, under-eye hollows", "exp": "Your consultation happens at your appointment, then a plan shaped around your face.", "full": "https://www.10yearsyounger4u.com/filler-and-facial-augmentation"}, {"key": "microneedle", "img": "img/microneedle.jpg", "kick": "Skin", "title": "Micro-Needling", "d": "Refine texture and tone with collagen-boosting sessions.", "soon": false, "p": "Collagen-boosting sessions to refine skin texture and tone.", "good": "Texture, tone and fine lines", "exp": "Your consultation happens at your appointment, then a session matched to your skin goals.", "full": "https://www.10yearsyounger4u.com/micro-needling-description-booking-page"}, {"key": "facials", "img": "img/facials.jpg", "kick": "Skin", "title": "Facials & Scrubs", "d": "Glow-first treatments tailored to your skin.", "soon": false, "p": "Glow-first facials and scrubs tailored to your skin.", "good": "Dullness, congestion, a glow before an event", "exp": "A quick skin check at your appointment, then a facial chosen for you.", "full": "https://www.10yearsyounger4u.com/facials-scrubs"}, {"key": "laser", "img": "img/laser.jpg", "kick": "Skin", "title": "Laser Treatments", "d": "A new way to treat your skin is on its way.", "soon": true, "p": "Laser treatments are on their way to Ten Years Younger.", "good": "Anyone curious about laser", "exp": "Tap Learn more for the latest update.", "full": "https://www.10yearsyounger4u.com/coming-soon-01"}, {"key": "iv", "img": "img/iv.jpg", "kick": "Wellness", "title": "IV Therapy", "d": "Hydration and nutrients, delivered while you relax.", "soon": false, "p": "A relaxing way to restore hydration and nutrients.", "good": "A hydration and wellness boost", "exp": "A quick check-in at your appointment, a comfy chair, and time to unwind.", "full": "https://www.10yearsyounger4u.com/iv-therapy"}, {"key": "weight", "img": "img/weight.jpg", "kick": "Wellness", "title": "Weight Loss", "d": "A guided program built around your goals.", "soon": false, "p": "A guided program built around your goals.", "good": "Anyone ready for a supported plan", "exp": "Your consultation happens at your appointment, where we set goals and talk options.", "full": "https://www.10yearsyounger4u.com/weight-loss"}, {"key": "lab", "img": "img/lab.jpg", "kick": "Wellness", "title": "Specialized Lab Testing", "d": "Know your numbers so your plan fits you.", "soon": false, "p": "Specialized lab testing so your plan fits your body.", "good": "A clearer picture of your health", "exp": "Your consultation happens at your appointment, where we see what makes sense.", "full": ""}, {"key": "sexual", "img": "img/sexual.jpg", "kick": "Women's health", "title": "Women's Sexual Health", "d": "Private, respectful care for intimate wellness.", "soon": false, "p": "Private, respectful care for intimate wellness.", "good": "Questions about comfort and confidence", "exp": "A private consultation at your appointment, no pressure.", "full": "https://www.10yearsyounger4u.com/women-sexual-health"}, {"key": "uro", "img": "img/uro.jpg", "kick": "Women's health", "title": "Urinary Incontinence", "d": "Comfortable options for a more confident day.", "soon": false, "p": "Comfortable options for bladder leaks and confidence.", "good": "Anyone tired of planning around leaks", "exp": "A private consultation at your appointment to talk through what may help.", "full": "https://www.10yearsyounger4u.com/urinary-incontinence"}];
+var BY={};SVCS.forEach(function(s){BY[s.key]=s});
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var IMG='../services-mobile/';
+var CONC=[
+ {t:'Smoothing lines & wrinkles',s:'Soften the lines you see in the mirror.',svc:['filler'],tox:1,hc:[]},
+ {t:'Restoring volume & contour',s:'Lips, cheeks and shape, kept natural.',svc:['filler'],hc:[]},
+ {t:'Clearing pigment & sun damage',s:'Even tone, fresher looking skin.',svc:['microneedle','facials'],hc:['collagen-boosting-hydrating-serum']},
+ {t:'Skin tightening & firming',s:'Collagen support for firmer skin.',svc:['microneedle','laser'],hc:['collagen-boosting-hydrating-serum']},
+ {t:'Daily maintenance & glow',s:'Facials and skincare to keep it going.',svc:['facials'],shop:1,hc:[]}
+];
+var PRODS={'collagen-boosting-hydrating-serum':{n:'Collagen Boosting Hydrating Serum',i:'1760c7_09ce62478ddb4621941d4268ef5b4990~mv2.png'}};
+function trCard(s){
+ var link=s.soon?SITE+'coming-soon-01':BOOK, label=s.soon?'Learn more':'Book this';
+ return '<article class="tr"><img alt="" src="'+IMG+s.img+'"><div class="b"><div class="k">'+esc(s.kick)+(s.soon?'<span class="soon">Coming soon</span>':'')+'</div><h3>'+esc(s.title)+'</h3><p>'+esc(s.p)+'</p><dl><dt>Good for</dt><dd>'+esc(s.good)+'</dd><dt>What to expect</dt><dd>'+esc(s.exp)+'</dd></dl><div class="row"><a class="btn pri" href="'+link+'" target="_top">'+label+'</a>'+(s.full?'<a class="lk" href="'+s.full+'" target="_top">Full details</a>':'')+'</div></div></article>';
+}
+var cl=document.getElementById('cl'), panel=document.getElementById('panel');
+cl.innerHTML=CONC.map(function(c,i){return '<button type="button" class="cc" data-i="'+i+'"><span class="n">'+(i+1)+'</span><span><h3>'+c.t+'</h3><span class="s">'+c.s+'</span></span></button>'}).join('');
+cl.addEventListener('click',function(e){
+ var b=e.target.closest('.cc'); if(!b)return;
+ var c=CONC[+b.getAttribute('data-i')];
+ [].forEach.call(cl.children,function(x){x.classList.toggle('on',x===b)});
+ var h='<h3 class="ph">'+c.t+'</h3><p class="pl">Here is where we would start.</p>'+c.svc.map(function(k){return BY[k]}).filter(Boolean).map(trCard).join('');
+ if(c.hc.length)h+='<div class="hc"><span class="lbl">Pair it with</span>'+c.hc.map(function(sl){var p=PRODS[sl];return '<a href="'+SITE+'product-page/'+sl+'" target="_top"><img alt="" src="https://static.wixstatic.com/media/'+p.i+'/v1/fit/w_120,h_120,q_85/file.png">'+esc(p.n)+'</a>'}).join('')+'</div>';
+ if(c.tox)h+='<div class="extra"><a class="btn chrome" href="'+SITE+'tox-box-offer" target="_top">See the Tox Box</a></div>';
+ if(c.shop)h+='<div class="extra"><a class="btn chrome" href="'+SITE+'shop" target="_top">Shop skincare</a></div>';
+ panel.innerHTML=h;
+});
+cl.querySelector('.cc').click();
+var ORDER=['filler','microneedle','facials','laser','iv','weight','lab','sexual','uro'];
+document.getElementById('groups').innerHTML='<div class="cards">'+ORDER.map(function(k){var s=BY[k];if(!s)return '';var link=s.full||BOOK;
+ return '<a class="card" href="'+link+'" target="_top"><img alt="" src="'+IMG+s.img+'">'+(s.soon?'<span class="soon">Coming soon</span>':'')+'<div class="in"><span class="kk">'+esc(s.kick)+'</span><h3>'+esc(s.title)+'</h3><p>'+esc(s.d)+'</p><span class="go">'+(s.soon?'Learn more':(s.full?'Full details':'Book this'))+' &rarr;</span></div></a>'}).join('')+'</div>';
+</script>
+</body></html>
