@@ -370,7 +370,7 @@ var TAGS={filler:['refreshed'],microneedle:['refreshed','glow'],facials:['glow']
 var TABS=[['all','All'],['refreshed','Look refreshed'],['glow','Glow &amp; clear'],['feel','Feel your best'],['her',"Women's wellness"]];
 var rail=document.getElementById('svcrail');
 function svcCard(s){
- var link=s.soon?SITE+'coming-soon-01':(s.full||SITE+'services-9'), label='Learn more';
+ var link=s.soon?SITE+'coming-soon-01':(s.full||(s.key==='lab'?SITE+'lab-testing':SITE+'services-9')), label='Learn more';
  return '<article class="svc" data-tags="'+(TAGS[s.key]||[]).join(' ')+'"><img loading="lazy" src="../services-mobile/'+s.img+'" alt="">'+(s.soon?'<span class="soon">Coming soon</span>':'')+
  '<div class="in"><div class="k">'+esc(s.kick)+'</div><h3>'+esc(s.title)+'</h3><p class="d">'+esc(s.d)+'</p><div class="ft"><button type="button" class="pv">Preview</button><a class="bk" href="'+link+'" target="_top">'+label+'</a></div></div>'+
  '<div class="sheet" role="dialog" aria-label="'+esc(s.title)+' preview" aria-hidden="true"><button type="button" class="x" aria-label="Close preview">&times;</button><div class="k eyebrow">'+esc(s.kick)+'</div><h3>'+esc(s.title)+'</h3><p>'+esc(s.p)+'</p><ul><li><b>Good for</b>'+esc(s.good)+'</li><li><b>What to expect</b>'+esc(s.exp)+'</li></ul><div class="sb"><a class="bk" href="'+link+'" target="_top">'+label+'</a></div></div></article>';
@@ -408,7 +408,7 @@ var CONC=[
   st.w.pref.forEach(function(k){if(keys.length<3&&keys.indexOf(k)<0)keys.push(k)});
   keys=keys.slice(0,3).filter(function(k){return BY[k]});
   var more=st.c.id==='notsure'?SITE+'services-9':SITE+'services-9?concern='+st.c.id;
-  q.innerHTML='<div class="qtop">'+dots(2)+'<button type="button" class="qlink" data-q="again">Start over</button></div><h3>Your starting plan</h3><div class="qres">'+keys.map(function(k){var x=BY[k];return '<a class="qr" href="'+(x.soon?SITE+'coming-soon-01':(x.full||SITE+'services-9'))+'" target="_top"><img src="../services-mobile/'+x.img+'" alt=""><span>'+esc(x.title)+'<small>'+esc(x.d)+'</small></span></a>'}).join('')+'</div><div class="qcta"><a class="btn pri" href="'+BOOK+'" target="_top">Book my consultation</a><a class="btn soft" href="'+more+'" target="_top">See all treatments for this</a><p class="fine">A starting point only. Your consultation confirms what fits you best.</p></div>';
+  q.innerHTML='<div class="qtop">'+dots(2)+'<button type="button" class="qlink" data-q="again">Start over</button></div><h3>Your starting plan</h3><div class="qres">'+keys.map(function(k){var x=BY[k];return '<a class="qr" href="'+(x.soon?SITE+'coming-soon-01':(x.full||(x.key==='lab'?SITE+'lab-testing':SITE+'services-9')))+'" target="_top"><img src="../services-mobile/'+x.img+'" alt=""><span>'+esc(x.title)+'<small>'+esc(x.d)+'</small></span></a>'}).join('')+'</div><div class="qcta"><a class="btn pri" href="'+BOOK+'" target="_top">Book my consultation</a><a class="btn soft" href="'+more+'" target="_top">See all treatments for this</a><p class="fine">A starting point only. Your consultation confirms what fits you best.</p></div>';
  }
  document.getElementById('goGuide').addEventListener('click',open);
  q.addEventListener('click',function(e){var b=e.target.closest('[data-q]');if(!b)return;var a=b.getAttribute('data-q'),i=+b.getAttribute('data-i');
