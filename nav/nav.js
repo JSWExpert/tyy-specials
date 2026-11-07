@@ -13,8 +13,7 @@
     ['Specials', '/specials', ['/specials']],
     ['Financing', '/cherry-payments', ['/cherry-payments', '/financing']]
   ];
-  var CSS = '@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap");' +
-    ':host{all:initial}' +
+  var CSS = ':host{all:initial}' +
     '.nav{position:fixed;z-index:2147483000;top:18px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100vw - 48px));box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:9px 12px 9px 18px;border-radius:999px;background:rgba(255,255,255,.7);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);box-shadow:0 16px 40px -20px rgba(19,60,55,.5),inset 0 1px 0 rgba(255,255,255,.85);font-family:Jost,system-ui,sans-serif}' +
     'a{text-decoration:none;color:#133C37}' +
     '.lg{display:flex;align-items:center;gap:12px}.lg img{width:42px;height:42px;object-fit:contain}' +
@@ -30,6 +29,7 @@
     '@media(max-width:1180px){.lg small,.pts{display:none}}';
   var host, root, wide = function () { return window.innerWidth >= 1000; };
   function build() {
+    var fl = document.createElement('link'); fl.rel = 'stylesheet'; fl.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap'; document.head.appendChild(fl);
     host = document.createElement('div'); host.id = 'tyy-universal-nav';
     root = host.attachShadow({ mode: 'open' });
     var li = LINKS.map(function (l) { return '<li><a href="' + SITE + l[1] + '" data-p="' + l[2].join(',') + '">' + l[0] + '</a></li>'; }).join('');
