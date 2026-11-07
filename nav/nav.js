@@ -46,9 +46,29 @@
     if (host) host.style.display = on ? '' : 'none';
     if (root) root.querySelectorAll('ul a').forEach(function (a) { a.className = a.getAttribute('data-p').split(',').indexOf(p) > -1 ? 'on' : ''; });
   }
+  /* Let a content-driven embed (Services) resize its Wix containers so a filtered page leaves no blank gap. */
+  function fitEmbed(src, H) {
+    if (!(H > 200 && H < 20000)) return;
+    var f = [].slice.call(document.querySelectorAll('iframe')).filter(function (x) { return x.contentWindow === src; })[0];
+    if (!f) return;
+    var old = f.__tyyOld || f.getBoundingClientRect().height; f.__tyyOld = H;
+    if (Math.abs(old - H) < 2) return;
+    var el = f;
+    while (el && el !== document.body) {
+      var r = el.getBoundingClientRect().height;
+      if (r >= old - 1) {
+        el.style.setProperty('height', (H + (r - old)) + 'px', 'important');
+        el.style.setProperty('min-height', '0', 'important');
+        var g = getComputedStyle(el).gridTemplateRows;
+        if (g && g !== 'none') el.style.setProperty('grid-template-rows', g.split(' ').map(function (x) { return Math.abs(parseFloat(x) - old) < 1 ? H + 'px' : x; }).join(' '), 'important');
+      }
+      el = el.parentElement;
+    }
+  }
   /* Concern deep links: /services-9?concern=lines. The Services embed asks (tyyReady) and we answer with the concern. */
   var OKC = ['lines', 'volume', 'pigment', 'tight', 'glow'];
   window.addEventListener('message', function (e) {
+    if (e.data && e.data.tyyHeight && e.source) { fitEmbed(e.source, +e.data.tyyHeight); return; }
     if (!e.data || !e.data.tyyReady || !e.source) return;
     var c = null; try { c = new URLSearchParams(location.search).get('concern'); } catch (x) {}
     if (c && OKC.indexOf(c) > -1) { try { e.source.postMessage({ tyyConcern: c }, '*'); } catch (x) {} }

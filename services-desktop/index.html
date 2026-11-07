@@ -165,5 +165,7 @@ window.addEventListener('message',function(e){
 });
 try{var q=new URLSearchParams(location.search).get('concern');if(q)applyConcern(q)}catch(x){}
 try{parent.postMessage({tyyReady:1},'*')}catch(x){}
+(function(){var last=0;function send(){var h=Math.ceil(document.body.getBoundingClientRect().height);if(h&&h!==last){last=h;try{parent.postMessage({tyyHeight:h},'*')}catch(x){}}}
+if(window.ResizeObserver)new ResizeObserver(send).observe(document.body);window.addEventListener('load',send);window.addEventListener('resize',send);setInterval(send,1500)})();
 </script>
 </body></html>
