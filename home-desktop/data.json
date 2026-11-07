@@ -1,0 +1,530 @@
+{
+ "svcs": [
+  {
+   "key": "filler",
+   "img": "img/filler.jpg",
+   "kick": "Face",
+   "title": "Fillers & Facial Augmentation",
+   "d": "Soft, natural contouring for lips, cheeks and more.",
+   "soon": false,
+   "p": "Soft, natural-looking contouring for lips, cheeks, jawline and more.",
+   "good": "Lips, cheeks, jawline, under-eye hollows",
+   "exp": "Your consultation happens at your appointment, then a plan shaped around your face.",
+   "full": "https://www.10yearsyounger4u.com/filler-and-facial-augmentation"
+  },
+  {
+   "key": "microneedle",
+   "img": "img/microneedle.jpg",
+   "kick": "Skin",
+   "title": "Micro-Needling",
+   "d": "Refine texture and tone with collagen-boosting sessions.",
+   "soon": false,
+   "p": "Collagen-boosting sessions to refine skin texture and tone.",
+   "good": "Texture, tone and fine lines",
+   "exp": "Your consultation happens at your appointment, then a session matched to your skin goals.",
+   "full": "https://www.10yearsyounger4u.com/micro-needling-description-booking-page"
+  },
+  {
+   "key": "facials",
+   "img": "img/facials.jpg",
+   "kick": "Skin",
+   "title": "Facials & Scrubs",
+   "d": "Glow-first treatments tailored to your skin.",
+   "soon": false,
+   "p": "Glow-first facials and scrubs tailored to your skin.",
+   "good": "Dullness, congestion, a glow before an event",
+   "exp": "A quick skin check at your appointment, then a facial chosen for you.",
+   "full": "https://www.10yearsyounger4u.com/facials-scrubs"
+  },
+  {
+   "key": "laser",
+   "img": "img/laser.jpg",
+   "kick": "Skin",
+   "title": "Laser Treatments",
+   "d": "A new way to treat your skin is on its way.",
+   "soon": true,
+   "p": "Laser treatments are on their way to Ten Years Younger.",
+   "good": "Anyone curious about laser",
+   "exp": "Tap Learn more for the latest update.",
+   "full": "https://www.10yearsyounger4u.com/coming-soon-01"
+  },
+  {
+   "key": "iv",
+   "img": "img/iv.jpg",
+   "kick": "Wellness",
+   "title": "IV Therapy",
+   "d": "Hydration and nutrients, delivered while you relax.",
+   "soon": false,
+   "p": "A relaxing way to restore hydration and nutrients.",
+   "good": "A hydration and wellness boost",
+   "exp": "A quick check-in at your appointment, a comfy chair, and time to unwind.",
+   "full": "https://www.10yearsyounger4u.com/iv-therapy"
+  },
+  {
+   "key": "weight",
+   "img": "img/weight.jpg",
+   "kick": "Wellness",
+   "title": "Weight Loss",
+   "d": "A guided program built around your goals.",
+   "soon": false,
+   "p": "A guided program built around your goals.",
+   "good": "Anyone ready for a supported plan",
+   "exp": "Your consultation happens at your appointment, where we set goals and talk options.",
+   "full": "https://www.10yearsyounger4u.com/weight-loss"
+  },
+  {
+   "key": "lab",
+   "img": "img/lab.jpg",
+   "kick": "Wellness",
+   "title": "Specialized Lab Testing",
+   "d": "Know your numbers so your plan fits you.",
+   "soon": false,
+   "p": "Specialized lab testing so your plan fits your body.",
+   "good": "A clearer picture of your health",
+   "exp": "Your consultation happens at your appointment, where we see what makes sense.",
+   "full": ""
+  },
+  {
+   "key": "sexual",
+   "img": "img/sexual.jpg",
+   "kick": "Women's health",
+   "title": "Women's Sexual Health",
+   "d": "Private, respectful care for intimate wellness.",
+   "soon": false,
+   "p": "Private, respectful care for intimate wellness.",
+   "good": "Questions about comfort and confidence",
+   "exp": "A private consultation at your appointment, no pressure.",
+   "full": "https://www.10yearsyounger4u.com/women-sexual-health"
+  },
+  {
+   "key": "uro",
+   "img": "img/uro.jpg",
+   "kick": "Women's health",
+   "title": "Urinary Incontinence",
+   "d": "Comfortable options for a more confident day.",
+   "soon": false,
+   "p": "Comfortable options for bladder leaks and confidence.",
+   "good": "Anyone tired of planning around leaks",
+   "exp": "A private consultation at your appointment to talk through what may help.",
+   "full": "https://www.10yearsyounger4u.com/urinary-incontinence"
+  }
+ ],
+ "days": [
+  {
+   "end": "2026-11-03",
+   "wd": "NOV 3",
+   "title": "The Harvest Renewal",
+   "num": "50%",
+   "em": "off",
+   "tag": "Something good is growing for your skin.",
+   "deals": [
+    [
+     "PRP Face Microneedle",
+     "50%"
+    ],
+    [
+     "PRF Microneedling Facial",
+     "50%"
+    ],
+    [
+     "Age Rewind Microneedle",
+     "50%"
+    ],
+    [
+     "Hyaluronic Acid Microneedling",
+     "50%"
+    ],
+    [
+     "X-Rated Plus Microneedling",
+     "50%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-04",
+   "wd": "NOV 4",
+   "title": "Turn Over a New Leaf",
+   "num": "10-15%",
+   "em": "off",
+   "tag": "Peel back the season and see what is underneath.",
+   "deals": [
+    [
+     "Chemical peel",
+     "10%"
+    ],
+    [
+     "Package of 3 chemical peels",
+     "15%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-06",
+   "wd": "NOV 6",
+   "title": "The Fall Glow",
+   "num": "20-50%",
+   "em": "off",
+   "tag": "Radiance worth being thankful for.",
+   "deals": [
+    [
+     "Deluxe Facial",
+     "50%"
+    ],
+    [
+     "Deep Pore Cleansing",
+     "50%"
+    ],
+    [
+     "100% Natural Deep Pore Cleansing and Detox Facial",
+     "50%"
+    ],
+    [
+     "Ancient Detox Facial",
+     "50%"
+    ],
+    [
+     "Dermaplaning",
+     "50%"
+    ],
+    [
+     "Age Rewind Mask",
+     "50%"
+    ],
+    [
+     "Date Night Facial with HA",
+     "20%"
+    ],
+    [
+     "Date Night Facial with Brightening Complex",
+     "20%"
+    ],
+    [
+     "Date Night Facial with PRP",
+     "20%"
+    ],
+    [
+     "Date Night Facial with PRF",
+     "20%"
+    ],
+    [
+     "Date Night Facial with X-Rated",
+     "20%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-07",
+   "wd": "NOV 7",
+   "title": "Thanksgiving Drippings",
+   "num": "50%",
+   "em": "off",
+   "tag": "Hydration to be thankful for.",
+   "deals": [
+    [
+     "Myers Cocktail",
+     "50%"
+    ],
+    [
+     "Immune Booster Infusion",
+     "50%"
+    ],
+    [
+     "Total Wellness IV",
+     "50%"
+    ],
+    [
+     "Hangover Recovery IV",
+     "50%"
+    ],
+    [
+     "Cold and Flu Buster IV",
+     "50%"
+    ],
+    [
+     "Detox IV 250 mL",
+     "50%"
+    ],
+    [
+     "Energy Boosting Hydration IV",
+     "50%"
+    ],
+    [
+     "Energy Boosting Hydration IV with B12",
+     "50%"
+    ],
+    [
+     "Skin Radiance IV",
+     "50%"
+    ],
+    [
+     "Vitamin C IV",
+     "50%"
+    ],
+    [
+     "Stress Buster",
+     "50%"
+    ],
+    [
+     "Athletic Performance",
+     "50%"
+    ],
+    [
+     "Post Workout Recharge",
+     "50%"
+    ],
+    [
+     "NAD+ Infusion 250 mg",
+     "50%"
+    ],
+    [
+     "NAD+ Infusion 500 mg",
+     "50%"
+    ],
+    [
+     "Skin Lightening Glutathione 2,400 mg",
+     "50%"
+    ],
+    [
+     "Skin Lightening Glutathione 3,000 mg",
+     "50%"
+    ],
+    [
+     "Every IV booster",
+     "50%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-13",
+   "wd": "NOV 10\u201313",
+   "title": "The Bountiful Exosome Package",
+   "num": "35.6%",
+   "em": "off",
+   "tag": "Our fullest renewal, from face to chest. November 10 through 13 only.",
+   "deals": [
+    [
+     "Exosome microneedling, full face",
+     "35.6%"
+    ],
+    [
+     "Under-eye microneedling",
+     "35.6%"
+    ],
+    [
+     "Neck microneedling",
+     "35.6%"
+    ],
+    [
+     "Chest microneedling",
+     "35.6%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-14",
+   "wd": "NOV 14",
+   "title": "The Holiday Stuffing",
+   "num": "10-50%",
+   "em": "off",
+   "tag": "Shape the light that finds your face.",
+   "deals": [
+    [
+     "Lip filler",
+     "20%"
+    ],
+    [
+     "Chin filler",
+     "20%"
+    ],
+    [
+     "Cheek filler",
+     "20%"
+    ],
+    [
+     "Jawline filler",
+     "20%"
+    ],
+    [
+     "Smile line filler",
+     "20%"
+    ],
+    [
+     "Tear trough filler",
+     "20%"
+    ],
+    [
+     "Radiesse",
+     "10%"
+    ],
+    [
+     "Hyper-diluted Radiesse",
+     "10%"
+    ],
+    [
+     "Kybella",
+     "50%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-17",
+   "wd": "NOV 17",
+   "title": "The Pumpkin Spice Boost",
+   "num": "30%",
+   "em": "off",
+   "tag": "One quick visit. One bright boost.",
+   "deals": [
+    [
+     "B12 injection",
+     "30%"
+    ],
+    [
+     "B-Complex injection",
+     "30%"
+    ],
+    [
+     "Biotin injection",
+     "30%"
+    ],
+    [
+     "CoQ10 injection",
+     "30%"
+    ],
+    [
+     "Vitamin D3 injection",
+     "30%"
+    ],
+    [
+     "NAD+ injection 25 mg",
+     "30%"
+    ],
+    [
+     "NAD+ injection 50 mg",
+     "30%"
+    ],
+    [
+     "NAD+ injection 100 mg",
+     "30%"
+    ],
+    [
+     "Immunity Boost injection",
+     "30%"
+    ],
+    [
+     "Energy Boosting injection",
+     "30%"
+    ],
+    [
+     "Lipo C",
+     "30%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-18",
+   "wd": "NOV 18",
+   "title": "The Pumpkin Peptides",
+   "num": "50%",
+   "em": "off \u00b7 first month",
+   "tag": "Grown for your goals, one month at a time.",
+   "deals": [
+    [
+     "GHK-Cu<small>Skin renewal support</small>",
+     "50%"
+    ],
+    [
+     "BPC-157<small>Recovery support</small>",
+     "50%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-20",
+   "wd": "NOV 20",
+   "title": "The Fireside Recovery",
+   "num": "50%",
+   "em": "off",
+   "tag": "Slow down by the fire: rest, restore, recover.",
+   "deals": [
+    [
+     "Hangover Recovery IV",
+     "50%"
+    ],
+    [
+     "Magnesium Chloride push, 300 mg",
+     "50%"
+    ],
+    [
+     "Magnesium Chloride push, 600 mg",
+     "50%"
+    ],
+    [
+     "Athletic Performance IV",
+     "50%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-24",
+   "wd": "NOV 24",
+   "title": "Thankfulness Restored",
+   "num": "50%",
+   "em": "off",
+   "tag": "Confidence, restored where it matters most.",
+   "deals": [
+    [
+     "O-Shot",
+     "50%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-25",
+   "wd": "NOV 25",
+   "title": "Grateful Foundations",
+   "num": "50%",
+   "em": "off",
+   "tag": "Strengthen the foundation and leave the worry behind.",
+   "deals": [
+    [
+     "Anti-Drip Treatment, single treatment",
+     "50%"
+    ],
+    [
+     "Anti-Drip Treatment, 6 treatments",
+     "50%"
+    ],
+    [
+     "Anti-Drip Treatment, 12 treatments",
+     "50%"
+    ],
+    [
+     "Urinary incontinence consultation",
+     "50%"
+    ]
+   ]
+  },
+  {
+   "end": "2026-11-27",
+   "wd": "NOV 27",
+   "title": "Black Friday\u2019s Bonfire",
+   "num": "20%",
+   "em": "off",
+   "tag": "Find out what is really going on beneath the surface.",
+   "deals": [
+    [
+     "Full Wellness Food Sensitivity 96",
+     "20%"
+    ],
+    [
+     "Full Wellness Food Sensitivity 184",
+     "20%"
+    ],
+    [
+     "Universal Hormone Labs",
+     "20%"
+    ]
+   ]
+  }
+ ]
+}

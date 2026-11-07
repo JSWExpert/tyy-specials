@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ten Years Younger | Home (desktop)</title>
+<!-- PROVENANCE: Desktop home page body, built by Allen (Claude) for Jasmine Wiseman, 2026-11-07. Follows her "App-Like Binge and Convert" directive (mood rows, dual-action Preview/Book cards, daily freshness from the real November calendar) within our rules: chrome is the metal, teal base, no fake scarcity, no staff named, no before/after. Data: services copy from services-mobile, specials from november/, products from the Wix Stores catalog. Hero photo: the existing site hero (licensed stock). -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#5BBFAD;--teal-deep:#1F6F66;--teal-ink:#133C37;--frost:#E8F7F5;--ink:#1C3E3A;--ink2:#4A6B66;--cream:#F4F7F4;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--chrome:linear-gradient(135deg,#ffffff 0%,#d5dce0 28%,#9aa5ad 52%,#eef2f4 74%,#b4bec5 100%);--wrap:min(1240px,calc(100% - 64px))}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--cream);scroll-behavior:smooth}
+html,body{margin:0}
+body{color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:var(--cream)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
+.wrap{width:var(--wrap);margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;background:linear-gradient(100deg,#46555c,#7d8b94 45%,#4f5d64);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(236,248,244,.8));border:1px solid rgba(157,234,200,.7);border-radius:24px;box-shadow:0 14px 40px rgba(31,111,102,.10)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:500;font-size:15px;letter-spacing:.04em;padding:15px 30px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s,box-shadow .25s,filter .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri{color:#fff;background:linear-gradient(135deg,#2F9486,#1F6F66);box-shadow:0 10px 26px rgba(31,111,102,.38)}
+.btn.pri:hover{box-shadow:0 14px 32px rgba(31,111,102,.5)}
+.btn.chrome{color:var(--teal-ink);background:var(--chrome);box-shadow:0 8px 22px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.85);letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+.btn.chrome:hover{filter:brightness(1.05)}
+.btn.soft{color:var(--ink);background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 8px 22px rgba(31,111,102,.14)}
+.btn.ghost{color:#fff;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.sech{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:26px}
+.sech h2{font-size:clamp(34px,3.6vw,52px);margin-top:8px}
+.sech p{margin:10px 0 0;color:var(--ink2);font-size:16.5px;max-width:560px}
+.more{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);font-weight:500;white-space:nowrap;padding-bottom:6px;transition:letter-spacing .25s}
+.more:hover{letter-spacing:.22em}
+
+/* HERO */
+.hero{position:relative;height:clamp(560px,46vw,740px);overflow:hidden;background:#dcebe8}
+.hero .hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scaleX(-1)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:74% 24%;animation:zoom 14s ease-out both}
+@keyframes zoom{from{transform:scale(1.07)}to{transform:scale(1)}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(240,249,247,.94) 0%,rgba(240,249,247,.8) 30%,rgba(240,249,247,.3) 52%,rgba(240,249,247,0) 70%),linear-gradient(0deg,rgba(244,247,244,.9) 0%,rgba(244,247,244,0) 16%)}
+.hero .in{position:absolute;inset:0;z-index:2;display:flex;align-items:center;padding-top:70px}
+.hero .txt{width:var(--wrap);margin:0 auto;padding-bottom:40px}
+.hero .txt>*{max-width:600px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero .txt>*:nth-child(2){animation-delay:.12s}.hero .txt>*:nth-child(3){animation-delay:.24s}.hero .txt>*:nth-child(4){animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.brand{position:absolute;z-index:3;top:34px;left:max(32px,calc((100% - 1240px)/2));display:flex;align-items:center;gap:14px;padding:10px 24px 10px 12px;border-radius:999px;background:rgba(255,255,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 14px 34px -16px rgba(19,60,55,.45)}
+.hero .brand img{position:static;inset:auto;width:54px;height:54px;object-fit:contain;animation:none}
+.brand b{display:block;font-family:var(--serif);font-weight:600;font-size:24px;letter-spacing:.04em;color:var(--teal-ink);line-height:1}
+.brand small{display:block;margin-top:5px;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal-deep);font-weight:500}
+.band:after{content:"";position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(180deg,rgba(244,247,244,.85),rgba(244,247,244,0));pointer-events:none;z-index:1}
+.band .wrap{position:relative;z-index:2}
+.band:before{content:"";position:absolute;right:-90px;bottom:-110px;width:520px;height:520px;background:url(logo.png) center/contain no-repeat;opacity:.09;filter:brightness(0) invert(1);pointer-events:none}
+.vlogo{width:58px;height:58px;object-fit:contain;display:block;margin-bottom:10px}
+.paylogo{width:34px;height:34px;object-fit:contain;display:block;margin:0 auto 10px;opacity:.9}
+.hero h1{font-size:clamp(44px,4.6vw,72px);margin:14px 0 18px;color:var(--teal-ink);letter-spacing:-.01em}
+.hero h1 em{display:block;font-style:italic;font-weight:500;color:var(--teal-deep)}
+.hero p{font-size:clamp(16px,1.35vw,20px);color:#3c5a55;margin:0 0 30px;max-width:470px}
+.hero .btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero .btns .btn:first-child{padding:19px 44px;font-size:17px;box-shadow:0 18px 34px -12px rgba(31,111,102,.6)}
+.hero .btns .btn+.btn{opacity:.9}
+.tb{position:absolute;z-index:3;right:max(32px,calc((100% - 1240px)/2));bottom:74px;width:300px;padding:18px 22px;opacity:.94;background:linear-gradient(135deg,rgba(28,79,72,.88),rgba(19,60,55,.92));color:#fff;border:1px solid rgba(213,220,224,.7);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);animation:rise 1s .5s cubic-bezier(.2,.7,.2,1) both;display:block}
+.tb .eyebrow{background:none;-webkit-text-fill-color:#E3E9EC;color:#E3E9EC}
+.tb h3{font-size:28px;margin:4px 0 6px;color:#fff}
+.tb p{margin:0 0 14px;font-size:14.5px;color:#d6efe9;max-width:none}
+.tb .big{position:static;display:block;margin:0 0 6px;font-family:var(--serif);font-size:30px;font-weight:600;color:#bff2e0;line-height:1}
+.tb .btn{padding:11px 24px;font-size:12px}
+
+/* QUICK STRIP */
+.quick{position:relative;z-index:5;width:var(--wrap);margin:-46px auto 0;display:grid;grid-template-columns:repeat(4,1fr);padding:8px}
+.quick a{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;transition:background .25s}
+.quick a:hover{background:rgba(91,191,173,.12)}
+.quick svg{flex:0 0 28px;width:28px;height:28px;stroke:var(--teal-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.quick small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);font-weight:500}
+.quick b{display:block;font-weight:500;font-size:16px;color:var(--teal-ink);white-space:nowrap}
+
+/* TODAY */
+.today{padding:60px 0 0}
+.datechip{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--teal-ink);padding:9px 18px;border-radius:999px;background:var(--chrome);box-shadow:0 5px 16px rgba(31,111,102,.18),inset 0 1px 0 rgba(255,255,255,.85);white-space:nowrap}
+.tgrid{display:grid;grid-template-columns:1.45fr 1fr;gap:24px;align-items:stretch}
+.tcard{position:relative;overflow:hidden;border-radius:24px;padding:38px 40px 32px;color:#fff;background:radial-gradient(90% 120% at 100% 0%,rgba(225,232,236,.22),rgba(225,232,236,0) 55%),linear-gradient(150deg,#1c4f48,#133C37 80%);border:1px solid rgba(176,188,196,.7);box-shadow:0 22px 50px rgba(19,60,55,.28)}
+.tcard .k{display:inline-block;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;padding:6px 14px;border-radius:999px;color:var(--teal-ink);background:var(--chrome)}
+.tcard h3{font-size:clamp(34px,3.4vw,50px);margin:16px 0 4px;color:#fff}
+.tcard .tg{margin:0 0 6px;color:#cfeae3;font-size:16.5px;font-style:italic;font-family:var(--serif);font-weight:500;font-size:21px}
+.tcard .bg{display:flex;align-items:baseline;gap:12px;margin:8px 0 18px}
+.tcard .num{font-family:var(--serif);font-weight:600;font-size:clamp(64px,7.2vw,112px);line-height:.95;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))}
+.tcard .em{font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:#E3E9EC;font-weight:500}
+.deals{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;margin:0 0 22px;padding:0;list-style:none}
+.deals li{display:flex;justify-content:space-between;gap:14px;font-size:14.5px;color:#e4f4f0;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.11)}
+.deals b{font-weight:500;color:#bff2e0;white-space:nowrap}
+.deals li.mo{border:0;color:#9fd2c8;font-style:italic}
+.tcard .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.tcard .fine{margin:18px 0 0;font-size:11.5px;color:#a9d3ca;line-height:1.5;max-width:640px}
+.cup{padding:28px 26px;display:flex;flex-direction:column}
+.cup h3{font-size:28px;margin:6px 0 14px}
+.cup a.it{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:13px 6px;border-top:1px solid rgba(31,111,102,.14);transition:background .25s,transform .25s;border-radius:12px}
+.cup a.it:first-of-type{border-top:0}
+.cup a.it:hover{background:rgba(91,191,173,.12);transform:translateX(4px)}
+.cup .dt{font-size:12px;letter-spacing:.12em;font-weight:500;color:var(--teal-ink);padding:8px 12px;border-radius:12px;background:var(--chrome);text-align:center;min-width:74px;line-height:1.25}
+.cup .nm{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.1}
+.cup .pc{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--teal-deep);white-space:nowrap}
+.cup .all{margin-top:auto;padding-top:14px}
+
+/* EXPLORE */
+.explore{padding:64px 0 0}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px}
+.tab{border:0;cursor:pointer;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:12px 22px;border-radius:999px;color:var(--teal-deep);background:#fff;box-shadow:0 4px 16px rgba(31,111,102,.10);transition:transform .25s,box-shadow .25s}
+.tab:hover{transform:translateY(-2px)}
+.tab.on{color:var(--teal-ink);background:var(--chrome);box-shadow:0 8px 22px rgba(31,111,102,.22),inset 0 1px 0 rgba(255,255,255,.85)}
+.railwrap{position:relative}
+.rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:14px max(32px,calc((100% - 1240px)/2)) 46px;margin-bottom:-24px;scroll-padding:0 max(32px,calc((100% - 1240px)/2));scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{display:none}
+.arrows{display:flex;gap:10px}
+.arw{width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;background:var(--chrome);box-shadow:0 6px 18px rgba(31,111,102,.22),inset 0 1px 0 rgba(255,255,255,.85);transition:transform .25s}
+.arw:hover{transform:scale(1.08)}
+.arw svg{width:20px;height:20px;stroke:var(--teal-ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.svc{position:relative;flex:0 0 clamp(268px,24vw,320px);aspect-ratio:4/5.15;border-radius:24px;overflow:hidden;background:#cfe6e0;scroll-snap-align:start;box-shadow:0 16px 38px rgba(31,111,102,.18);transition:transform .35s,box-shadow .35s}
+.svc:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(31,111,102,.28)}
+.svc[hidden]{display:none}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.svc:hover img{transform:scale(1.05)}
+.svc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,40,36,0) 34%,rgba(14,40,36,.66) 62%,rgba(14,40,36,.92) 100%)}
+.svc .in{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 20px 20px;color:#fff}
+.svc .k{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#E3E9EC;font-weight:500}
+.svc h3{font-size:30px;margin:5px 0 7px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.svc .d{font-size:14.5px;line-height:1.4;margin:0 0 16px;color:#e8f1ee;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.svc .ft{display:flex;gap:10px}
+.svc .ft>*{flex:1;text-align:center;font-weight:500;font-size:13.5px;letter-spacing:.05em;padding:12px 8px;border-radius:999px;cursor:pointer;border:0;transition:transform .25s,filter .25s}
+.svc .pv{color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.svc .bk{color:#fff;background:linear-gradient(135deg,#2F9486,#1F6F66);box-shadow:0 8px 20px rgba(0,0,0,.28)}
+.svc .ft>*:hover{transform:translateY(-2px)}
+.soon{position:absolute;top:16px;left:16px;z-index:3;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;padding:6px 13px;border-radius:999px;color:var(--teal-ink);background:var(--chrome);font-weight:500;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.sheet{position:absolute;inset:0;z-index:6;padding:26px 22px 22px;background:rgba(250,252,251,.97);color:var(--ink);display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .3s,transform .3s,visibility .3s}
+.sheet.open{opacity:1;visibility:visible;transform:none}
+.sheet .x{position:absolute;top:12px;right:14px;width:34px;height:34px;border-radius:50%;border:0;background:var(--frost);color:var(--teal-deep);font-size:20px;cursor:pointer}
+.sheet h3{font-size:29px;margin:6px 0 8px;color:var(--teal-ink);text-shadow:none}
+.sheet p{margin:0 0 14px;font-size:15px;color:var(--ink2)}
+.sheet ul{list-style:none;margin:0 0 auto;padding:0;display:grid;gap:12px}
+.sheet li{font-size:14.5px;color:var(--ink2);line-height:1.45}
+.sheet li b{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);font-weight:500;margin-bottom:2px}
+.sheet .sb{display:flex;gap:12px;align-items:center;margin-top:16px}
+.sheet .sb .bk{flex:1;text-align:center;color:#fff;font-weight:500;padding:13px 10px;border-radius:999px;background:linear-gradient(135deg,#2F9486,#1F6F66);font-size:14px}
+.sheet .sb .lk{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);font-weight:500;white-space:nowrap}
+
+/* WHY BAND */
+.band{position:relative;overflow:hidden;margin-top:68px;padding:76px 0 80px;color:#fff;background:radial-gradient(70% 90% at 90% 0%,rgba(225,232,236,.18),rgba(225,232,236,0) 60%),radial-gradient(60% 80% at 0% 100%,rgba(91,191,173,.28),rgba(91,191,173,0) 60%),linear-gradient(165deg,#133C37,#1F6F66 72%,#2a8a7e)}
+.band .sech h2{color:#fff}
+.band .eyebrow{background:none;-webkit-text-fill-color:#E3E9EC;color:#E3E9EC}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pil{padding:34px 30px 32px;border-radius:24px;background:rgba(255,255,255,.08);border:1px solid rgba(225,232,236,.32);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .35s,background .35s}
+.pil:hover{transform:translateY(-6px);background:rgba(255,255,255,.13)}
+.pil .n{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:28px;font-weight:600;color:var(--teal-ink);background:var(--chrome);box-shadow:0 6px 16px rgba(0,0,0,.25);margin-bottom:18px}
+.pil h3{font-size:31px;color:#fff;margin-bottom:10px}
+.pil p{margin:0;color:#d6efe9;font-size:16px;line-height:1.6}
+.facts{display:flex;gap:14px 34px;flex-wrap:wrap;margin-top:34px;color:#cfeae3;font-size:15px}
+.facts span{display:inline-flex;align-items:center;gap:10px}
+.facts i{width:8px;height:8px;border-radius:50%;background:#E3E9EC;box-shadow:0 0 0 4px rgba(225,232,236,.22)}
+
+/* SHELF */
+.shelf{padding:68px 0 0}
+.prod{position:relative;flex:0 0 clamp(210px,18vw,250px);scroll-snap-align:start;padding:14px 14px 18px;text-align:center;display:flex;flex-direction:column;gap:10px;transition:transform .35s,box-shadow .35s}
+.prod:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(31,111,102,.2)}
+.prod .im{aspect-ratio:1/1.05;background:#fff;border-radius:16px;display:grid;place-items:center;padding:10px}
+.prod img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .5s}
+.prod:hover img{transform:scale(1.06)}
+.prod h3{font-size:20px;line-height:1.12;min-height:44px;display:grid;place-items:center}
+.prod .pw{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-top:-4px}
+.prod .pr{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--teal-deep)}
+.prod .go{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--teal-deep)}
+.bs{position:absolute;top:14px;left:14px;z-index:2;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:5px 11px;border-radius:999px;color:var(--teal-ink);background:var(--chrome);box-shadow:0 3px 10px rgba(0,0,0,.18)}
+
+/* REVIEWS */
+.reviews{padding:64px 0 0}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev{position:relative;padding:34px 30px 26px;border-top:4px solid #b4bec5;transition:transform .35s}
+.rev:hover{transform:translateY(-5px)}
+.rev:before{content:"\201C";position:absolute;top:2px;right:22px;font-family:var(--serif);font-size:110px;line-height:1;color:rgba(91,191,173,.32)}
+.rev .st{color:#c8962f;letter-spacing:.14em;font-size:16px}
+.rev p{margin:12px 0 18px;font-family:var(--serif);font-size:22px;line-height:1.35;font-weight:500;font-style:italic;color:var(--ink)}
+.rev .who{display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--ink2)}
+.rev .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2F9486,#1F6F66);color:#fff;font-weight:500;font-size:16px}
+.rating{display:inline-flex;margin-top:26px;padding:13px 24px;border-radius:999px;background:var(--frost);font-size:15px;color:var(--ink2)}
+.rating b{color:var(--teal-deep);font-weight:500;margin-right:8px}
+
+/* VISIT */
+.visit{padding:64px 0 0}
+.vgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:24px}
+.vcard{padding:40px 40px 34px}
+.vcard h2{font-size:clamp(32px,3.2vw,46px);margin:8px 0 14px}
+.vcard address{font-style:normal;font-size:17px;margin-bottom:14px}
+.hrs{display:grid;grid-template-columns:auto 1fr;gap:5px 26px;font-size:15.5px;margin:0 0 24px}
+.hrs span:nth-child(odd){color:var(--ink2)}
+.hrs .cl{color:#a0645a}
+.vcard .row{display:flex;gap:12px;flex-wrap:wrap}
+.vcard .btn.out{color:var(--teal-deep);background:#fff;border:1px solid var(--teal-deep)}
+.map{border-radius:24px;overflow:hidden;box-shadow:0 14px 40px rgba(31,111,102,.14);min-height:430px;background:#dfe9e6}
+.map iframe{display:block;width:100%;height:100%;min-height:430px;border:0;filter:saturate(.85)}
+.pay{text-align:center;font-size:14px;color:var(--ink2);padding:44px 24px 52px}
+.hub{padding:46px 0 0}
+.ccs{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:30px}
+.cc{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:14px;padding:24px 22px;border-radius:24px;background:linear-gradient(160deg,#fff,#EAF5F2);box-shadow:0 14px 34px -18px rgba(19,60,55,.35);transition:transform .35s,box-shadow .35s}
+.cc:hover{transform:translateY(-4px);box-shadow:0 22px 40px -18px rgba(19,60,55,.45)}
+.cc:focus-visible{outline:2px solid var(--teal)}
+.cc .ic{width:46px;height:46px;border-radius:50%;background:var(--chrome);display:grid;place-items:center;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--teal-ink)}
+.cc h3{font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.1;color:var(--teal-ink);margin:0}
+.cc span.s{font-size:13px;color:var(--ink2);line-height:1.4}
+.cc.on{background:linear-gradient(160deg,#1F6F66,#133C37);box-shadow:0 22px 44px -18px rgba(19,60,55,.6)}
+.cc.on h3{color:#fff}.cc.on span.s{color:#cfe8e3}
+.cpanel{margin-top:26px;padding:34px 0 6px;animation:fin .5s both}
+.cpanel h3.ph{font-family:var(--serif);font-weight:500;font-size:34px;color:var(--teal-ink);margin:0 0 6px}
+.cpanel .pl{color:var(--ink2);margin:0 0 22px}
+.cpanel .rail{padding:10px 30px 44px;margin:0 -30px;scroll-padding:0 30px}
+.hc{margin-top:26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hc .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);font-weight:500}
+.hc a{display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:999px;background:#fff;box-shadow:0 10px 24px -14px rgba(19,60,55,.4);color:var(--teal-ink);font-weight:500}
+.hc a img{width:44px;height:44px;object-fit:contain;mix-blend-mode:multiply}
+.tbx{margin-top:18px}
+.hc .hcs{display:flex;flex-direction:column;padding:12px 24px;border-radius:999px;background:#fff;box-shadow:0 10px 24px -14px rgba(19,60,55,.4);color:var(--teal-ink)}
+.hc .hcs b{font-weight:500}.hc .hcs small{font-size:12px;color:var(--ink2)}
+@keyframes fin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (max-width:1080px){.ccs{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.brand small{display:none}}
+@media (max-width:1080px){.quick{grid-template-columns:1fr 1fr}.tgrid,.vgrid{grid-template-columns:1fr}.pillars,.rgrid{grid-template-columns:1fr}.tb{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style></head>
+<body>
+
+<header class="hero" id="top">
+ <video class="hv" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/1760c7_cfc518ed3f034a619ecfc22bc5264148f000.jpg"><source src="https://video.wixstatic.com/video/1760c7_cfc518ed3f034a619ecfc22bc5264148/720p/mp4/file.mp4" type="video/mp4"></video>
+ <a class="brand" href="#top"><img src="logo.png" alt="Ten Years Younger logo"><span><b>Ten Years Younger</b><small>Anti-Aging &amp; Wellness</small></span></a>
+ <div class="in"><div class="txt">
+  <span class="eyebrow">Houston's wellness center</span>
+  <h1>Look Good. Feel Better. <em>Live Younger.</em></h1>
+  <p>From injectables to IV therapy, every treatment is designed to help you look and feel your absolute best.</p>
+  <div class="btns"><a class="btn pri" href="BOOK" target="_top">Book Now</a><a class="btn soft" href="#explore">Explore services</a></div>
+ </div></div>
+ <a class="glass tb" href="https://www.10yearsyounger4u.com/tox-box-offer" target="_top"><span class="eyebrow">New this month</span><h3>The Tox Box</h3><span class="big">$1,100</span><p>100 units of wrinkle relaxer, kept on file just for you.</p><span class="btn chrome">Get yours</span></a>
+</header>
+
+<nav class="glass quick" aria-label="Quick actions">
+ <a href="BOOK" target="_top"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><span><small>Appointments</small><b>Book online</b></span></a>
+ <a href="tel:8329098031" target="_top"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Call us</small><b>(832) 909-8031</b></span></a>
+ <a href="https://www.google.com/maps/search/?api=1&query=16316+FM+529+Suite+C+Houston+TX+77095" target="_top"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><small>Find us</small><b>16316 FM 529, Suite C</b></span></a>
+ <a href="https://www.10yearsyounger4u.com/financing" target="_top"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10.5h18M7 15h4"/></svg><span><small>Payment plans</small><b>CareCredit &amp; Cherry</b></span></a>
+</nav>
+
+<section class="hub" id="hub">
+ <div class="wrap">
+  <div class="sech"><div><span class="eyebrow">What can we fix for you?</span><h2>Start with what you want to change</h2><p>Tap a concern and we will show you the treatment that fits.</p></div></div>
+  <div class="ccs" id="ccs"></div>
+  <div class="cpanel" id="cpanel" hidden></div>
+ </div>
+</section>
+
+<section class="today" id="today">
+ <div class="wrap">
+  <div class="sech"><div><span class="eyebrow">Fresh every day</span><h2>Today at Ten Years Younger</h2><p>Our monthly specials, a new one nearly every day.</p></div><span class="datechip" id="datechip"></span></div>
+  <div class="tgrid"><div class="tcard" id="tcard"></div><aside class="glass cup" id="cup"></aside></div>
+ </div>
+</section>
+
+<section class="explore" id="explore">
+ <div class="wrap"><div class="sech"><div><span class="eyebrow">Pick your mood</span><h2>What are you in the mood for?</h2></div><div class="arrows"><button class="arw" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button class="arw" id="next" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+ <div class="tabs" id="tabs"></div></div>
+ <div class="rail" id="svcrail"></div>
+</section>
+
+<section class="band" id="why">
+ <div class="wrap">
+  <div class="sech"><div><span class="eyebrow">Why Ten Years Younger</span><h2>The standard of care you deserve</h2></div></div>
+  <div class="pillars">
+   <div class="pil"><div class="n">1</div><h3>White Glove Treatment</h3><p>From your first consultation to your last treatment, every visit is personalized, unhurried, and crafted around you.</p></div>
+   <div class="pil"><div class="n">2</div><h3>Love How You Look &amp; Feel</h3><p>We want you to feel like the most confident, radiant version of yourself every single time you leave us.</p></div>
+   <div class="pil"><div class="n">3</div><h3>Houston's Best Kept Secret</h3><p>Tucked away in Houston's FM 529 corridor, we have been quietly transforming how women look and feel, one treatment at a time.</p></div>
+  </div>
+  <div class="facts"><span><i></i>Same-day appointments available</span><span><i></i>No pressure, just results</span><span><i></i>Drinks and snacks on us</span></div>
+ </div>
+</section>
+
+<section class="shelf" id="shelf">
+ <div class="wrap"><div class="sech"><div><span class="eyebrow">Take-home favorites</span><h2>The shelf</h2><p>Skincare to go with your treatments.</p></div><div style="display:flex;align-items:center;gap:26px"><a class="more" href="https://www.10yearsyounger4u.com/shop" target="_top">Shop all</a><div class="arrows"><button class="arw" id="pprev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button class="arw" id="pnext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div></div></div>
+ <div class="rail" id="prodrail"></div>
+</section>
+
+<section class="reviews">
+ <div class="wrap">
+  <div class="sech"><div><span class="eyebrow">Client love</span><h2>What our clients are saying</h2></div></div>
+  <div class="rgrid">
+   <div class="glass rev"><div class="st">★★★★★</div><p>"I am truly happy with all of my services here. They have a great staff that always goes above and beyond!"</p><div class="who"><span class="av">C</span>Cynthia B. &middot; Google Review</div></div>
+   <div class="glass rev"><div class="st">★★★★★</div><p>"Every time I visit, I feel warmly welcomed, and the staff always takes the time to share details about their deals. The facility is consistently clean."</p><div class="who"><span class="av">L</span>Lucy F. &middot; Google Review</div></div>
+   <div class="glass rev"><div class="st">★★★★★</div><p>"VERY attentive staff, super helpful and explain everything, answered all my questions. Also offered drinks and snacks. Will definitely be back!!"</p><div class="who"><span class="av">O</span>Orpha P. &middot; Google Local Guide</div></div>
+  </div>
+  <div class="rating"><b>Rated 5.0 on Google</b> 80+ five-star reviews</div>
+ </div>
+</section>
+
+<section class="visit">
+ <div class="wrap"><div class="vgrid">
+  <div class="glass vcard"><img class="vlogo" src="logo.png" alt="Ten Years Younger"><span class="eyebrow">Visit us</span><h2>Ready to feel like yourself again?</h2>
+   <address>16316 FM 529, Suite C<br>Houston, TX 77095</address>
+   <div class="hrs"><span>Mon</span><span class="cl">Closed</span><span>Tue</span><span>10am to 6pm</span><span>Wed</span><span>10am to 6pm</span><span>Thu</span><span class="cl">Closed</span><span>Fri</span><span>10am to 6pm</span><span>Sat</span><span>10am to 4:30pm</span><span>Sun</span><span class="cl">Closed</span></div>
+   <div class="row"><a class="btn pri" href="BOOK" target="_top">Book My Appointment</a><a class="btn out" href="tel:8329098031" target="_top">Call</a><a class="btn out" href="mailto:Info@10yearsyounger4u.com" target="_top">Email</a></div>
+  </div>
+  <div class="map"><iframe title="Map to Ten Years Younger" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=16316+FM+529+Suite+C+Houston+TX+77095&amp;output=embed"></iframe></div>
+ </div></div>
+</section>
+<div class="pay"><img class="paylogo" src="logo.png" alt="">We accept Visa, MasterCard, PayPal, CareCredit, and Cherry.</div>
+
+<script>
+var BOOK="https://www.myaestheticspro.com/BN/index.cfm?D2BFB64A9DF9C64D43CE5587075B5B52FBC66F7FCA968DDF12B85466368C5E81";
+var SITE="https://www.10yearsyounger4u.com/";
+document.querySelectorAll('a[href="BOOK"]').forEach(function(a){a.href=BOOK});
+var DATA=/*DATA*/;
+var SVCS=DATA.svcs, DAYS=DATA.days, PRODS=DATA.prods;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* ---------- TODAY ---------- */
+(function(){
+ var now=new Date(), ymd=function(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)};
+ var t=ymd(now);
+ document.getElementById('datechip').textContent=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+ var cur=null, idx=-1;
+ DAYS.forEach(function(d,i){ if(cur===null && d.start<=t && t<=d.end){cur=d;idx=i} });
+ var live=cur!==null;
+ if(!live){ for(var i=0;i<DAYS.length;i++){ if(DAYS[i].start>t){cur=DAYS[i];idx=i;break} } }
+ var card=document.getElementById('tcard'), cup=document.getElementById('cup');
+ if(!cur){
+  card.innerHTML='<span class="k">This month</span><h3>See what is on at Ten Years Younger</h3><p class="tg">New specials are posted all the time.</p><div class="row" style="margin-top:22px"><a class="btn chrome" href="'+SITE+'specials" target="_top">See the specials</a><a class="btn ghost" href="'+BOOK+'" target="_top">Book now</a></div>';
+  cup.innerHTML='<span class="eyebrow">Specials</span><h3>Always something new</h3><p style="color:#4A6B66">Visit the specials page for the latest offers.</p>';
+  return;
+ }
+ var deals=(cur.deals||[]), shown=deals.slice(0,6), more=deals.length-shown.length;
+ var h='<span class="k">'+(live?'Today':'Next special')+' &middot; '+esc(cur.wd)+'</span><h3>'+esc(cur.title)+'</h3><p class="tg">'+esc(cur.tag)+'</p><div class="bg"><span class="num">'+esc(cur.num)+'</span><span class="em">'+esc(cur.em)+'</span></div>';
+ if(shown.length){h+='<ul class="deals">'+shown.map(function(x){return '<li><span>'+esc(x[0])+'</span><b>'+esc(x[1])+'</b></li>'}).join('')+(more>0?'<li class="mo"><span>and '+more+' more</span></li>':'')+'</ul>'}
+ else if(cur.note){h+='<p style="color:#e4f4f0;font-size:16px;margin:0 0 22px">'+esc(cur.note)+'</p>'}
+ h+='<div class="row"><a class="btn chrome" href="'+SITE+'specials" target="_top">See the full calendar</a><a class="btn ghost" href="'+BOOK+'" target="_top">Book this</a></div><p class="fine">Valid on the listed day only, one offer per visit, no cash value, cannot be saved for later. Offers may change, so please call or book online to confirm.</p>';
+ card.innerHTML=h;
+ var next=DAYS.slice(idx+1,idx+5);
+ cup.innerHTML='<span class="eyebrow">Coming up</span><h3>Next on the calendar</h3>'+next.map(function(d){return '<a class="it" href="'+SITE+'specials" target="_top"><span class="dt">'+esc(d.wd)+'</span><span class="nm">'+esc(d.title)+'</span><span class="pc">'+esc(d.num)+'</span></a>'}).join('')+'<div class="all"><a class="more" href="'+SITE+'specials" target="_top">The full calendar</a></div>';
+})();
+
+/* ---------- EXPLORE ---------- */
+var TAGS={filler:['refreshed'],microneedle:['refreshed','glow'],facials:['glow'],laser:['glow'],iv:['feel'],weight:['feel'],lab:['feel'],sexual:['her'],uro:['her']};
+var TABS=[['all','All'],['refreshed','Look refreshed'],['glow','Glow &amp; clear'],['feel','Feel your best'],['her',"Women's wellness"]];
+var rail=document.getElementById('svcrail');
+function svcCard(s){
+ var link=s.soon?SITE+'coming-soon-01':BOOK, label=s.soon?'Learn more':'Book This';
+ return '<article class="svc" data-tags="'+(TAGS[s.key]||[]).join(' ')+'"><img loading="lazy" src="../services-mobile/'+s.img+'" alt="">'+(s.soon?'<span class="soon">Coming soon</span>':'')+
+ '<div class="in"><div class="k">'+esc(s.kick)+'</div><h3>'+esc(s.title)+'</h3><p class="d">'+esc(s.d)+'</p><div class="ft"><button type="button" class="pv">Preview</button><a class="bk" href="'+link+'" target="_top">'+label+'</a></div></div>'+
+ '<div class="sheet" role="dialog" aria-label="'+esc(s.title)+' preview" aria-hidden="true"><button type="button" class="x" aria-label="Close preview">&times;</button><div class="k eyebrow">'+esc(s.kick)+'</div><h3>'+esc(s.title)+'</h3><p>'+esc(s.p)+'</p><ul><li><b>Good for</b>'+esc(s.good)+'</li><li><b>What to expect</b>'+esc(s.exp)+'</li></ul><div class="sb"><a class="bk" href="'+link+'" target="_top">'+label+'</a>'+(s.full?'<a class="lk" href="'+s.full+'" target="_top">Full details</a>':'')+'</div></div></article>';
+}
+rail.innerHTML=SVCS.map(svcCard).join('');
+
+/* ---------- CONCERN HUB ---------- */
+var CONC=[
+ {id:'lines',t:'Smoothing lines & wrinkles',s:'Soften the lines you see in the mirror.',svc:['filler'],tox:1,hc:[]},
+ {id:'volume',t:'Restoring volume & contour',s:'Lips, cheeks and shape, kept natural.',svc:['filler'],hc:[]},
+ {id:'pigment',t:'Clearing pigment & sun damage',s:'Even tone, fresher looking skin.',svc:['microneedle','facials'],hc:['collagen-boosting-hydrating-serum']},
+ {id:'tight',t:'Skin tightening & firming',s:'Collagen support for firmer skin.',svc:['microneedle','laser'],hc:['collagen-boosting-hydrating-serum']},
+ {id:'glow',t:'Daily maintenance & glow',s:'Facials and skincare to keep it going.',svc:['facials'],shop:1,hc:[]}
+];
+var ccs=document.getElementById('ccs'), cpanel=document.getElementById('cpanel');
+ccs.innerHTML=CONC.map(function(c,i){return '<button type="button" class="cc" data-i="'+i+'"><span class="ic">'+(i+1)+'</span><h3>'+c.t+'</h3><span class="s">'+c.s+'</span></button>'}).join('');
+ccs.addEventListener('click',function(e){
+ var b=e.target.closest('.cc'); if(!b)return;
+ var c=CONC[+b.getAttribute('data-i')];
+ [].forEach.call(ccs.children,function(x){x.classList.toggle('on',x===b)});
+ var cards=c.svc.map(function(k){return SVCS.filter(function(s){return s.key===k})[0]}).filter(Boolean).map(svcCard).join('');
+ var h='<h3 class="ph">'+c.t+'</h3><p class="pl">Here is where we would start.</p><div class="rail">'+cards+'</div>';
+ if(c.tox)h+='<div class="tbx"><a class="btn chrome" href="'+SITE+'tox-box-offer" target="_top">See the Tox Box</a></div>';
+ if(c.shop)h+='<div class="tbx"><a class="btn chrome" href="'+SITE+'shop" target="_top">Shop skincare</a></div>';
+ var hcs=c.hc.map(function(sl){return sl==='ha'?{ha:1}:PRODS.filter(function(p){return p.s===sl})[0]}).filter(Boolean);
+ if(hcs.length)h+='<div class="hc"><span class="lbl">Pair it with</span>'+hcs.map(function(p){if(p.ha)return '<span class="hcs"><b>Hyaluronic acid serum</b><small>Ask us at your visit</small></span>';return '<a href="'+SITE+'product-page/'+p.s+'" target="_top"><img alt="" src="https://static.wixstatic.com/media/'+p.i+'/v1/fit/w_120,h_120,q_85/file.png">'+esc(p.n)+'</a>'}).join('')+'</div>';
+ cpanel.innerHTML=h; cpanel.hidden=false;
+ cpanel.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+var tabs=document.getElementById('tabs');
+tabs.innerHTML=TABS.map(function(t,i){return '<button class="tab'+(i?'':' on')+'" data-f="'+t[0]+'">'+t[1]+'</button>'}).join('');
+tabs.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;
+ [].forEach.call(tabs.children,function(c){c.classList.toggle('on',c===b)});
+ var f=b.getAttribute('data-f');
+ [].forEach.call(rail.children,function(c){c.hidden=!(f==='all'||(' '+c.getAttribute('data-tags')+' ').indexOf(' '+f+' ')>-1)});
+ rail.scrollTo({left:0,behavior:'auto'});
+});
+document.addEventListener('click',function(e){
+ var pv=e.target.closest('.pv'), x=e.target.closest('.x');
+ if(pv){var sh=pv.closest('.svc').querySelector('.sheet');sh.classList.add('open');sh.setAttribute('aria-hidden','false')}
+ if(x){var s2=x.closest('.sheet');s2.classList.remove('open');s2.setAttribute('aria-hidden','true')}
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')[].forEach.call(document.querySelectorAll('.sheet.open'),function(s){s.classList.remove('open')})});
+function wire(r,p,n){var rr=document.getElementById(r);document.getElementById(p).onclick=function(){rr.scrollBy({left:-rr.clientWidth*.7,behavior:'smooth'})};document.getElementById(n).onclick=function(){rr.scrollBy({left:rr.clientWidth*.7,behavior:'smooth'})}}
+wire('svcrail','prev','next');
+
+/* ---------- SHELF ---------- */
+function px(v){var n=Number(v);return '$'+(n%1?n.toFixed(2):n)}
+var PAIR={'facial-moisturizer':'Micro-Needling','the-ultimate-sun-protection':'any treatment'};
+document.getElementById('prodrail').innerHTML=PRODS.map(function(p){
+ return '<a class="glass prod" href="'+SITE+'product-page/'+p.s+'" target="_top">'+(p.bs?'<span class="bs">Best seller</span>':'')+'<div class="im"><img loading="lazy" alt="'+esc(p.n)+'" src="https://static.wixstatic.com/media/'+p.i+'/v1/fit/w_500,h_500,q_85/file.png"></div><h3>'+esc(p.n)+'</h3>'+(PAIR[p.s]?'<span class="pw">Pairs with '+PAIR[p.s]+'</span>':'')+'<span class="pr">'+px(p.p)+'</span><span class="go">View details</span></a>';
+}).join('');
+wire('prodrail','pprev','pnext');
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){var hv=document.querySelector('.hv');if(hv){hv.pause();hv.removeAttribute('autoplay')}}
+</script>
+</body></html>
