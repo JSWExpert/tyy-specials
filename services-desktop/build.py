@@ -8,6 +8,11 @@ def a(cat,name,desc,p=0,opts=(),tags=()): I.append(dict(cat=cat,n=name,d=desc,p=
 a('toxin','Forehead lines','Smooth the lines across your forehead.',0,(),['lines'])
 a('toxin','Frown lines','Soften the lines between your brows.',0,(),['lines'])
 a('toxin',"Crow's feet",'Soften the lines around your eyes.',0,(),['lines'])
+a('toxin','Eyebrow lift','A subtle lift to open up the eyes.',0,(),['lines'])
+a('toxin','Lip flip','A softer, fuller-looking upper lip.',0,(),['lines','volume'])
+a('toxin','Jawline','Soften and define the lower face.',0,(),['volume'])
+a('toxin','Masseters','Relax the jaw for a slimmer, softer lower face.',0,(),['volume'])
+a('toxin','Platysmal neck bands','Smooth and soften vertical neck bands.',0,(),['lines','tight'])
 # FILLERS & CONTOURING
 a('filler','Lips','Shape and fullness, kept natural.',679,(),['volume'])
 a('filler','Cheeks','Restore lift and volume.',800,(),['volume'])
@@ -64,7 +69,7 @@ for n,d,p,o,t in [
  ('Love Drip','A feel-good drip, just because.',200,(),[]),
  ('Dr. Feel Good','A simple lift when you need one.',150,(),[]),
  ('Skin Radiance IV','Hydration for a healthy-looking glow.',149,(),['glow']),
- ('Glutathione IV','A skin-focused drip.',395,['2,400 mg','3,000 mg'],['pigment','glow']),
+ ('Glutathione IV','Lower doses support detox. Higher doses are for skin brightening.',395,(),['pigment','glow']),
  ('Detox IV','A cleansing, hydrating drip.',189,(),[]),
  ('Detox Push','A quick detox boost, in three levels.',150,['Plus','Super Plus'],[]),
  ('Heavy Metal Chelation Therapy','A longer therapy session. Ask us if it is right for you.',250,(),[]),
@@ -104,7 +109,7 @@ ADDONS={
  'iv':dict(title='Boost your IV',note='Boosters are added to an IV session.',type='list',items=[['Amino Blend Boost',30],['B-Complex Boost',30],['Glutathione Booster',50],['Magnesium Chloride Booster',40],['Mineral Blend Boost',30],['Vitamin C Boost',35],['Zinc Booster',30],['IV Bag Upgrade',50]]),
 }
 G=[
- ('inj','Injectables','Smooth lines and restore shape, kept natural. We talk about areas, never brands.',[('toxin','Wrinkle relaxers','Choose the area. We plan the rest with you at your visit.',''),('filler','Fillers & contouring','Lips, cheeks, chin, jawline and more.','')]),
+ ('inj','Injectables','Smooth lines and restore shape, kept natural.',[('toxin','Wrinkle relaxers','Choose the area. We plan the rest with you at your visit.',''),('filler','Fillers & contouring','Lips, cheeks, chin, jawline and more.','')]),
  ('skin','Skin','Glow, clarity and firmer-feeling skin.',[('facials','Facials & scrubs','Glow-first facials tailored to your skin.',''),('needle','Micro-needling','Collagen-boosting sessions to refine texture and tone.',''),('peel','Chemical peel','Renew the surface for a fresher, smoother complexion.',''),('eye','Under-eye & smile lines','Targeted care for the delicate areas.',''),('spot','Scars & marks','Targeted help for texture and discoloration.','')]),
  ('well','Wellness','Hydration, nutrients and support when you need it.',[('iv','IV therapy','Hydration and nutrients, delivered while you relax.',''),('shots','Vitamin injections','Quick shots, in and out in minutes.',''),('weight','Weight support','Everything we offer that supports your weight goals.',''),('labs','Lab testing','Know your numbers.','')]),
  ('her',"Women's health",'Private, respectful care for intimate wellness and confidence.',[('her',"Women's health",'Private, respectful care.','')]),
@@ -113,4 +118,5 @@ G=[
 tpl=open('template.html').read()
 html=(tpl.replace('/*ITEMS*/',json.dumps(I,ensure_ascii=False)).replace('/*GROUPS*/',json.dumps(G,ensure_ascii=False)).replace('/*ADDONS*/',json.dumps(ADDONS,ensure_ascii=False)).replace('/*SHOWP*/',json.dumps(SHOW_PRICES)).replace('BOOKURL',BOOK))
 open('index.html','w').write(html)
+json.dump([dict(k=i['cat'],n=i['n'],d=i['d'],p=i['p'],g=i['g'],soon=i.get('soon',0)) for i in I if i['cat'] not in ('cons','labs')],open('items.json','w'),ensure_ascii=False)
 print(len(I),'items')

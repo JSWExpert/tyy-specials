@@ -17,7 +17,8 @@ prods=[
  ("Brightening and Toning Corrector","soap-bar","149.25","1760c7_c90cace144644574b92bd3715888aca3~mv2.png",0),
  ("Triple Effect Anti-Rosacea Serum","triple-effect-anti-rosacea-serum","19.99","1760c7_35d2383b8cdd428bb907f3b0e1cd5498~mv2.png",0),
  ("Break out be Gone! GEL","break-out-be-gone-gel","40","1760c7_85376b192b724248a33be3fe0796d391~mv2.png",0)]
-data=dict(svcs=d['svcs'],days=days,prods=[dict(n=a,s=b,p=c,i=i,bs=e) for a,b,c,i,e in prods])
+items=json.load(open('../services-desktop/items.json'))
+data=dict(svcs=d['svcs'],items=items,days=days,prods=[dict(n=a,s=b,p=c,i=i,bs=e) for a,b,c,i,e in prods])
 t=open('template.html').read().replace('/*DATA*/',json.dumps(data,ensure_ascii=False))
 open('index.html','w').write(t)
 print(len(t),'bytes;',len(days),'days')
