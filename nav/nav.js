@@ -35,6 +35,14 @@
     var li = LINKS.map(function (l) { return '<li><a href="' + SITE + l[1] + '" data-p="' + l[2].join(',') + '">' + l[0] + '</a></li>'; }).join('');
     root.innerHTML = '<style>' + CSS + '</style><nav class="nav" aria-label="Main"><a class="lg" href="' + SITE + '/"><img src="' + BASE + 'logo.png" alt="Ten Years Younger logo"><span><b>Ten Years Younger</b><small>Anti-Aging &amp; Wellness</small></span></a><ul>' + li + '</ul><div class="rt"><a class="pts" href="' + SITE + '/account/my-rewards">View points</a><a class="ic" href="' + SITE + '/account/my-account" aria-label="Log in"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></svg></a><a class="ic" href="' + SITE + '/cart" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></a><a class="bk" href="' + BOOK + '">Book Now</a></div></nav>';
     document.body.appendChild(host);
+    /* Keep the nav invisible until its logo and fonts are ready, so it never shows in fallback fonts without the logo. */
+    host.style.opacity = '0'; host.style.transition = 'opacity .35s';
+    var shown = false, show = function () { if (shown) return; shown = true; host.style.opacity = '1'; };
+    var img = root.querySelector('img');
+    var imgReady = new Promise(function (r) { if (!img || img.complete) r(); else { img.onload = r; img.onerror = r; } });
+    var fontsReady = (document.fonts && document.fonts.load) ? Promise.all([document.fonts.load('600 21px "Cormorant Garamond"'), document.fonts.load('500 15px Jost')]) : Promise.resolve();
+    Promise.all([imgReady, fontsReady]).then(show, show);
+    setTimeout(show, 2500);
   }
   /* On pages whose first real content is a full-width embed, hide the empty Wix sections above it (the embed pads itself for the nav). */
   function lead() {
