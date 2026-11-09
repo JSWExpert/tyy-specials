@@ -162,16 +162,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .dnote{margin:20px 0 0;font-size:14px;color:var(--ink2)}
 @media (max-width:900px){.dhero,.good,.steps3{grid-template-columns:1fr}}
 
-.hh{position:relative;display:block;min-height:360px;border-radius:32px;overflow:hidden;background:#e9f5f1;box-shadow:0 18px 50px rgba(31,111,102,.12)}
-.hh:after{content:'';position:absolute;top:0;right:0;bottom:0;width:66%;background:url(img/herophoto3.jpg) 55% 35%/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%)}
-.hht{position:relative;z-index:2;max-width:560px;padding:56px 0 52px 56px}
-.hht .lead{margin-bottom:30px!important}.hht .drow{margin-top:6px}
+.hh{display:grid;grid-template-columns:1fr 440px;gap:40px;align-items:end}
 .hcard{padding:26px 28px;border-radius:26px;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(236,248,244,.75));border:1px solid rgba(157,234,200,.7);box-shadow:0 14px 40px rgba(31,111,102,.10)}
 .hcard p{margin:10px 0 18px;font-size:16px;color:#3c5a55}
 .mos{position:relative;height:230px}
 .mos img{position:absolute;object-fit:cover;border-radius:22px;box-shadow:0 18px 40px rgba(19,60,55,.25);border:3px solid rgba(255,255,255,.9)}
 .mos .m1{left:0;top:0;width:210px;height:230px}.mos .m2{left:225px;top:0;width:140px;height:108px;object-position:50% 35%}.mos .m3{left:225px;top:122px;width:140px;height:108px;object-position:50% 30%}
-@media (max-width:1100px){.hh:after{width:100%;opacity:.35}.hht{padding:36px}}
+@media (max-width:1100px){.hh{grid-template-columns:1fr}}
 </style></head><body>
 <section class="top"><div class="wrap" id="topw"></div></section>
 <section class="lst"><div class="wrap" id="lst"></div></section>
@@ -289,7 +286,7 @@ function render(){
   h='<button type="button" class="back" data-v="hub">&larr; All services</button><span class="eyebrow">Start with a concern</span><h1>'+esc(c.t)+'</h1><p class="lead">'+esc(c.s)+'</p>';
   l.innerHTML=listHtml(null);
  }else{
-  h='<div class="hh"><div class="hht"><span class="eyebrow">Our services</span><h1>Find your <em>treatment.</em></h1><p class="lead">Start with a category or a concern. Every treatment explains what to expect before you book.</p><div class="drow"><a class="btn pri" href="'+BOOK+'" target="_top">Book a consultation</a><a class="btn soft" href="tel:8329098031" target="_top">Call (832) 909-8031</a></div></div></div>'+gcards()+concrow();
+  h='<div class="hh"><div><span class="eyebrow">Our services</span><h1>Find your <em>treatment.</em></h1><p class="lead">Start with a category or a concern. Every treatment explains what to expect before you book.</p></div><div class="hcard"><span class="eyebrow">Prefer to talk first?</span><p>A consultation is the easiest place to start. We listen, then recommend.</p><div class="drow"><a class="btn pri" href="'+BOOK+'" target="_top">Book a consultation</a><a class="btn soft" href="tel:8329098031" target="_top">Call (832) 909-8031</a></div></div></div>'+gcards()+concrow();
   l.innerHTML='';
  }
  t.innerHTML=h;fade();
