@@ -201,7 +201,7 @@ var SITEU='https://www.10yearsyounger4u.com/';
 var PAGES={toxin:'neuromodulators',filler:'filler-and-facial-augmentation',facials:'facials-scrubs',needle:'micro-needling-description-booking-page',peel:'chemical-peel',eye:'filler-and-facial-augmentation',spot:'micro-needling-description-booking-page',iv:'iv-therapy',shots:'iv-therapy',weight:'weight-loss',her:'women-sexual-health',labs:'lab-testing',cons:'consultations'};
 var POOL={toxin:['filler','laser','facials'],filler:['filler','laser','microneedle'],facials:['facials','microneedle','laser'],needle:['microneedle','facials'],peel:['facials','laser'],eye:['laser','facials','microneedle'],spot:['microneedle','laser'],iv:['iv'],shots:['iv','filler'],weight:['weight'],labs:['lab'],her:['sexual','uro'],cons:['hero','sexual']};
 var VAR=[['50% 40%',1],['20% 15%',1.7],['85% 70%',1.6],['30% 85%',1.8],['75% 15%',1.5],['55% 55%',2.0],['10% 50%',1.6],['90% 30%',1.7]];
-var NEWP={crows:'img/crows.jpg',neck:'img/neck.jpg'};
+var NEWP={crows:'img/crows.jpg',neck:'img/neck.jpg',cheeks:'img/cheeks.jpg',chin:'img/chin.jpg',laser:'img/laser.jpg',derma:'img/derma.jpg',deluxe:'img/deluxe.jpg'};
 function slug(t){return String(t).toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 (function(){var seen={};ITEMS.forEach(function(i){var b=i.cat+'-'+slug(i.n),x=b,n=2;while(seen[x]){x=b+'-'+n++}seen[x]=1;i.s=x})})();
 var DETAIL={
@@ -218,7 +218,7 @@ var DETAIL={
  her:[['Private, respectful, one-on-one care','Clear explanations in plain language','A comfortable, unhurried visit'],['Talk','A private, no-pressure conversation.'],['Plan','We recommend what fits you.'],['Visit','Comfortable and unhurried.']]
 };
 var NOPH={toxin:1,filler:1,facials:1,shots:1};
-var OWN={'forehead lines':'crows','platysmal neck bands':'neck'};/* per-treatment photos are added here only after they pass the elegance gate */
+var OWN={'forehead lines':'crows','platysmal neck bands':'neck','cheeks':'cheeks','chin':'chin','laser treatments':'laser','dermaplaning':'deluxe'};/* per-treatment photos are added here only after they pass the elegance gate */
 function own(it,cat){return OWN[(it&&it.n||'').toLowerCase()]||null}
 function thumb(cat,k,it){var o=own(it,cat);if(o){return '<span class="ph"><img loading="lazy" alt="" src="'+NEWP[o]+'" style="object-position:50% 40%"></span>'}
  if(it&&!it.soon&&NOPH[cat])return '<span class="ph np np'+(k%3)+'"></span>';
@@ -240,11 +240,11 @@ function addon(k){
  }
  return h+'</div>';
 }
-var GIMG={inj:['img/crows','36% 50%',1.0],skin:['facials','45% 30%',1.2],well:['iv','50% 40%',1.1],her:['sexual','50% 35%',1.1],start:['hero','30% 30%',1.1]};
+var GIMG={inj:['img/crows','36% 50%',1.0],skin:['img/hubskin','50% 40%',1.0],well:['img/hubwell','50% 35%',1.0],her:['img/hubher','60% 40%',1.0],start:['img/hubstart','30% 35%',1.0]};
 var GCONC={lines:'inj',volume:'inj',pigment:'skin',tight:'skin',glow:'skin'};
 function gcount(g){var n=0;g[3].forEach(function(c){n+=ITEMS.filter(function(i){return i.cat===c[0]}).length});return n}
 function gcards(){return '<div class="gcs">'+GROUPS.map(function(g){var m=GIMG[g[0]],n=gcount(g);return '<button type="button" class="gc" data-v="g:'+g[0]+'"><span class="ph"><img alt="" src="'+(m[0].indexOf('img/')===0?m[0]:IM+m[0])+'.jpg" style="object-position:'+m[1]+';transform-origin:'+m[1]+';transform:scale('+m[2]+')"></span><span class="tx"><span class="k">'+n+(n===1?' option':' treatments')+'</span><h3>'+esc(g[1])+'</h3><span class="s">'+esc(g[2])+'</span><span class="go">Explore &rarr;</span></span></button>'}).join('')+'</div>'}
-var SUBIMG={toxin:'img/crows.jpg',iv:'img/ivc.jpg'};
+var SUBIMG={toxin:'img/crows.jpg',iv:'img/ivc.jpg',facials:'img/facials.jpg',peel:'img/derma.jpg'};
 function subcards(g){var n=g[3].length;return '<div class="gcs sub" style="--n:'+Math.min(n,4)+'">'+g[3].map(function(c){var cnt=ITEMS.filter(function(i){return i.cat===c[0]}).length,pl=POOL[c[0]]||['hero'],v=VAR[0];return '<button type="button" class="gc" data-v="s:'+c[0]+'"><span class="ph"><img alt="" src="'+(SUBIMG[c[0]]||IM+pl[0]+'.jpg')+'" style="object-position:'+v[0]+';transform-origin:'+v[0]+';transform:scale(1.15)"></span><span class="tx"><span class="k">'+cnt+(cnt===1?' option':' options')+'</span><h3>'+esc(c[1])+'</h3><span class="s">'+esc(c[2])+'</span><span class="go">See options &rarr;</span></span></button>'}).join('')+'</div>'}
 function concrow(){return '<div class="cr"><span class="crl">Or start with a concern</span>'+CONC.map(function(c){return '<button type="button" class="cp" data-v="c:'+c.id+'">'+esc(c.t)+'</button>'}).join('')+'</div>'}
 function fade(){['topw','lst'].forEach(function(id){var e=document.getElementById(id);e.classList.remove('fd');void e.offsetWidth;e.classList.add('fd')})}
