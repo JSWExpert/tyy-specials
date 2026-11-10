@@ -162,6 +162,17 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
 .dnote{margin:20px 0 0;font-size:14px;color:var(--ink2)}
 @media (max-width:900px){.dhero,.good,.steps3{grid-template-columns:1fr}}
 
+.hb{position:relative;width:100vw;margin-left:calc(50% - 50vw);height:clamp(600px,50vw,740px);overflow:hidden;background:#dcebe8;margin-bottom:34px}
+.hbi{position:absolute;top:0;left:0;width:124%;max-width:none;height:100%;object-fit:cover;object-position:50% 32%}
+.hb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(240,249,247,.94) 0%,rgba(240,249,247,.8) 22%,rgba(240,249,247,.3) 40%,rgba(240,249,247,0) 54%),linear-gradient(0deg,rgba(244,247,244,.9) 0%,rgba(244,247,244,0) 16%)}
+.hbt{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;width:var(--wrap);margin:0 auto;padding-top:30px}
+.hbt>*{max-width:560px;animation:fd .9s cubic-bezier(.2,.7,.2,1) both}
+.hbt h1{font-size:clamp(44px,4.6vw,72px);margin:14px 0 18px;color:var(--teal-ink);letter-spacing:-.01em}.hbt h1 em{display:block;font-style:italic;font-weight:500;color:var(--teal-deep)}
+.hbt p.lead{font-size:clamp(16px,1.35vw,20px);color:#3c5a55;margin:0 0 34px !important;max-width:470px}
+.hbt .drow{display:flex;gap:14px;flex-wrap:wrap}.hbt .btn.pri{padding:19px 44px;font-size:17px;box-shadow:0 18px 34px -12px rgba(31,111,102,.6)}
+.hbc{position:absolute;z-index:3;right:max(32px,calc((100% - 1240px)/2));bottom:40px;width:300px;padding:18px 22px;background:linear-gradient(135deg,rgba(28,79,72,.88),rgba(19,60,55,.92));color:#fff;border:1px solid rgba(213,220,224,.7);border-radius:24px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 14px 40px rgba(31,111,102,.18);animation:fd 1s .5s cubic-bezier(.2,.7,.2,1) both}
+.hbc .eyebrow{background:none;-webkit-text-fill-color:#E3E9EC;color:#E3E9EC}.hbc h3{font-size:26px;margin:4px 0 6px;color:#fff;font-family:var(--serif);font-weight:500}.hbc p{margin:0 0 14px;font-size:14.5px;color:#d6efe9}.hbc .btn{padding:11px 24px;font-size:12px}
+@media (max-width:1100px){.hbc{display:none}.hb::after{background:linear-gradient(90deg,rgba(240,249,247,.92) 0%,rgba(240,249,247,.6) 60%,rgba(240,249,247,.2) 100%)}}
 .hh{display:grid;grid-template-columns:1fr 440px;gap:40px;align-items:end}
 .hcard{padding:26px 28px;border-radius:26px;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(236,248,244,.75));border:1px solid rgba(157,234,200,.7);box-shadow:0 14px 40px rgba(31,111,102,.10)}
 .hcard p{margin:10px 0 18px;font-size:16px;color:#3c5a55}
@@ -240,7 +251,7 @@ function addon(k){
  }
  return h+'</div>';
 }
-var GIMG={inj:['img/crows','36% 50%',1.0],skin:['img/hubskin','50% 40%',1.0],well:['img/hubwell','50% 35%',1.0],her:['img/hubher','60% 40%',1.0],start:['img/hubstart','30% 35%',1.0]};
+var GIMG={inj:['img/crows','36% 50%',1.0],skin:['img/hubskin','50% 40%',1.0],well:['img/hubwell2','48% 52%',1.0],her:['img/hubher','60% 40%',1.0],start:['img/hubstart','30% 35%',1.0]};
 var GCONC={lines:'inj',volume:'inj',pigment:'skin',tight:'skin',glow:'skin'};
 function gcount(g){var n=0;g[3].forEach(function(c){n+=ITEMS.filter(function(i){return i.cat===c[0]}).length});return n}
 function gcards(){return '<div class="gcs">'+GROUPS.map(function(g){var m=GIMG[g[0]],n=gcount(g);return '<button type="button" class="gc" data-v="g:'+g[0]+'"><span class="ph"><img alt="" src="'+(m[0].indexOf('img/')===0?m[0]:IM+m[0])+'.jpg" style="object-position:'+m[1]+';transform-origin:'+m[1]+';transform:scale('+m[2]+')"></span><span class="tx"><h3>'+esc(g[1])+'</h3><span class="s">'+esc(g[2])+'</span><span class="go">Explore &rarr;</span></span></button>'}).join('')+'</div>'}
@@ -286,7 +297,7 @@ function render(){
   h='<button type="button" class="back" data-v="hub">&larr; All services</button><span class="eyebrow">Start with a concern</span><h1>'+esc(c.t)+'</h1><p class="lead">'+esc(c.s)+'</p>';
   l.innerHTML=listHtml(null);
  }else{
-  h='<div class="hh"><div><span class="eyebrow">Our services</span><h1>Find your <em>treatment.</em></h1><p class="lead">Start with a category or a concern. Every treatment explains what to expect before you book.</p></div><div class="hcard"><span class="eyebrow">Prefer to talk first?</span><p>A consultation is the easiest place to start. We listen, then recommend.</p><div class="drow"><a class="btn pri" href="'+BOOK+'" target="_top">Book a consultation</a><a class="btn soft" href="tel:8329098031" target="_top">Call (832) 909-8031</a></div></div></div>'+gcards()+concrow();
+  h='<div class="hb"><img class="hbi" alt="" src="img/heroclinic.jpg"><div class="hbt"><span class="eyebrow">Our services</span><h1>Find your <em>treatment.</em></h1><p class="lead">Start with a category or a concern. Every treatment explains what to expect before you book.</p><div class="drow"><a class="btn pri" href="'+BOOK+'" target="_top">Book a consultation</a><button type="button" class="btn soft" id="browse">Browse treatments</button></div></div><div class="hbc"><span class="eyebrow">Prefer to talk first?</span><h3>Start with a conversation</h3><p>We listen, then recommend.</p><a class="btn chrome" href="tel:8329098031" target="_top">Call (832) 909-8031</a></div></div>'+gcards()+concrow();
   l.innerHTML='';
  }
  t.innerHTML=h;fade();
@@ -297,6 +308,7 @@ function go(v,fromParent){
  if(!fromParent){try{parent.postMessage({tyyNav:v},'*')}catch(x){}}
 }
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-v]');if(b){e.preventDefault();go(b.getAttribute('data-v'))}});
+document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('#browse')){var g=document.querySelector('.gcs');if(g)g.scrollIntoView({behavior:'smooth',block:'center'})}});
 document.addEventListener('click',function(e){var rb=e.target.closest&&e.target.closest('.rb');if(rb){var cat=rb.closest('.cat'),rail=cat.querySelector('.rail');rail.scrollBy({left:(+rb.getAttribute('data-d'))*rail.clientWidth*0.85,behavior:'smooth'});return}});
 render();
 /* Warm every photo so moving between views never waits on an image. */
