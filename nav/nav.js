@@ -44,6 +44,76 @@
     Promise.all([imgReady, fontsReady]).then(show, show);
     setTimeout(show, 2500);
   }
+
+  /* ---- Concierge: on-brand replacement for the Wix Virtual Assistant (desktop only). Leads post to the same
+     /_functions/inquiry endpoint as the About page (saves a contact + emails Info@). ---- */
+  var CCSS = ':host{all:initial}*{box-sizing:border-box}' +
+    '.fab{position:fixed;z-index:2147482990;right:28px;bottom:28px;display:flex;align-items:center;gap:12px;padding:10px 22px 10px 10px;border:0;border-radius:999px;cursor:pointer;font-family:Jost,system-ui,sans-serif;font-size:14px;letter-spacing:.06em;color:#fff;background:linear-gradient(135deg,rgba(31,111,102,.94),rgba(19,60,55,.96));box-shadow:0 18px 44px -14px rgba(19,60,55,.65),inset 0 1px 0 rgba(255,255,255,.22);transition:transform .3s,box-shadow .3s}' +
+    '.fab:hover{transform:translateY(-2px);box-shadow:0 22px 50px -14px rgba(19,60,55,.75),inset 0 1px 0 rgba(255,255,255,.22)}' +
+    '.fab i{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#fff 0%,#d5dce0 30%,#9aa5ad 55%,#eef2f4 78%,#b4bec5 100%);color:#133C37}' +
+    '.fab svg,.x svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}' +
+    '.pn{position:fixed;z-index:2147482991;right:28px;bottom:28px;width:360px;max-height:calc(100vh - 56px);overflow:auto;border-radius:30px;background:linear-gradient(180deg,rgba(226,245,240,.96) 0,rgba(255,255,255,.97) 150px);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);box-shadow:0 34px 80px -24px rgba(19,60,55,.55),0 0 0 1px rgba(255,255,255,.6) inset;font-family:Jost,system-ui,sans-serif;color:#133C37;opacity:0;transform:translateY(14px) scale(.98);pointer-events:none;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s}' +
+    '.pn.open{opacity:1;transform:none;pointer-events:auto;visibility:visible}' +
+    '.hd{padding:24px 28px 4px;position:relative}.ey{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#1F6F66;font-weight:500}' +
+    '.hd h2{margin:8px 0 6px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:30px;line-height:1.05;letter-spacing:.01em}.hd h2 em{font-style:italic;color:#1F6F66}' +
+    '.hd p{margin:0;font-size:15px;line-height:1.5;color:#3c5a55;font-weight:400}' +
+    '.x{position:absolute;top:18px;right:18px;width:36px;height:36px;border:0;border-radius:50%;background:rgba(91,191,173,.16);color:#133C37;display:grid;place-items:center;cursor:pointer;transition:background .25s}.x:hover{background:rgba(91,191,173,.32)}.x svg{width:17px;height:17px}' +
+    '.ac{display:flex;gap:10px;padding:14px 28px 4px}' +
+    '.b{flex:1;display:flex;align-items:center;justify-content:center;height:46px;padding:0 12px;white-space:nowrap;text-align:center;line-height:1;border-radius:999px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;font-family:inherit;transition:filter .25s,transform .25s}.b:hover{filter:brightness(1.06);transform:translateY(-1px)}' +
+    '.b.p{color:#fff;background:linear-gradient(135deg,#2a9487,#1b6f66);box-shadow:0 10px 24px -10px rgba(31,111,102,.7)}' +
+    '.b.c{color:#133C37;background:linear-gradient(135deg,#fff 0%,#d5dce0 28%,#9aa5ad 52%,#eef2f4 74%,#b4bec5 100%);box-shadow:0 8px 20px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.85)}' +
+    '.or{display:flex;align-items:center;justify-content:center;gap:8px;width:calc(100% - 56px);height:44px;margin:12px 28px 22px;border:0;border-radius:999px;cursor:pointer;font:500 12px Jost,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1F6F66;background:rgba(91,191,173,.14);transition:background .25s}.or:hover{background:rgba(91,191,173,.26)}.or svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}form{display:none}.pn.more form{display:grid;animation:fd .35s ease both}.pn.more .or{display:none}@keyframes fd{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}' +
+    'form{padding:8px 28px 22px;gap:8px}' +
+    'label{display:block}.in{width:100%;border:0;outline:0;border-radius:16px;padding:12px 16px;font:400 15px Jost,system-ui,sans-serif;color:#133C37;background:rgba(91,191,173,.11);transition:box-shadow .25s,background .25s}' +
+    '.in::placeholder{color:#6f8a85}.in:focus{background:rgba(91,191,173,.17);box-shadow:0 0 0 3px rgba(91,191,173,.35)}.in.bad{box-shadow:0 0 0 3px rgba(180,88,79,.4)}textarea.in{resize:none;height:64px;min-height:64px}' +
+    '.cs{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.5;color:#4b6863}.cs input{margin-top:2px;width:16px;height:16px;accent-color:#1F6F66;flex:none}' +
+    '.go{margin-top:2px;height:46px;padding:0;border:0;border-radius:999px;cursor:pointer;font:500 12.5px Jost,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#2a9487,#1b6f66);box-shadow:0 12px 28px -12px rgba(31,111,102,.75);transition:filter .25s}.go:hover{filter:brightness(1.07)}.go[disabled]{opacity:.7;cursor:default}' +
+    '.er{display:none;font-size:13px;line-height:1.5;color:#8a3d35}.er a{color:#8a3d35}' +
+    '.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}' +
+    '.ok{display:none;padding:34px 30px 40px;text-align:center}.ok h3{margin:0 0 8px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:30px}.ok p{margin:0 0 20px;font-size:15px;line-height:1.55;color:#3c5a55}' +
+    '.pn.sent form,.pn.sent .or,.pn.sent .ac{display:none}.pn.sent .ok{display:block}' +
+    '@media(prefers-reduced-motion:reduce){*{transition:none!important}}';
+  var chost, croot;
+  function buildConcierge() {
+    chost = document.createElement('div'); chost.id = 'tyy-concierge';
+    croot = chost.attachShadow({ mode: 'open' });
+    var chat = '<svg viewBox="0 0 24 24"><path d="M5 5h14a2 2 0 012 2v8a2 2 0 01-2 2h-7l-4.5 3.5V17H5a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg>';
+    croot.innerHTML = '<style>' + CCSS + '</style>' +
+      '<button class="fab" type="button" aria-expanded="false" aria-controls="pn"><i>' + chat + '</i><span>Ask us anything</span></button>' +
+      '<section class="pn" id="pn" role="dialog" aria-label="Contact Ten Years Younger" aria-hidden="true">' +
+      '<div class="hd"><button class="x" type="button" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="ey">Ten Years Younger</div><h2>How can we <em>help?</em></h2><p>Ask a question, or start with a consultation. We reply as soon as we can.</p></div>' +
+      '<div class="ac"><a class="b p" href="' + BOOK + '">Book now</a><a class="b c" href="tel:8329098031">Call us</a></div>' +
+      '<button class="or" type="button">Send us a note <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>' +
+      '<form novalidate autocomplete="on"><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+      '<label><input class="in" name="name" placeholder="Your name" autocomplete="name" aria-label="Your name"></label>' +
+      '<label><input class="in" name="email" type="email" placeholder="Email" autocomplete="email" aria-label="Email"></label>' +
+      '<label><input class="in" name="phone" type="tel" placeholder="Phone" autocomplete="tel" aria-label="Phone"></label>' +
+      '<label><textarea class="in" name="message" placeholder="How can we help?" aria-label="Message"></textarea></label>' +
+      '<label class="cs"><input type="checkbox" name="sms"><span>I agree to receive text messages from Ten Years Younger about my request. Message and data rates may apply. Reply STOP to opt out.</span></label>' +
+      '<div class="er" role="alert"></div><button class="go" type="submit">Send message</button></form>' +
+      '<div class="ok"><h3>Thank you.</h3><p>We received your note and will reply as soon as we can.</p><a class="b c" href="' + BOOK + '" style="display:inline-flex;padding:0 28px">Book a consultation</a></div></section>';
+    document.body.appendChild(chost);
+    var fab = croot.querySelector('.fab'), pn = croot.querySelector('.pn'), fm = croot.querySelector('form');
+    function open(o) { if (!o) pn.classList.remove('more'); pn.classList.toggle('open', o); pn.setAttribute('aria-hidden', o ? 'false' : 'true'); fab.setAttribute('aria-expanded', o ? 'true' : 'false'); fab.style.visibility = o ? 'hidden' : ''; if (!o) try { fab.focus({ preventScroll: true }); } catch (x) {} }
+    fab.addEventListener('click', function () { open(true); });
+    croot.querySelector('.or').addEventListener('click', function () { pn.classList.add('more'); setTimeout(function () { try { fm.name.focus({ preventScroll: true }); } catch (x) {} }, 120); });
+    croot.querySelector('.x').addEventListener('click', function () { open(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && pn.classList.contains('open')) open(false); });
+    fm.addEventListener('submit', function (e) {
+      e.preventDefault(); if (fm.website.value) return;
+      var n = fm.name.value.trim(), em = fm.email.value.trim(), ph = fm.phone.value.trim(), msg = fm.message.value.trim();
+      [].forEach.call(fm.querySelectorAll('.in'), function (i) { i.classList.remove('bad'); });
+      var bad = !n ? fm.name : !/^\S+@\S+\.\S+$/.test(em) ? fm.email : ph.replace(/\D/g, '').length < 7 ? fm.phone : !msg ? fm.message : null;
+      if (bad) { bad.classList.add('bad'); bad.focus(); return; }
+      var d = { name: n, email: em, phone: ph, message: msg + (fm.sms.checked ? '\n\n[Agreed to receive text messages]' : ''), _subject: 'Website message from ' + n };
+      var gb = fm.querySelector('.go'), er = fm.querySelector('.er'); er.style.display = 'none'; gb.disabled = true; gb.textContent = 'Sending...';
+      var ac = new AbortController(), tm = setTimeout(function () { ac.abort(); }, 9000);
+      fetch(SITE + '/_functions/inquiry', { method: 'POST', signal: ac.signal, headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d) })
+        .then(function (r) { clearTimeout(tm); if (!r.ok) throw 0; return r.json(); })
+        .then(function (j) { if (j && (j.success === false || j.success === 'false')) throw 0; pn.classList.add('sent'); fm.reset(); gb.disabled = false; gb.textContent = 'Send message'; })
+        .catch(function () { clearTimeout(tm); gb.disabled = false; gb.textContent = 'Send message'; er.style.display = 'block'; er.innerHTML = 'We could not send that just now. Please call <a href="tel:8329098031">832-909-8031</a>.'; });
+    });
+  }
   /* On pages whose first real content is a full-width embed, hide the empty Wix sections above it (the embed pads itself for the nav). */
   function lead() {
     var f = document.querySelector('iframe[src*="services-desktop"],iframe[src*="services-detail"]');
@@ -62,9 +132,10 @@
     if (!st) { st = document.createElement('style'); st.id = 'tyy-nav-style'; document.head.appendChild(st); }
     var p = location.pathname.replace(/\/$/, '') || '/', home = p === '/';
     var emb = !home && on && lead();
-    var css = on ? '#SITE_HEADER{display:none!important}' + (home || emb ? '' : 'body{padding-top:96px!important}') + (emb ? 'body{padding-top:0!important}.tyy-lead{display:none!important}' : '') : '';
+    var css = on ? 'iframe[title="Wix Chat"]{display:none!important}#SITE_HEADER{display:none!important}' + (home || emb ? '' : 'body{padding-top:96px!important}') + (emb ? 'body{padding-top:0!important}.tyy-lead{display:none!important}' : '') : '';
     if (st.textContent !== css) st.textContent = css;
     if (host) host.style.display = on ? '' : 'none';
+    if (chost) chost.style.display = on ? '' : 'none';
     if (root) root.querySelectorAll('ul a').forEach(function (a) { a.className = a.getAttribute('data-p').split(',').indexOf(p) > -1 ? 'on' : ''; });
   }
   /* Let a content-driven embed (Services) resize its Wix containers so a filtered page leaves no blank gap. */
@@ -128,6 +199,6 @@
   window.addEventListener('popstate', function () {
     var f = svcFrame(); if (f && f.contentWindow) { try { f.contentWindow.postMessage({ tyyView: viewFromUrl() }, '*'); } catch (x) {} }
   });
-  function start() { build(); apply(); setInterval(apply, 600); window.addEventListener('resize', apply); }
+  function start() { build(); buildConcierge(); apply(); setInterval(apply, 600); window.addEventListener('resize', apply); }
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();
